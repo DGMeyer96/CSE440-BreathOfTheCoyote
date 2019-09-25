@@ -38,10 +38,20 @@ public class PlayerController : MonoBehaviour
 
         //berlow code uses rigidbody move position
         //works along players axis of rotation
+        float speedS;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedS = speed * 2f;
+        }
+        else
+        {
+            speedS = speed;
+        }
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(h, 0f, v);
-        movement = movement.normalized * speed * Time.deltaTime;
+        movement = movement.normalized * speedS * Time.deltaTime;
         movement = transform.worldToLocalMatrix.inverse * movement;
         rb.MovePosition(transform.position + movement);
     }
