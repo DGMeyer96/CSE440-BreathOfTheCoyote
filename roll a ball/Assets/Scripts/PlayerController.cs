@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed = 10f;
+    public float speed = 20f;
     public float jumpSpeed = 200f;
     private Rigidbody rb;
     private Collider coll;
@@ -24,20 +24,6 @@ public class PlayerController : MonoBehaviour
 
     void WalkHandler()
     {
-        //below code is using rigidbody force
-        //does not work players axis of rotation
-
-        /*
-        rb.velocity = new Vector3(0, rb.velocity.y, 0);
-        float distance = speed * Time.deltaTime;
-        float moveVertical = Input.GetAxis("Vertical");
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rb.AddForce(movement * speed);
-        */
-
-        //berlow code uses rigidbody move position
-        //works along players axis of rotation
         float speedS;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -48,9 +34,25 @@ public class PlayerController : MonoBehaviour
             speedS = speed;
         }
 
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        Vector3 movement = new Vector3(h, 0f, v);
+        //two different ways to move cahracter  one uses force another uses transform
+        /*
+        //this code has no delay but continues to apply force even after key is released
+        //recomend speed 1000
+        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        movement = movement * speedS * Time.deltaTime;
+        movement = transform.worldToLocalMatrix.inverse * movement;
+        rb.AddForce(transform.position + movement);
+        */
+
+
+
+        //this code has a button delay  dont know why.  
+        //recomend speed set to 10
+        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         movement = movement.normalized * speedS * Time.deltaTime;
         movement = transform.worldToLocalMatrix.inverse * movement;
         rb.MovePosition(transform.position + movement);
