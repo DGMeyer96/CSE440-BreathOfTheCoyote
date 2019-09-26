@@ -560,6 +560,8 @@ GameObject:
   - component: {fileID: 1105748148}
   - component: {fileID: 1105748153}
   - component: {fileID: 1105748152}
+  - component: {fileID: 1105748154}
+  - component: {fileID: 1105748155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -650,10 +652,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1105748147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a95bae7b844685458924dfefe57429e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c32d64b923513d4fb5f11a4843e2ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   jumpSpeed: 200
 --- !u!54 &1105748153
 Rigidbody:
@@ -671,6 +672,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1105748154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105748147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a95bae7b844685458924dfefe57429e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+--- !u!114 &1105748155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105748147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb023191fa4cb1a42b6613ddb5d9b1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 400
 --- !u!1 &1244188264
 GameObject:
   m_ObjectHideFlags: 0
