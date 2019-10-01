@@ -5,30 +5,46 @@ using UnityEngine;
 public class Dashscript : MonoBehaviour
 {
 
-    float timerdash;
-    float timetodash = 500;
-    bool candash = true;
-    private Rigidbody rb;
-    public float dashSpeed = 400f;
+    private float timerdash;
+    public float timetodash = .4f;//time dash force is applied
 
-    // Start is called before the first frame update
+    public float cooldowntime = 3f;//time until can dash again
+    private float timer;
+
+    private bool candash;
+    private bool dashing;
+
+    private Rigidbody rb;
+    public float dashSpeed = 20f;
+
     void Start()
     {
-        timerdash = 0;
+        candash = true;
+        dashing = false;
+        timerdash = 0f;
+        timer = 0f;
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftControl) && candash)
+
+        //if lCTRL is pressed dashing = true apply force
+        //candash = false start cooldown
+        if (Input.GetKeyDown(KeyCode.LeftControl) && candash)
         {
-            float timer = 0;
+            print("test");
             candash = false;
-            float totaltime = 30;
-            while (timer < totaltime)
+            dashing = true;
+            timer = 0f;
+            timerdash = 0f;
+        }
+
+        if (dashing)//apply dash force for 1 seconds
+        {
+            timerdash += Time.deltaTime;
+            if (timerdash < timetodash)//if timer is less than totaltime then continue applying force
             {
-                timer += Time.fixedDeltaTime;
                 float moveVertical = Input.GetAxis("Vertical");
                 float moveHorizontal = Input.GetAxis("Horizontal");
                 Vector3 movementd = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -36,14 +52,20 @@ public class Dashscript : MonoBehaviour
                 movementd = transform.worldToLocalMatrix.inverse * movementd;
                 rb.MovePosition(transform.position + movementd);
             }
-            timer = 0;
+            else if (timerdash >= timetodash)//else stop applying force
+            {
+                timerdash = 0f;
+                dashing = false;
+            }
+            print(timer + "time to dash");
         }
+
         if (!candash)
         {
-            timerdash += 1;
-            if (timerdash >= timetodash)
+            timer += Time.deltaTime;
+            if (timer >= cooldowntime)
             {
-                timerdash = 0;
+                timer = 0;
                 candash = true;
             }
         }
