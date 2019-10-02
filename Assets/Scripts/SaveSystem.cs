@@ -4,10 +4,11 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void NewPlayerData(Player player, string saveGame)
+    public static void NewPlayerData(Player player)
     {
         BinaryFormatter bFormatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + saveGame;    //saveGame = Save#.sav
+        //string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
+        string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
         FileStream fStream = new FileStream(path, FileMode.Create); //FileMode.Create will override an existing save file
 
         PlayerData data = new PlayerData(player);
@@ -22,10 +23,11 @@ public static class SaveSystem
         fStream.Close();
     }
 
-    public static void SavePlayerData(Player player, string saveGame)
+    public static void SavePlayerData(Player player)
     {
         BinaryFormatter bFormatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + saveGame;    //saveGame = Save#.sav
+        //string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
+        string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
         FileStream fStream = new FileStream(path, FileMode.Open); //Open an existing save file and modify
 
         PlayerData data = new PlayerData(player);

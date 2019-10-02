@@ -7,6 +7,7 @@ public class PlayerData
 {
     public int health;
     public float[] position;
+    public bool LeftVillage;
     public bool TrialOfStrength;
     public bool TrialsOfMind;
     public bool TrialOfAgility;
@@ -23,6 +24,7 @@ public class PlayerData
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
 
+        LeftVillage = player.LeftVillage;
         TrialOfStrength = player.TrialOfStrength;
         TrialsOfMind = player.TrialsOfMind;
         TrialOfAgility = player.TrialOfAgility;

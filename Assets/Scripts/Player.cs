@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health;
+    public bool LeftVillage;
     public bool TrialOfStrength;
     public bool TrialsOfMind;
     public bool TrialOfAgility;
@@ -15,12 +16,12 @@ public class Player : MonoBehaviour
 
     public void NewGame()
     {
-        SaveSystem.NewPlayerData(this, saveName);
+        SaveSystem.NewPlayerData(this);
     }
 
     public void SaveGame()
     {
-        SaveSystem.SavePlayerData(this, saveName);
+        SaveSystem.SavePlayerData(this);
     }
 
     public void LoadGame()
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayerData(saveName);
 
         health = data.health;
+        LeftVillage = data.LeftVillage;
         TrialOfStrength = data.TrialOfStrength;
         TrialsOfMind = data.TrialsOfMind;
         TrialOfAgility = data.TrialOfAgility;
