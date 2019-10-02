@@ -559,9 +559,10 @@ GameObject:
   - component: {fileID: 1105748149}
   - component: {fileID: 1105748148}
   - component: {fileID: 1105748153}
-  - component: {fileID: 1105748152}
   - component: {fileID: 1105748154}
   - component: {fileID: 1105748155}
+  - component: {fileID: 1105748157}
+  - component: {fileID: 1105748152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -655,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c32d64b923513d4fb5f11a4843e2ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpSpeed: 200
+  jumpSpeed: 10
 --- !u!54 &1105748153
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -697,13 +698,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb023191fa4cb1a42b6613ddb5d9b1d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerdash: 0
   timetodash: 0.4
-  totaltime: 3
-  timer: 0
-  candash: 0
-  dashing: 0
+  cooldowntime: 3
   dashSpeed: 25
+--- !u!135 &1105748157
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105748147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1244188264
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +820,7 @@ GameObject:
   - component: {fileID: 1349087850}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
