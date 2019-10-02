@@ -6,7 +6,7 @@ public class Jumpscript : MonoBehaviour
 {
 
     private Rigidbody rb;
-    public float jumpSpeed = 10f;
+    public float jumpSpeed = 50f;
     private bool isGrounded;
 
 
@@ -18,13 +18,17 @@ public class Jumpscript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (isGrounded)
+        Debug.Log(isGrounded);
+        Debug.Log(Input.GetAxis("Jump"));
+
+        float moveJump = Input.GetAxis("Jump");
+        if (isGrounded && moveJump == 1)
         {
-            float moveJump = Input.GetAxis("Jump");
             Vector3 jump = new Vector3(0f, moveJump, 0.0f);
             rb.AddForce(jump * jumpSpeed * Time.deltaTime, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 
