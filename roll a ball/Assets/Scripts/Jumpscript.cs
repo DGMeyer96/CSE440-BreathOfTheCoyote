@@ -24,7 +24,7 @@ public class Jumpscript : MonoBehaviour
         Debug.Log(Input.GetAxis("Jump"));
 
         float moveJump = Input.GetAxis("Jump");
-        if (isGrounded && moveJump == 1)
+        if (isGrounded && moveJump > 0)
         {
             Vector3 jump = new Vector3(0f, moveJump, 0.0f);
             rb.AddForce(jump * jumpSpeed * Time.deltaTime, ForceMode.Impulse);
