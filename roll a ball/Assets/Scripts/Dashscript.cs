@@ -31,7 +31,7 @@ public class Dashscript : MonoBehaviour
 
         //if lCTRL is pressed dashing = true apply force
         //candash = false start cooldown
-        if (Input.GetKeyDown(KeyCode.LeftControl) && candash)
+        if (Input.GetButtonDown("Dash") && candash)
         {
             print("test");
             candash = false;
