@@ -9,10 +9,10 @@ public class PlayerData
     public float[] position;
     public bool LeftVillage;
     public bool TrialOfStrength;
-    public bool TrialsOfMind;
+    public bool TrialOfMind;
     public bool TrialOfAgility;
     public string saveName;
-    public string playTime;
+    public float playTime;
     public string playDate;
 
     public PlayerData(Player player)
@@ -26,7 +26,7 @@ public class PlayerData
 
         LeftVillage = player.LeftVillage;
         TrialOfStrength = player.TrialOfStrength;
-        TrialsOfMind = player.TrialsOfMind;
+        TrialOfMind = player.TrialOfMind;
         TrialOfAgility = player.TrialOfAgility;
 
         saveName = player.saveName;

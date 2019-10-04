@@ -7,15 +7,22 @@ public class Player : MonoBehaviour
     public int health;
     public bool LeftVillage;
     public bool TrialOfStrength;
-    public bool TrialsOfMind;
+    public bool TrialOfMind;
     public bool TrialOfAgility;
     public Vector3 position;
     public string saveName;
-    public string playTime;
+    public float playTime = 0.0f;
     public string playDate;
 
     public void NewGame()
     {
+        health = 10;
+        LeftVillage = false;
+        TrialOfStrength = false;
+        TrialOfMind = false;
+        TrialOfAgility = false;
+        playTime = 0.0f;
+
         SaveSystem.NewPlayerData(this);
     }
 
@@ -31,7 +38,7 @@ public class Player : MonoBehaviour
         health = data.health;
         LeftVillage = data.LeftVillage;
         TrialOfStrength = data.TrialOfStrength;
-        TrialsOfMind = data.TrialsOfMind;
+        TrialOfMind = data.TrialOfMind;
         TrialOfAgility = data.TrialOfAgility;
         position.x = data.position[0];
         position.y = data.position[1];
@@ -39,5 +46,19 @@ public class Player : MonoBehaviour
         saveName = data.saveName;
         playTime = data.playTime;
         playDate = data.playDate;
+
+        PrintPlayerData();
+    }
+
+    public void PrintPlayerData()
+    {
+        Debug.Log("Health: " + health + "\n"
+                    + "Position X: " + position.x.ToString() + "\n"
+                    + "Position Y: " + position.y.ToString() + "\n"
+                    + "Position Z: " + position.z.ToString() + "\n"
+                    + "Trial Of Strength: " + TrialOfStrength.ToString() + "\n"
+                    + "Trial of Mind: " + TrialOfMind.ToString() + "\n"
+                    + "Trial of Agility: " + TrialOfAgility.ToString() + "\n"
+                    + "Play Time: " + playTime + "\n");
     }
 }

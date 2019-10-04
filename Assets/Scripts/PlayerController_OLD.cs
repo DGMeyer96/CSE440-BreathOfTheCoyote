@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController_OLD : MonoBehaviour
 {
     [Header("Keyboard Input: ")]
     public KeyCode moveLeft = KeyCode.A;
@@ -28,9 +28,9 @@ public class PlayerController : MonoBehaviour
         player.playDate = DateTime.Now.ToString();
 
         //For testing only!
-        player.saveName = "SaveTest.sav";
+        //player.saveName = "SaveTest.sav";
 
-        player.NewGame();
+        //player.NewGame();
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         player.position[1] = this.transform.position.y;
         player.position[2] = this.transform.position.z;
 
-        player.playTime = Time.timeSinceLevelLoad.ToString();
+        player.playTime += Time.timeSinceLevelLoad;
     }
 
     void OnTriggerEnter(Collider other)
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
                     SaveGame();
                     break;
                 case "TrialOfMind":
-                    player.TrialsOfMind = true;
+                    player.TrialOfMind = true;
                     SaveGame();
                     break;
                 case "TrialOfAgility":

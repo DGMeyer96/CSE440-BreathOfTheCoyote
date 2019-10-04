@@ -11,6 +11,7 @@ public static class SaveSystem
         string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
         FileStream fStream = new FileStream(path, FileMode.Create); //FileMode.Create will override an existing save file
 
+        /*
         PlayerData data = new PlayerData(player);
 
         bFormatter.Serialize(fStream, data);
@@ -20,7 +21,9 @@ public static class SaveSystem
             Debug.Log("NEW GAME: New save successful @ " + path);
         }
 
+        */
         fStream.Close();
+        SavePlayerData(player);
     }
 
     public static void SavePlayerData(Player player)
@@ -38,19 +41,24 @@ public static class SaveSystem
         {
             Debug.Log("SAVE GAME: Game save successful @ " + path);
         }
+
+        fStream.Close();
     }
 
     public static PlayerData LoadPlayerData(string saveGame)
     {
-        string path = Application.persistentDataPath + saveGame;
+        //string path = Application.persistentDataPath + saveGame;
+        string path = Application.dataPath + saveGame;
 
-        if(File.Exists(path))
+        if (File.Exists(path))
         {
             BinaryFormatter bFormatter = new BinaryFormatter();
             FileStream fStream = new FileStream(path, FileMode.Open); //Open an existing save file and modify
 
             PlayerData data = bFormatter.Deserialize(fStream) as PlayerData;
             fStream.Close();
+
+            Debug.Log("LOAD GAME: Game load successful @ " + path);
 
             return data;
         }

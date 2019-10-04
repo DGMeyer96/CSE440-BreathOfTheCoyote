@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Options.unity
     guid: df53bfcc5b0405f429dc14e144364933
   - enabled: 1
+    path: Assets/Scenes/New Game.unity
+    guid: 3cd8a5f15e22c4a4e96dde8a58f04e00
+  - enabled: 1
     path: Assets/Scenes/Daniel Scene.unity
     guid: 4f83145e7e3278444af0d3460ee41448
   - enabled: 0
