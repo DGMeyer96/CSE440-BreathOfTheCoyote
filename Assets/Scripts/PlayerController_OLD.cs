@@ -25,7 +25,7 @@ public class PlayerController_OLD : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
 
-        player.playDate = DateTime.Now.ToString();
+        //player.playDate = DateTime.Now.ToString();
 
         //For testing only!
         //player.saveName = "SaveTest.sav";
@@ -47,7 +47,7 @@ public class PlayerController_OLD : MonoBehaviour
         player.position[1] = this.transform.position.y;
         player.position[2] = this.transform.position.z;
 
-        player.playTime += Time.timeSinceLevelLoad;
+        //player.playTime = Time.timeSinceLevelLoad;
     }
 
     void OnTriggerEnter(Collider other)

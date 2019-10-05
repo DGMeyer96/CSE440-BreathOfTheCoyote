@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Player : MonoBehaviour
 
     public void SaveGame()
     {
+        playDate = DateTime.Now.ToString();
+        playTime = Time.timeSinceLevelLoad;
         SaveSystem.SavePlayerData(this);
     }
 

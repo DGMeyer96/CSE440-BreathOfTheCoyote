@@ -96,7 +96,7 @@ public class SceneLoader: MonoBehaviour
         saveGameName = saveGame;
     }
 
-    public void ExitGame()
+    public void QuitGame()
     {
         Debug.Log("Quitting Game");
         Application.Quit();
