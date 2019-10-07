@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
             isfalling = true;
         }
         old_pos = transform.position.y;
-        Debug.Log(isfalling);
     }
 
     void WalkHandler()
@@ -44,6 +43,12 @@ public class PlayerController : MonoBehaviour
         {
             speedS = speed;
         }
+        if (isfalling)
+        {
+            speedS = speed * .9f;
+        }
+        Debug.Log(speedS);
+
 
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
