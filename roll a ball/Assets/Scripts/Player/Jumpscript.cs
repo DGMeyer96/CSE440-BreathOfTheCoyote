@@ -20,9 +20,6 @@ public class Jumpscript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(isGrounded);
-        Debug.Log(Input.GetAxis("Jump"));
-
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {

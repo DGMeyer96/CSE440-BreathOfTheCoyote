@@ -33,7 +33,6 @@ public class Dashscript : MonoBehaviour
         //candash = false start cooldown
         if (Input.GetButtonDown("Dash") && candash)
         {
-            print("test");
             candash = false;
             dashing = true;
             timer = 0f;
@@ -57,7 +56,6 @@ public class Dashscript : MonoBehaviour
                 timerdash = 0f;
                 dashing = false;
             }
-            print(timer + "time to dash");
         }
 
         if (!candash)
