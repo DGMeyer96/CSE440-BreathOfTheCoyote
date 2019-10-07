@@ -10,10 +10,13 @@ public class Player : MonoBehaviour
     public bool TrialOfStrength;
     public bool TrialOfMind;
     public bool TrialOfAgility;
-    public Vector3 position;
+    public Vector3 playerPosition;
+    public Quaternion playerRotation;
     public string saveName;
     public float playTime = 0.0f;
     public string playDate;
+    //public Texture2D saveImage;
+    //public byte[] texData;
 
     public void NewGame()
     {
@@ -24,6 +27,8 @@ public class Player : MonoBehaviour
         TrialOfAgility = false;
         playTime = 0.0f;
 
+        Debug.Log("[PLAYER] Creating new game: " + saveName);
+
         SaveSystem.NewPlayerData(this);
     }
 
@@ -31,6 +36,9 @@ public class Player : MonoBehaviour
     {
         playDate = DateTime.Now.ToString();
         playTime = Time.timeSinceLevelLoad;
+        //saveImage = ScreenCapture.CaptureScreenshotAsTexture();
+        //texData = saveImage.EncodeToPNG();
+        //texData = ScreenCapture.CaptureScreenshotAsTexture().EncodeToPNG();
         SaveSystem.SavePlayerData(this);
     }
 
@@ -43,18 +51,28 @@ public class Player : MonoBehaviour
         TrialOfStrength = data.TrialOfStrength;
         TrialOfMind = data.TrialOfMind;
         TrialOfAgility = data.TrialOfAgility;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
         saveName = data.saveName;
         playTime = data.playTime;
         playDate = data.playDate;
 
-        PrintPlayerData();
+        playerPosition.x = data.playerPosition[0];
+        playerPosition.y = data.playerPosition[1];
+        playerPosition.z = data.playerPosition[2];
+
+        playerRotation.x = data.playerRotation[0];
+        playerRotation.y = data.playerRotation[1];
+        playerRotation.z = data.playerRotation[2];
+
+        //saveImage.LoadImage(data.texData);
+        //texData = data.texData;
+        //PrintPlayerData();
+
+        GetComponent<PlayerController>().LoadPlayer();
     }
 
     public void PrintPlayerData()
     {
+        /*
         Debug.Log("Health: " + health + "\n"
                     + "Position X: " + position.x.ToString() + "\n"
                     + "Position Y: " + position.y.ToString() + "\n"
@@ -63,5 +81,6 @@ public class Player : MonoBehaviour
                     + "Trial of Mind: " + TrialOfMind.ToString() + "\n"
                     + "Trial of Agility: " + TrialOfAgility.ToString() + "\n"
                     + "Play Time: " + playTime + "\n");
+        */
     }
 }

@@ -43,9 +43,9 @@ public class PlayerController_OLD : MonoBehaviour
 
         rb.AddForce(movement * speed);
 
-        player.position[0] = this.transform.position.x;
-        player.position[1] = this.transform.position.y;
-        player.position[2] = this.transform.position.z;
+        //player.position[0] = this.transform.position.x;
+        //player.position[1] = this.transform.position.y;
+        //player.position[2] = this.transform.position.z;
 
         //player.playTime = Time.timeSinceLevelLoad;
     }
