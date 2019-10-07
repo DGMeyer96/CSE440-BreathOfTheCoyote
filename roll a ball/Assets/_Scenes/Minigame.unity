@@ -1421,6 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  isfalling: 0
 --- !u!114 &1105748155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2436c640e727a349832a157d85fa36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pC: {fileID: 1105748154}
   Player: {fileID: 1105748151}
   smoothSpeed: 0.125
   offset: {x: 0, y: 1.3, z: -3}
