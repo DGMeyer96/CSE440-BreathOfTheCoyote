@@ -31,9 +31,8 @@ public class Dashscript : MonoBehaviour
 
         //if lCTRL is pressed dashing = true apply force
         //candash = false start cooldown
-        if (Input.GetKeyDown(KeyCode.LeftControl) && candash)
+        if (Input.GetButtonDown("Dash") && candash)
         {
-            //print("test");
             candash = false;
             dashing = true;
             timer = 0f;
@@ -48,7 +47,6 @@ public class Dashscript : MonoBehaviour
                 float moveVertical = Input.GetAxis("Vertical");
                 float moveHorizontal = Input.GetAxis("Horizontal");
                 Vector3 movementd = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
                 movementd = movementd * dashSpeed * Time.deltaTime;
                 movementd = transform.worldToLocalMatrix.inverse * movementd;
                 rb.MovePosition(transform.position + movementd);
@@ -58,7 +56,6 @@ public class Dashscript : MonoBehaviour
                 timerdash = 0f;
                 dashing = false;
             }
-            print(timer + " time to dash");
         }
 
         if (!candash)

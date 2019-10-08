@@ -20,11 +20,8 @@ public class Jumpscript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Debug.Log("Can I jump: " + isGrounded);
-        //Debug.Log(Input.GetAxis("Jump"));
-
         float moveJump = Input.GetAxis("Jump");
-        if (isGrounded && moveJump == 1)
+        if (isGrounded && moveJump > 0)
         {
             Vector3 jump = new Vector3(0f, moveJump, 0.0f);
             rb.AddForce(jump * jumpSpeed * Time.deltaTime, ForceMode.Impulse);

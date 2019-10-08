@@ -27,8 +27,12 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.Find("Player").GetComponent<Player>();
         if (player != null)
+        {
             Debug.Log("Found Player");
+            player.health = 10;
+        }
 
+        //EnableMenus();
         //player.saveName = PlayerPrefs.GetString("SaveGameName");
        // Debug.Log("Save Game Name: " + player.saveName);
 
@@ -59,26 +63,49 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inMenu)
-        {
-            player.GetComponent<CompassHandler>().enabled = false;
-            player.GetComponent<Dashscript>().enabled = false;
-            player.GetComponent<Jumpscript>().enabled = false;
-            player.GetComponent<PlayerController>().enabled = false;
-            player.GetComponentInChildren<eyelook>().enabled = false;
-        }
-        else
-        {
-            mainMenu.gameObject.SetActive(true);
-            gameCanvas.gameObject.SetActive(true);
-            menuCanvas.gameObject.SetActive(false);
+        //SetupMenus();
 
-            player.GetComponent<CompassHandler>().enabled = true;
-            player.GetComponent<Dashscript>().enabled = true;
-            player.GetComponent<Jumpscript>().enabled = true;
-            player.GetComponent<PlayerController>().enabled = true;
-            player.GetComponentInChildren<eyelook>().enabled = true;
+        if(player.health == 0)
+        {
+            GameOver();
         }
+
+        if (inMenu || gameCanvas.GetComponent<PauseHandler>().GetGamePaused())
+            EnableMenus();
+        else
+            DisableMenus();
+    }
+
+    public void GameOver()
+    {
+        Debug.Log("GAME OVER");
+    }
+
+    public void GameWin()
+    {
+        Debug.Log("YOU WIN!");
+    }
+
+    public void EnableMenus()
+    {
+        player.GetComponent<CompassHandler>().enabled = false;
+        player.GetComponent<Dashscript>().enabled = false;
+        player.GetComponent<Jumpscript>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponentInChildren<eyelook>().enabled = false;
+    }
+
+    void DisableMenus()
+    {
+        mainMenu.gameObject.SetActive(true);
+        gameCanvas.gameObject.SetActive(true);
+        menuCanvas.gameObject.SetActive(false);
+
+        player.GetComponent<CompassHandler>().enabled = true;
+        player.GetComponent<Dashscript>().enabled = true;
+        player.GetComponent<Jumpscript>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponentInChildren<eyelook>().enabled = true;
     }
 
     public void MainMenu(GameObject prevMenu)
@@ -200,6 +227,9 @@ public class GameManager : MonoBehaviour
 
         if (load2 != null)
         {
+            Debug.Log("Load 2 found");
+            Debug.Log(loadGame2.ToString());
+
             //tex.LoadImage(save2.texData);
             //Set image to saved image
             //saveGame2.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
@@ -217,6 +247,9 @@ public class GameManager : MonoBehaviour
 
         if (load3 != null)
         {
+            Debug.Log("Load 3 found");
+            Debug.Log(loadGame3.ToString());
+
             //tex.LoadImage(save3.texData);
             //Set image to saved image
             //saveGame3.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
@@ -270,4 +303,6 @@ public class GameManager : MonoBehaviour
     {
         saveGameName = saveGame;
     }
+
+    
 }
