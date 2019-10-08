@@ -35,6 +35,8 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = (loadProgress * 100f) + "%";
 
+            //Debug.Log("Loading: " + progressText.text);
+
             if(loadProgress >= .8f)
             {
                 LevelFadeOut();

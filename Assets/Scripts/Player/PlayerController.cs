@@ -57,11 +57,4 @@ public class PlayerController : MonoBehaviour
         movement = transform.worldToLocalMatrix.inverse * movement;
         rb.MovePosition(transform.position + movement);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Pick Up"))
-        {
-            other.gameObject.SetActive(false);
-        }
-    }
 }

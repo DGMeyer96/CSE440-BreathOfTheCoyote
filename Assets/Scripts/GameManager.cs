@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<CompassHandler>().enabled = false;
         player.GetComponent<Dashscript>().enabled = false;
         player.GetComponent<Jumpscript>().enabled = false;
-        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<PlayerController_OLD>().enabled = false;
         player.GetComponentInChildren<eyelook>().enabled = false;
     }
 
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         player.GetComponent<CompassHandler>().enabled = true;
         player.GetComponent<Dashscript>().enabled = true;
         player.GetComponent<Jumpscript>().enabled = true;
-        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerController_OLD>().enabled = true;
         player.GetComponentInChildren<eyelook>().enabled = true;
     }
 
