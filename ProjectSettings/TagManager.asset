@@ -3,11 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+  tags:
   - Land
   - Enemy
-  tags:
   - Objective
-  - ground
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -17,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Player
-  - Objective
+  - 
+  - 
+  - 
   - 
   - 
   - 
