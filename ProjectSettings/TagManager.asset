@@ -3,6 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+  - Land
+  - Enemy
   tags:
   - Objective
   - ground
