@@ -7,11 +7,13 @@ public class StartupLoader : MonoBehaviour
 {
     public Slider loadingBar;
     public Text progressText;
+    public Animator animator;
 
     private void Start()
     {
+        LevelFadeOut();
         //Begin loading the main scene
-        LoadLevel(1);
+        //LoadLevel(1);
     }
 
     public void LoadLevel(int sceneIndex)
@@ -33,7 +35,22 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = (loadProgress * 100f) + "%";
 
+            if(loadProgress >= .8f)
+            {
+                LevelFadeOut();
+            }
+
             yield return null;
         }
+    }
+
+    public void LevelFadeOut()
+    {
+        animator.SetTrigger("FadeOut");
+    }
+
+    public void OnFadeComplete()
+    {
+        LoadLevel(1);
     }
 }
