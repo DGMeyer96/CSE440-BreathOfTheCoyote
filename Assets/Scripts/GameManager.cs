@@ -110,6 +110,14 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu(GameObject prevMenu)
     {
+        if (gameCanvas.GetComponent<PauseHandler>().GetGamePaused())
+        {
+            Debug.Log("[GAMEMANAGER] Game Paused");
+
+            gameCanvas.gameObject.SetActive(false);
+            mainMenu.gameObject.SetActive(true);
+        }
+
         mainMenu.gameObject.SetActive(true);
         prevMenu.gameObject.SetActive(false);
     }
