@@ -49,12 +49,27 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log(speedS);
 
-
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        movement = movement * speedS * Time.deltaTime;
-        movement = transform.worldToLocalMatrix.inverse * movement;
-        rb.MovePosition(transform.position + movement);
+        if (movement.magnitude > 0)
+        {
+            Vector3 fwd = transform.position - Camera.main.transform.position;
+            fwd.y = 0;
+            fwd = fwd.normalized;
+            if (fwd.magnitude > 0.001f)
+            {
+                Quaternion inputFrame = Quaternion.LookRotation(fwd, Vector3.up);
+                movement = inputFrame * movement;
+                if (movement.magnitude > 0.001f)
+                {
+
+                    movement = movement * speedS * Time.deltaTime;
+                    rb.MovePosition(transform.position + movement);
+                    transform.rotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+
+                }
+            }
+        }
     }
 }

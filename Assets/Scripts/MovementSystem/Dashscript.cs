@@ -12,7 +12,7 @@ public class Dashscript : MonoBehaviour
     private float timer;
 
     private bool candash;
-    private bool dashing;
+    public bool dashing;
 
     private Rigidbody rb;
     public float dashSpeed = 20f;
@@ -50,6 +50,7 @@ public class Dashscript : MonoBehaviour
                 movementd = movementd * dashSpeed * Time.deltaTime;
                 movementd = transform.worldToLocalMatrix.inverse * movementd;
                 rb.MovePosition(transform.position + movementd);
+
             }
             else if (timerdash >= timetodash)//else stop applying force
             {
