@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     private Camera mainCamera;
     private float speed = 0f;
-    private float direction = 0f;
+    //private float direction = 0f;
     private Vector2 input;
     private Vector3 targetDirection;
     private Quaternion freeRotation;
@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
         speed = Mathf.Abs(moveHorizontal) + Mathf.Abs(movevertical);
 
         speed = Mathf.Clamp(speed, 0f, 1f);
-        direction = 0f;
+        //direction = 0f;
 
         UpdateTargetDirection();
 
