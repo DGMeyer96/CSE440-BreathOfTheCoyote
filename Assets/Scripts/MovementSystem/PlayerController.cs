@@ -47,10 +47,10 @@ public class PlayerController : MonoBehaviour
         {
             speedS = speed * .9f;
         }
-        Debug.Log(speedS);
 
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
+
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         if (movement.magnitude > 0)
         {
@@ -59,14 +59,25 @@ public class PlayerController : MonoBehaviour
             fwd = fwd.normalized;
             if (fwd.magnitude > 0.001f)
             {
-                Quaternion inputFrame = Quaternion.LookRotation(fwd, Vector3.up);
-                movement = inputFrame * movement;
-                if (movement.magnitude > 0.001f)
+                if (moveHorizontal != 0)
                 {
 
-                    movement = movement * speedS * Time.deltaTime;
-                    rb.MovePosition(transform.position + movement);
-                    transform.rotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+                    if (movement.magnitude > 0.001f)
+                    {
+                        movement = movement * speedS * Time.deltaTime;
+                        rb.MovePosition(transform.position + movement);
+                    }
+                }
+                else
+                {
+                    Quaternion inputFrame = Quaternion.LookRotation(fwd, Vector3.up);
+                    movement = inputFrame * movement;
+                    if (movement.magnitude > 0.001f)
+                    {
+                        movement = movement * speedS * Time.deltaTime;
+                        rb.MovePosition(transform.position + movement);
+                        transform.rotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+                    }
 
                 }
             }

@@ -20,14 +20,15 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        speed = Mathf.Abs(Input.GetAxis("Horizontal")) + Mathf.Abs(Input.GetAxis("Vertical"));
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        speed = Mathf.Abs(moveHorizontal) + Mathf.Abs(Input.GetAxis("Vertical"));
 
         speed = Mathf.Clamp(speed, 0f, 1f);
         direction = 0f;
 
         UpdateTargetDirection();
 
-        if (input != Vector2.zero && targetDirection.magnitude > 0.1f)
+        if (input != Vector2.zero && targetDirection.magnitude > 0.1f && moveHorizontal == 0)
         {
             Vector3 lookDirection = targetDirection.normalized;
             freeRotation = Quaternion.LookRotation(lookDirection, transform.up);
