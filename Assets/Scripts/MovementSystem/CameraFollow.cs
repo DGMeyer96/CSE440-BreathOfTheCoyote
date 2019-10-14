@@ -28,7 +28,7 @@ public class CameraFollow : MonoBehaviour
 
         UpdateTargetDirection();
 
-        if (input != Vector2.zero && targetDirection.magnitude > 0.1f && moveHorizontal == 0)
+        if (input != Vector2.zero && targetDirection.magnitude > 0.1f)
         {
             Vector3 lookDirection = targetDirection.normalized;
             freeRotation = Quaternion.LookRotation(lookDirection, transform.up);
