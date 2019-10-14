@@ -21,7 +21,8 @@ public class CameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        speed = Mathf.Abs(moveHorizontal) + Mathf.Abs(Input.GetAxis("Vertical"));
+        float movevertical = Input.GetAxis("Vertical");
+        speed = Mathf.Abs(moveHorizontal) + Mathf.Abs(movevertical);
 
         speed = Mathf.Clamp(speed, 0f, 1f);
         direction = 0f;
