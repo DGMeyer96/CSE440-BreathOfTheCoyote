@@ -826,6 +826,7 @@ MonoBehaviour:
   loadingBar: {fileID: 1199056118}
   progressText: {fileID: 809365688}
   animator: {fileID: 853316076}
+  sceneIndex: 1
 --- !u!1 &1199056116
 GameObject:
   m_ObjectHideFlags: 0

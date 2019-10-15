@@ -8,22 +8,37 @@ public class StartupLoader : MonoBehaviour
     public Slider loadingBar;
     public Text progressText;
     public Animator animator;
+    //public int sceneIndex;
+
+    private AsyncOperation loadOperation;
 
     private void Start()
     {
-        LevelFadeOut();
+        //LevelFadeOut();
         //Begin loading the main scene
         //LoadLevel(1);
+
+        //OnFadeInComplete(1);
+
+        if (PlayerPrefs.GetInt("LevelToLoad") != 0)
+        {
+            //OnFadeComplete(PlayerPrefs.GetInt("LevelToLoad"));
+        }
+        else
+        {
+            //OnFadeComplete(1);
+        }
     }
 
     public void LoadLevel(int sceneIndex)
     {
+        Debug.Log("Load Level");
         StartCoroutine(LoadLevelAsynchronously(sceneIndex));
     }
 
     IEnumerator LoadLevelAsynchronously(int sceneIndex)
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(sceneIndex);
+        loadOperation = SceneManager.LoadSceneAsync(sceneIndex);
 
         while(!loadOperation.isDone)
         {
@@ -35,24 +50,50 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = (loadProgress * 100f) + "%";
 
-            //Debug.Log("Loading: " + progressText.text);
+            Debug.Log("Loading: " + progressText.text);
 
-            if(loadProgress >= .8f)
+            
+            if(loadProgress == 1.0f)
             {
+                Debug.Log("Begin Fade Out");
                 LevelFadeOut();
             }
+            
+            loadOperation.allowSceneActivation = false;
+            //yield return loadOperation;
 
             yield return null;
         }
+
+        //LevelFadeOut();
+    }
+
+    public void LevelFadeIn()
+    {
+        Debug.Log("Level Faded In");
+        animator.SetTrigger("FadeIn");
     }
 
     public void LevelFadeOut()
     {
+        Debug.Log("Level Faded Out");
         animator.SetTrigger("FadeOut");
     }
 
-    public void OnFadeComplete()
+    public void OnFadeInComplete(int sceneIndex)
     {
-        LoadLevel(1);
+        Debug.Log("Fade In complete... Loading Level: " + sceneIndex);
+        LoadLevel(sceneIndex);
+    }
+
+    public void OnFadeOutComplete()
+    {
+        Debug.Log("Fade Out complete... Activating Scene");
+        ActivateScene();
+    }
+
+    public void ActivateScene()
+    {
+        loadOperation.allowSceneActivation = true;
     }
 }
