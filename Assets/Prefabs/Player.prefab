@@ -543,7 +543,6 @@ GameObject:
   - component: {fileID: 7548140648918055213}
   - component: {fileID: 6957822907001404881}
   - component: {fileID: 6957822907001404882}
-  - component: {fileID: 575674209890650590}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -670,6 +669,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   isfalling: 0
+  timetodash: 0.4
+  cooldowntime: 3
+  dashing: 0
+  dashSpeed: 40
 --- !u!114 &6957822907001404882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,22 +686,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 500
---- !u!114 &575674209890650590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6957822907001404890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb023191fa4cb1a42b6613ddb5d9b1d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timetodash: 0.4
-  cooldowntime: 3
-  dashing: 0
-  dashSpeed: 20
 --- !u!1 &6957822907014179337
 GameObject:
   m_ObjectHideFlags: 0
