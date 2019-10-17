@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float speedS;
     private float old_pos;
     public bool isfalling;
+    private Quaternion transformrotation;
 
     private float timerdash;
     public float timetodash = .4f;//time dash force is applied
@@ -51,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
      void WalkHandler()
     {
+        var smooth = 10;
+
         if (Input.GetAxis("Sprint") > 0 && !isfalling)
         {
 
@@ -83,7 +86,8 @@ public class PlayerController : MonoBehaviour
                 {
                     movement = movement * speedS * Time.deltaTime;
                     rb.MovePosition(transform.position + movement);
-                    transform.rotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+                    transformrotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
                 }               
             }
 
