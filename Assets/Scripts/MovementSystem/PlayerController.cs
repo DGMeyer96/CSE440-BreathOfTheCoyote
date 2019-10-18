@@ -80,13 +80,19 @@ public class PlayerController : MonoBehaviour
         
         if(movement.magnitude == 0)
         {
+            //if idle, the animation for idle plays
             animate.ResetTrigger("isWalking");
             animate.SetTrigger("isNotWalking");
+            //speed of the idle animation
+            animate.speed = 1.2f;
         }
         if (movement.magnitude > 0)
         {
+            //when moving, the animation for walking plays
             animate.ResetTrigger("isNotWalking");
             animate.SetTrigger("isWalking");
+            //speed of walking
+            animate.speed = 2.0f;
 
             Vector3 fwd = transform.position - Camera.main.transform.position;
            
