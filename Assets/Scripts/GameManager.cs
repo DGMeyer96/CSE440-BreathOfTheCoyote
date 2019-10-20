@@ -89,8 +89,8 @@ public class GameManager : MonoBehaviour
     public void EnableMenus()
     {
         player.GetComponent<CompassHandler>().enabled = false;
-        player.GetComponent<Dashscript>().enabled = false;
-        player.GetComponent<Jumpscript>().enabled = false;
+        //player.GetComponent<Dashscript>().enabled = false;
+       // player.GetComponent<Jumpscript>().enabled = false;
 
     }
 
@@ -101,8 +101,8 @@ public class GameManager : MonoBehaviour
         menuCanvas.gameObject.SetActive(false);
 
         player.GetComponent<CompassHandler>().enabled = true;
-        player.GetComponent<Dashscript>().enabled = true;
-        player.GetComponent<Jumpscript>().enabled = true;
+       // player.GetComponent<Dashscript>().enabled = true;
+       // player.GetComponent<Jumpscript>().enabled = true;
 
     }
 

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator animate;
+
     public float speed = 20f;
-    private Rigidbody rb;
-    private float speedS;
-    private float old_pos;
-    public bool isfalling;
+    public float jumpSpeed = 50f;
+    public float dashSpeed = 20f;
+
     private Quaternion transformrotation;
+    private Rigidbody rb;
+
+    private float speedS;
 
     private float timerdash;
     public float timetodash = .4f;//time dash force is applied
@@ -19,67 +23,87 @@ public class PlayerController : MonoBehaviour
 
     private bool candash;
     public bool dashing;
-
-    public float dashSpeed = 20f;
+    public bool isfalling;
+    private bool isGrounded;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        old_pos = transform.position.y;
+        animate = GetComponent<Animator>();
+
         isfalling = false;
+        isGrounded = false;
 
         candash = true;
         dashing = false;
         timerdash = 0f;
         timer = 0f;
+        animate.SetTrigger("isNotWalking");
     }
 
     void FixedUpdate()
     {
         WalkHandler();
         DashHandler();
-
-        if (old_pos == transform.position.y) //check if palyer is falling or not
-        {
-            isfalling = false;
-        }
-        else
-        {
-            isfalling = true;
-        }
-        old_pos = transform.position.y;
+        JumpHandler();
     }
 
-     void WalkHandler()
+    void WalkHandler()
     {
         var smooth = 10;
-
-        if (Input.GetAxis("Sprint") > 0 && !isfalling)
+        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        if (Input.GetAxis("Sprint") > 0 && !isGrounded)
         {
-
             speedS = speed * 2f;
+            animate.speed = 1.4f;
         }
         else
         {
             speedS = speed;
         }
-        if (isfalling)
+        if (isGrounded)
         {
-            speedS = speed * .9f;
+            //speedS = speed * .9f;
+            //moveHorizontal = 0;
+        }
+        if (moveVertical < 0)
+        {
+            speedS = .9f;
+            animate.speed = 1f;
+
         }
 
-        float moveVertical = Input.GetAxis("Vertical");
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
+        Vector3 movement;
+        if (isGrounded)//restricts movement on the x axis if the pla,yer is jumping
+        {
+            movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        }
+        else 
+        {
+            movement = new Vector3(moveHorizontal/3, 0.0f, moveVertical);
+        }
+        if (movement.magnitude == 0)
+        {
+            //if idle, the animation for idle plays
+            animate.ResetTrigger("isWalking");
+            animate.SetTrigger("isNotWalking");
+            //speed of the idle animation
+            animate.speed = 1.2f;
+        }
         if (movement.magnitude > 0)
         {
+            //when moving, the animation for walking plays
+            animate.ResetTrigger("isNotWalking");
+            animate.SetTrigger("isWalking");
+            //speed of walking
+            animate.speed = 2.0f;
+
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
             fwd = fwd.normalized;
             if (fwd.magnitude > 0.001f)
             {
-
                 Quaternion inputFrame = Quaternion.LookRotation(fwd, Vector3.up);
                 movement = inputFrame * movement;
                 if (movement.magnitude > 0.001f)
@@ -88,7 +112,7 @@ public class PlayerController : MonoBehaviour
                     rb.MovePosition(transform.position + movement);
                     transformrotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
-                }               
+                }
             }
 
         }
@@ -116,7 +140,6 @@ public class PlayerController : MonoBehaviour
                 movementd = movementd * dashSpeed * Time.deltaTime;
                 movementd = transform.worldToLocalMatrix.inverse * movementd;
                 rb.MovePosition(transform.position + movementd);
-
             }
             else if (timerdash >= timetodash)//else stop applying force
             {
@@ -133,6 +156,24 @@ public class PlayerController : MonoBehaviour
                 timer = 0;
                 candash = true;
             }
+        }
+    }
+    private void JumpHandler()
+    {
+        //Debug.Log(isGrounded);
+        float moveJump = Input.GetAxis("Jump");
+        if (isGrounded && moveJump > 0)
+        {
+            Vector3 jump = new Vector3(0f, moveJump, 0.0f);
+            rb.AddForce(jump * jumpSpeed * Time.deltaTime, ForceMode.Impulse);
+            isGrounded = false;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
         }
     }
 }
