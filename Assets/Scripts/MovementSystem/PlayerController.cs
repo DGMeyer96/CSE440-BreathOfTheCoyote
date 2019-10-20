@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
-        if (Input.GetAxis("Sprint") > 0 && !isGrounded)
+        if (Input.GetAxis("Sprint") > 0 && isGrounded)
         {
             speedS = speed * 2f;
             animate.speed = 1.4f;
