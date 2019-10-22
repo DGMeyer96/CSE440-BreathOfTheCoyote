@@ -32,7 +32,7 @@ public class PauseHandler : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        DisableControl();
+        EnableControl();
         gamePaused = false;
     }
 
@@ -40,7 +40,7 @@ public class PauseHandler : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        EnableControl();
+        DisableControl();
         gamePaused = true;
     }
 
@@ -67,13 +67,13 @@ public class PauseHandler : MonoBehaviour
     private void DisableControl()
     {
         //player.GetComponent<CompassHandler>().enabled = false;
-        player.GetComponent<PlayerController_OLD>().enabled = false;
-        player.GetComponentInChildren<eyelook>().enabled = false;
+        player.GetComponent<PlayerController>().enabled = false;
+        //player.GetComponentInChildren<eyelook>().enabled = false;
     }
 
     private void EnableControl()
     {
-        player.GetComponent<PlayerController_OLD>().enabled = true;
-        player.GetComponentInChildren<eyelook>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true;
+        //player.GetComponentInChildren<eyelook>().enabled = true;
     }
 }

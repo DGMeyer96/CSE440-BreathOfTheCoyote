@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
