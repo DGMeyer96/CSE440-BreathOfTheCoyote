@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Toon_SobelBlit
   m_Shader: {fileID: 4800000, guid: add0c2bfc52ebac44be40b52bcc87efd, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: POSTERIZE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -74,8 +74,8 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Poseterize: 0
-    - _PosterizationCount: 8
+    - _Poseterize: 1
+    - _PosterizationCount: 16
     - _QueueOffset: 0
     - _Raw: 0
     - _ReceiveShadows: 1

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     Event: 500
-    blitMaterial: {fileID: 2100000, guid: 2fdbbcb8e28993e43893b85862b5fdf2, type: 2}
+    blitMaterial: {fileID: 2100000, guid: 2429d7a7aae472b499fbf6f872d163bf, type: 2}
     blitMaterialPassIndex: 0
     destination: 0
     textureId: _BlitPassTexture
