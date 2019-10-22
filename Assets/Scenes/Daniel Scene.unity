@@ -188,45 +188,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_MaterialTemplate
-      value: 
-      objectReference: {fileID: 2100000, guid: 31c796c760299154d9ba7bc78d31c3ef, type: 2}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_ShadowCastingMode
+    - target: {fileID: 1528847660, guid: 1d91a749b2393aa47889f70eeabde304, type: 3}
+      propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_TreeDistance
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_TreeBillboardDistance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_DrawInstanced
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_TreeMaximumFullLODCount
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385516262610376946, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_LightmapParameters
+    - target: {fileID: 1528847660, guid: 1d91a749b2393aa47889f70eeabde304, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 4385516262610376847, guid: 1d91a749b2393aa47889f70eeabde304,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d91a749b2393aa47889f70eeabde304, type: 3}
@@ -809,11 +777,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1590141003, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.36538374
+      value: 0.36538377
       objectReference: {fileID: 0}
     - target: {fileID: 1590141003, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.022816734
+      value: -0.022816736
       objectReference: {fileID: 0}
     - target: {fileID: 1590141003, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -895,6 +863,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
+--- !u!1 &1209456237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3300916549661796804, guid: 4a0046cad4052d54099b2bb9329550d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3300916549011435431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!320 &1209456238
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209456237}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 8865040131325603500, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6511255507452497020, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3082319671118788863, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1395473650624091853, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1309069309
 GameObject:
   m_ObjectHideFlags: 0
