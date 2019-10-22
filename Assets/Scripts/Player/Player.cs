@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float playTime = 0.0f;
     public string playDate;
     //public Texture2D saveImage;
-    //public byte[] texData;
+    public byte[] texData;
 
     public void NewGame()
     {
@@ -38,7 +38,11 @@ public class Player : MonoBehaviour
         playTime = Time.timeSinceLevelLoad;
         //saveImage = ScreenCapture.CaptureScreenshotAsTexture();
         //texData = saveImage.EncodeToPNG();
-        //texData = ScreenCapture.CaptureScreenshotAsTexture().EncodeToPNG();
+        texData = ScreenCapture.CaptureScreenshotAsTexture().EncodeToPNG();
+
+        Debug.Log("[PLAYER] Play Date: " + playDate);
+        Debug.Log("[PLAYER] Play Time: " + playTime);
+
         SaveSystem.SavePlayerData(this);
     }
 

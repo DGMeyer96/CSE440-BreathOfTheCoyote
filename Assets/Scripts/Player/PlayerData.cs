@@ -16,7 +16,7 @@ public class PlayerData
     public float playTime;
     public string playDate;
     //public Texture2D saveImage;
-    //public byte[] texData;
+    public byte[] texData;
 
 
     public PlayerData(Player player)
@@ -43,7 +43,7 @@ public class PlayerData
         playDate = player.playDate;
 
         //texData = player.saveImage.EncodeToPNG();
-        //texData = player.texData;
+        texData = player.texData;
         //saveImage = player.saveImage;
     }
 }

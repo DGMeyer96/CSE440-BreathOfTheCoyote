@@ -7,8 +7,8 @@ public static class SaveSystem
     public static void NewPlayerData(Player player)
     {
         BinaryFormatter bFormatter = new BinaryFormatter();
-        //string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
-        string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
+        string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
+        //string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
         FileStream fStream = new FileStream(path, FileMode.Create); //FileMode.Create will override an existing save file
 
         /*
@@ -29,8 +29,8 @@ public static class SaveSystem
     public static void SavePlayerData(Player player)
     {
         BinaryFormatter bFormatter = new BinaryFormatter();
-        //string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
-        string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
+        string path = Application.persistentDataPath + player.saveName;    //saveGame = Save#.sav
+        //string path = Application.dataPath + player.saveName;    //saveGame = Save#.sav
         FileStream fStream = new FileStream(path, FileMode.Open); //Open an existing save file and modify
 
         PlayerData data = new PlayerData(player);
@@ -47,8 +47,8 @@ public static class SaveSystem
 
     public static PlayerData LoadPlayerData(string saveGame)
     {
-        //string path = Application.persistentDataPath + saveGame;
-        string path = Application.dataPath + saveGame;
+        string path = Application.persistentDataPath + saveGame;
+        //string path = Application.dataPath + saveGame;
 
         if (File.Exists(path))
         {
