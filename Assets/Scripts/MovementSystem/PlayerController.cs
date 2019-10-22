@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animate;
+    private Animator animate;
 
     public float speed = 20f;
     public float jumpSpeed = 50f;
@@ -86,16 +86,21 @@ public class PlayerController : MonoBehaviour
         if (movement.magnitude == 0)
         {
             //if idle, the animation for idle plays
-            animate.ResetTrigger("isWalking");
-            animate.SetTrigger("isNotWalking");
+            //animate.ResetTrigger("isWalking");
+            //animate.SetTrigger("isNotWalking");
+
+            animate.SetBool("Walk Forward", false);
+
             //speed of the idle animation
             animate.speed = 1.2f;
         }
         if (movement.magnitude > 0)
         {
             //when moving, the animation for walking plays
-            animate.ResetTrigger("isNotWalking");
-            animate.SetTrigger("isWalking");
+            //animate.ResetTrigger("isNotWalking");
+            //animate.SetTrigger("isWalking");
+            animate.SetBool("Walk Forward", true);
+
             //speed of walking
             animate.speed = 2.0f;
 
@@ -160,7 +165,7 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        //Debug.Log(isGrounded);
+        Debug.Log(isGrounded);
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {
