@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31d1ab6e5c1225b498ca9a703edd40cc
+guid: 89fe0da9a14be814984c77bf209af2e4
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Branches
-    second: {fileID: 2100000, guid: 1abaf03a97f331a4da504c2e24421e28, type: 2}
+      name: Base
+    second: {fileID: 2100000, guid: 9e806050b33654b4aafe938d2a2a0893, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Trunk
-    second: {fileID: 2100000, guid: 27eb31e0ae03b364cb116e579784bd86, type: 2}
+      name: Basin
+    second: {fileID: 2100000, guid: 3e941ac6a5dd5b3498425eb1b6beafe9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Logs
+    second: {fileID: 2100000, guid: f6efb79670d01d84caeb747992e2c338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Logs2
+    second: {fileID: 2100000, guid: 7828a4fa44dbecc428268fed4dbf20c5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,9 +54,9 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -70,7 +80,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 10
+    normalSmoothAngle: 60
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
@@ -91,7 +101,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

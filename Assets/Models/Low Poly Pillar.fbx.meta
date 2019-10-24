@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31d1ab6e5c1225b498ca9a703edd40cc
+guid: 1e405041b2f4996499bf9ee5e1a94532
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Branches
-    second: {fileID: 2100000, guid: 1abaf03a97f331a4da504c2e24421e28, type: 2}
+      name: Beacon
+    second: {fileID: 2100000, guid: 89c93c815361f0d459545875e3a3702b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Trunk
-    second: {fileID: 2100000, guid: 27eb31e0ae03b364cb116e579784bd86, type: 2}
+      name: Pillar
+    second: {fileID: 2100000, guid: fdedc0af62221854789a45055e9b135e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +44,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
@@ -70,8 +70,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 10
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
@@ -91,7 +91,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

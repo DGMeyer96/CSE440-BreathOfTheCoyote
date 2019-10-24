@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31d1ab6e5c1225b498ca9a703edd40cc
+guid: 6d09ddd522093814db7fe788f810c8de
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Branches
-    second: {fileID: 2100000, guid: 1abaf03a97f331a4da504c2e24421e28, type: 2}
+      name: Tombstone
+    second: {fileID: 2100000, guid: 032e58b20743fe24892cd9f26cd10efe, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Trunk
-    second: {fileID: 2100000, guid: 27eb31e0ae03b364cb116e579784bd86, type: 2}
+      name: TombstoneBase
+    second: {fileID: 2100000, guid: 653128e00f4589e478e9a4ede172915c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,9 +44,9 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -91,7 +91,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.02
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
