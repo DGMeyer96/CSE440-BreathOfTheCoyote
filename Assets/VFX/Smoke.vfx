@@ -1036,7 +1036,7 @@ VisualEffectResource:
       \   SetAttribute_D5151644( /*inout */scaleX, (float)0.03);\n\t\t\t\t}\n\t\t\t\tAttributeFromCurve_5369138A(
       /*inout */scaleY, age, lifetime, Scale_d);\n\t\t\t\tColorOverLife_733E3(age,
       lifetime,  /*inout */color,  /*inout */alpha, gradient_e);\n\t\t\t\t{\n\t\t\t\t
-      \   SetAttribute_545F0ED( /*inout */color, float3(23.96863,23.96863,23.96863));\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\tif
+      \   SetAttribute_545F0ED( /*inout */color, float3(191.749,191.749,191.749));\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\tif
       (!alive)\n\t\t\t\t\treturn o;\n\t\t\t\t\n\t\t\t#if VFX_PRIMITIVE_QUAD\n\t\t\t\n\t\t\t\to.VFX_VARYING_UV.x
       = float(id & 1);\n\t\t\t\to.VFX_VARYING_UV.y = float((id & 2) >> 1);\n\t\t\t\tconst
       float2 vOffsets = o.VFX_VARYING_UV.xy - 0.5f;\n\t\t\t\t\n\t\t\t#elif VFX_PRIMITIVE_TRIANGLE\n\t\t\t\n\t\t\t\tconst
@@ -1660,7 +1660,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 3
           m_Value: {x: 0, y: 0, z: 0}
         - m_ExpressionIndex: 19
-          m_Value: {x: 23.968628, y: 23.968628, z: 23.968628}
+          m_Value: {x: 191.74902, y: 191.74902, z: 191.74902}
         - m_ExpressionIndex: 30
           m_Value: {x: 0, y: 1, z: 0}
         - m_ExpressionIndex: 31
@@ -5315,7 +5315,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":23.9686279296875,"y":23.9686279296875,"z":23.9686279296875}'
+      m_SerializableObject: '{"x":191.7490234375,"y":191.7490234375,"z":191.7490234375}'
     m_Space: 2147483647
   m_Property:
     name: Color
