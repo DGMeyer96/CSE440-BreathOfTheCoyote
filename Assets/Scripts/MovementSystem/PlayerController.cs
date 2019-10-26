@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool candash;
     public bool dashing;
     public bool isfalling;
-    private bool isGrounded;
+    public bool isGrounded;
 
     void Start()
     {
