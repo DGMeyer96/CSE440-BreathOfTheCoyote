@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool candash;
     public bool dashing;
     public bool isfalling;
-    private bool isGrounded;
+    public bool isGrounded;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         dashing = false;
         timerdash = 0f;
         timer = 0f;
-        animate.SetTrigger("isNotWalking");
+        //animate.SetTrigger("isNotWalking");
     }
 
     void FixedUpdate()
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVertical < 0)
         {
-            speedS = .9f;
+            speedS = speed / 1.5f;
             animate.speed = 1f;
 
         }
@@ -165,7 +165,6 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        //Debug.Log(isGrounded);
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {
@@ -176,9 +175,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground"))
         {
             isGrounded = true;
         }
+        Debug.Log(isGrounded);
     }
 }
