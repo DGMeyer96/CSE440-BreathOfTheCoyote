@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVertical < 0)
         {
-            speedS = .9f;
+            speedS = speed/2;
             animate.speed = 1f;
 
         }
