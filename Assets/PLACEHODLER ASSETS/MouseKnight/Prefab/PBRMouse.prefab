@@ -788,6 +788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1975194375736644, guid: 128a80094e00bf34fa2555766a7eea0e, type: 3}
+  animate: {fileID: 95439465833848182}
 --- !u!54 &4688892459613563685
 Rigidbody:
   m_ObjectHideFlags: 0

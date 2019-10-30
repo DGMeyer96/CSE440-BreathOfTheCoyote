@@ -11,6 +11,7 @@ TagManager:
   - ground
   - Pick Up
   - EnemySpawn
+  - AI
   layers:
   - Default
   - TransparentFX
