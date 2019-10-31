@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private Animator animate;
+
+    private Player player;
 
     public float speed = 20f;
     public float jumpSpeed = 50f;
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animate = GetComponent<Animator>();
+        player = GetComponent<Player>();
 
         isfalling = false;
         isGrounded = false;
@@ -180,5 +184,58 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+
+        if (collision.gameObject.CompareTag("Objective"))
+        {
+            Debug.Log("[COLLIDER] Objective Found: " + collision.gameObject.name);
+
+            switch (collision.gameObject.name)
+            {
+                case "LeftVillage":
+                    player.LeftVillage = true;
+                    player.health--;
+                    SetPlayerHealth();
+                    SavePlayer();
+                    break;
+                case "TrialOfStrength":
+                    player.TrialOfStrength = true;
+                    SavePlayer();
+                    break;
+                case "TrialOfMind":
+                    player.TrialOfMind = true;
+                    SavePlayer();
+                    break;
+                case "TrialOfAgility":
+                    player.TrialOfAgility = true;
+                    SavePlayer();
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void SavePlayer()
+    {
+        player.playerPosition[0] = this.transform.position.x;
+        player.playerPosition[1] = this.transform.position.y;
+        player.playerPosition[2] = this.transform.position.z;
+
+        player.playerRotation[0] = this.transform.rotation.x;
+        player.playerRotation[1] = this.transform.rotation.y;
+        player.playerRotation[2] = this.transform.rotation.z;
+
+        player.SaveGame();
+    }
+
+    public void LoadPlayer()
+    {
+        transform.position = player.playerPosition;
+        transform.rotation = player.playerRotation;
+    }
+
+    public void SetPlayerHealth()
+    {
+        GameObject.Find("Health_Slider").GetComponent<Slider>().value = player.health;
     }
 }

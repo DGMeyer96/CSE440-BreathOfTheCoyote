@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 409954143441868719}
   - component: {fileID: 8713187234146315673}
   - component: {fileID: 3159271613707948384}
-  - component: {fileID: 7836353694513995050}
+  - component: {fileID: 1700660366278754902}
   m_Layer: 0
   m_Name: Low Poly House
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7836353694513995050
+--- !u!65 &1700660366278754902
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,5 +95,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.5055065, y: 6.8764153, z: 5.894239}
-  m_Center: {x: 0, y: 3.230174, z: 0}
+  m_Size: {x: 22.51652, y: 20.629248, z: 17.682716}
+  m_Center: {x: 0, y: 9.690522, z: 0}

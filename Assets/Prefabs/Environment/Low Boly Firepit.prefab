@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 8568400925922060928}
   - component: {fileID: 842759727228735670}
   - component: {fileID: 6381210254905093199}
+  - component: {fileID: 885920948445146180}
   m_Layer: 0
   m_Name: Low Boly Firepit
   m_TagString: Untagged
@@ -279,3 +280,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &885920948445146180
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661870917144582291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 4.303337
+  m_Height: 8.606674
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.4000001, z: -0.3033371}

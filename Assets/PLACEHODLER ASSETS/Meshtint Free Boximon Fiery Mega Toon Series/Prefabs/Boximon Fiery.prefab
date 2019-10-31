@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840186653}
-  m_LocalRotation: {x: 0.08040993, y: -0.01604587, z: 0.0012944858, w: 0.9966319}
+  m_LocalRotation: {x: 0.06478114, y: 0.37162793, z: -0.02600506, w: 0.9257537}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1004410787}
   - component: {fileID: 1004410786}
   - component: {fileID: 1004410785}
+  - component: {fileID: 538696682}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -102,13 +103,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004410783}
-  m_LocalRotation: {x: 0.08040992, y: -0.016045876, z: 0.0012946082, w: 0.9966319}
-  m_LocalPosition: {x: 0.1931512, y: 2, z: -5.99689}
+  m_LocalRotation: {x: 0.06478106, y: 0.37162787, z: -0.026005246, w: 0.92575365}
+  m_LocalPosition: {x: -2.074315, y: 1, z: -2.1672907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4744222756475520}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 30.000002, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.0060005, y: -14.317, z: 0}
 --- !u!20 &1004410787
 Camera:
   m_ObjectHideFlags: 0
@@ -134,7 +135,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -197,6 +198,66 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamActivatedEvent, Cinemachine, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &538696682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004410783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 1
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 0
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1029220103
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +282,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029220103}
-  m_LocalRotation: {x: 0.09852488, y: -0.016019706, z: 0.0015862614, w: 0.9950044}
+  m_LocalRotation: {x: 0.09144518, y: 0.37072366, z: -0.036708616, w: 0.92350113}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -257,7 +318,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -424,7 +485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346039812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19315119, y: 2, z: -5.99689}
+  m_LocalPosition: {x: -2.074315, y: 1, z: -2.1672907}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1029220104}
@@ -455,7 +516,7 @@ MonoBehaviour:
   m_Follow: {fileID: 4744222756475520}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -588,7 +649,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590141002}
-  m_LocalRotation: {x: 0.062316347, y: -0.016066702, z: 0.0010032357, w: 0.99792665}
+  m_LocalRotation: {x: 0.03823985, y: 0.37222028, z: -0.015351016, w: 0.9272293}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -624,7 +685,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1955,6 +2016,7 @@ GameObject:
   - component: {fileID: 1121434392}
   - component: {fileID: 1121434393}
   - component: {fileID: 1121434395}
+  - component: {fileID: 488214773}
   m_Layer: 0
   m_Name: Boximon Fiery
   m_TagString: Player
@@ -1971,7 +2033,7 @@ Transform:
   m_GameObject: {fileID: 1975194375736644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4114503819697490}
   - {fileID: 4585977435627606}
@@ -2073,6 +2135,29 @@ MonoBehaviour:
   cooldowntime: 3
   dashing: 0
   isfalling: 0
+--- !u!114 &488214773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975194375736644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0d2dd4abf817f438fe3463ed3f3dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  LeftVillage: 0
+  TrialOfStrength: 0
+  TrialOfMind: 0
+  TrialOfAgility: 0
+  playerPosition: {x: 0, y: 0, z: 0}
+  playerRotation: {x: 0, y: 0, z: 0, w: 0}
+  saveName: 
+  playTime: 0
+  playDate: 
+  texData: 
 --- !u!1 &1992369794795074
 GameObject:
   m_ObjectHideFlags: 0
