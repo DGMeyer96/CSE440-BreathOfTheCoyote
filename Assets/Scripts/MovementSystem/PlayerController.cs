@@ -179,6 +179,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
     }
 }
