@@ -11,6 +11,8 @@ public class MenuManager : MonoBehaviour
     public GameObject newGameMenu;
     public GameObject loadGameMenu;
 
+    public Animator animator;
+
     public Texture2D dataErrorTex;
     public Texture2D dataFoundTex;
 
@@ -207,6 +209,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayerPrefs.SetInt("LevelToLoad", 1);
         Debug.Log("Quitting Game");
         Application.Quit();
     }
@@ -228,7 +231,7 @@ public class MenuManager : MonoBehaviour
     {
         Debug.Log("Loading... " + saveGameName);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
-        SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("LevelToLoad", 2);
+        SceneManager.LoadScene(0);
     }
 }

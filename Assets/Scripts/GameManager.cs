@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("GAME OVER");
+        PlayerPrefs.SetInt("LevelToLoad", 1);
     }
 
     public void GameWin()
     {
         Debug.Log("YOU WIN!");
+        PlayerPrefs.SetInt("LevelToLoad", 1);
     }
 
     
