@@ -2377,6 +2377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cylinderdoor
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 25afb60785398b84fb6ac4c5d10866f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 25afb60785398b84fb6ac4c5d10866f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7225,7 +7230,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
       propertyPath: m_Name
-      value: untitled
+      value: cylinder (1)
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
@@ -7265,7 +7270,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
@@ -8639,7 +8644,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
       propertyPath: m_Name
-      value: untitled (1)
+      value: cylinder
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
@@ -8679,7 +8684,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 87e59e023fe0ead43bb1fa800ee592e1,
         type: 3}
@@ -11751,8 +11756,8 @@ Transform:
   - {fileID: 1572202911}
   - {fileID: 1250939716}
   - {fileID: 635821118}
-  - {fileID: 1427015575}
   - {fileID: 1258761795}
+  - {fileID: 1427015575}
   - {fileID: 522466589}
   - {fileID: 1340874801}
   - {fileID: 1855124173}
