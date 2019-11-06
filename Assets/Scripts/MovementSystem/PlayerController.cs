@@ -189,6 +189,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+
         if (collision.gameObject.CompareTag("Elevator") && movement.magnitude == 0)
         {
             transform.parent = collision.transform;
