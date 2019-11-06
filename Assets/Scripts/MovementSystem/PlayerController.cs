@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public bool dashing;
     public bool isfalling;
     public bool isGrounded;
+	public Camera cam;
 
     void Start()
     {
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 movement;
+        Vector3 movement2;
         if (isGrounded)//restricts movement on the x axis if the pla,yer is jumping
         {
             movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -103,9 +105,11 @@ public class PlayerController : MonoBehaviour
 
             //speed of walking
             animate.speed = 2.0f;
-
+			
+			
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
+            //fwd.x = 0;
             fwd = fwd.normalized;
             if (fwd.magnitude > 0.001f)
             {
@@ -119,7 +123,6 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
                 }
             }
-
         }
     }
     private void DashHandler()
