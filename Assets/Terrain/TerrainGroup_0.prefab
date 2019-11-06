@@ -54,7 +54,7 @@ Terrain:
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
-  m_DrawInstanced: 0
+  m_DrawInstanced: 1
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 31c796c760299154d9ba7bc78d31c3ef, type: 2}
@@ -202,6 +202,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325661601326810065, guid: ee3481d64eeeb324fa2a5de931d32ebe,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee3481d64eeeb324fa2a5de931d32ebe, type: 3}

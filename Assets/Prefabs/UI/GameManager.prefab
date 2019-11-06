@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3300916549661796802}
   - component: {fileID: 3300916549661796803}
+  - component: {fileID: 1209456238}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,3 +46,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerObject: {fileID: 0}
+  gameCanvas: {fileID: 0}
+--- !u!320 &1209456238
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3300916549661796804}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 8865040131325603500, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6511255507452497020, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 3082319671118788863, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1395473650624091853, guid: 377968e03066d43439d5ef0bf160011a, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
