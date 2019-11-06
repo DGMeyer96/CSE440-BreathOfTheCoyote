@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool isfalling;
     public bool isGrounded;
 	public Camera cam;
+    private Vector3 movement;
 
     void Start()
     {
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Debug.Log("jump " + isGrounded);
+
         WalkHandler();
         DashHandler();
         JumpHandler();
@@ -75,8 +78,6 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        Vector3 movement;
-        Vector3 movement2;
         if (isGrounded)//restricts movement on the x axis if the pla,yer is jumping
         {
             movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -98,6 +99,8 @@ public class PlayerController : MonoBehaviour
         }
         if (movement.magnitude > 0)
         {
+            transform.parent = null;
+
             //when moving, the animation for walking plays
             //animate.ResetTrigger("isNotWalking");
             //animate.SetTrigger("isWalking");
@@ -123,6 +126,10 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
                 }
             }
+        }
+        if (movement.magnitude == 0 && isGrounded)
+        {
+           // rb.velocity = Vector3.zero;
         }
     }
     private void DashHandler()
@@ -178,10 +185,25 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
         }
-        //Debug.Log(isGrounded);
+        if (collision.gameObject.CompareTag("Elevator") && movement.magnitude == 0)
+        {
+            transform.parent = collision.transform;
+        }
+        if (movement.magnitude != 0)
+        {
+            transform.parent = null;
+        }
+
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Elevator"))
+        {
+            transform.parent = null;
+        }
     }
 }

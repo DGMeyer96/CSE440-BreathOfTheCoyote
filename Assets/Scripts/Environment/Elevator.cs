@@ -7,6 +7,7 @@ public class Elevator : MonoBehaviour
     public GameObject[] points;
     int current = 0;
     public float speed;
+    public ElevatorCheckpoint Chp;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -28,7 +29,12 @@ public class Elevator : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            current = 1;
+            if (Chp.touched)
+            {
+                current = 2;
+            }
+            else
+                current = 1;
             Debug.Log(current);
         }
     }
