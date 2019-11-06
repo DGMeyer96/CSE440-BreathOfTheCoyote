@@ -22,7 +22,6 @@ public class Groundslam : MonoBehaviour
     {
         cooldown += Time.deltaTime;
         groundedcheck = GetComponent<PlayerController>().isGrounded;
-        Debug.Log(cooldown);
         if (cooldown > 2)
         {
             if (Input.GetKeyDown(KeyCode.Q))

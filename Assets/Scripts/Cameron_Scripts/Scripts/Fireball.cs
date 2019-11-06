@@ -19,14 +19,14 @@ public class Fireball : MonoBehaviour
     void Update()
     {
         cooldownTimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (cooldownTimer > 2.0f)
+           // if (cooldownTimer > 2.0f)
 
              {
                 cooldownTimer = 0f;
 
-                GameObject bullet = Instantiate(projectile, transform.position + 2 * transform.forward, transform.rotation);
+                GameObject bullet = Instantiate(projectile, transform.position + 2 * transform.forward, Quaternion.identity);
 
 
             }
