@@ -10,11 +10,6 @@ public class PauseHandler : MonoBehaviour
     public GameObject pauseMenuUI;
     public Player player;
 
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
     // Update is called once per frame
     void Update()
     {

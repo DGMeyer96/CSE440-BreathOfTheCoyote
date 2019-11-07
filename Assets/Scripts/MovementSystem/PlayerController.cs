@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private Animator animate;
-
-    private Player player;
 
     public float speed = 20f;
     public float jumpSpeed = 50f;
@@ -27,13 +24,14 @@ public class PlayerController : MonoBehaviour
     private bool candash;
     public bool dashing;
     public bool isfalling;
-    private bool isGrounded;
+    public bool isGrounded;
+	public Camera cam;
+    private Vector3 movement;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animate = GetComponent<Animator>();
-        player = GetComponent<Player>();
 
         isfalling = false;
         isGrounded = false;
@@ -42,11 +40,13 @@ public class PlayerController : MonoBehaviour
         dashing = false;
         timerdash = 0f;
         timer = 0f;
-        animate.SetTrigger("isNotWalking");
+        //animate.SetTrigger("isNotWalking");
     }
 
     void FixedUpdate()
     {
+        Debug.Log("jump " + isGrounded);
+
         WalkHandler();
         DashHandler();
         JumpHandler();
@@ -73,12 +73,11 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVertical < 0)
         {
-            speedS = .9f;
+            speedS = speed / 1.5f;
             animate.speed = 1f;
 
         }
 
-        Vector3 movement;
         if (isGrounded)//restricts movement on the x axis if the pla,yer is jumping
         {
             movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -100,6 +99,8 @@ public class PlayerController : MonoBehaviour
         }
         if (movement.magnitude > 0)
         {
+            transform.parent = null;
+
             //when moving, the animation for walking plays
             //animate.ResetTrigger("isNotWalking");
             //animate.SetTrigger("isWalking");
@@ -107,9 +108,11 @@ public class PlayerController : MonoBehaviour
 
             //speed of walking
             animate.speed = 2.0f;
-
+			
+			
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
+            //fwd.x = 0;
             fwd = fwd.normalized;
             if (fwd.magnitude > 0.001f)
             {
@@ -123,7 +126,10 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
                 }
             }
-
+        }
+        if (movement.magnitude == 0 && isGrounded)
+        {
+           // rb.velocity = Vector3.zero;
         }
     }
     private void DashHandler()
@@ -169,7 +175,6 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        //Debug.Log(isGrounded);
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {
@@ -180,64 +185,32 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
         }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
 
-        if (collision.gameObject.CompareTag("Objective"))
+        if (collision.gameObject.CompareTag("Elevator") && movement.magnitude == 0)
         {
-            Debug.Log("[COLLIDER] Objective Found: " + collision.gameObject.name);
-
-            switch (collision.gameObject.name)
-            {
-                case "LeftVillage":
-                    player.LeftVillage = true;
-                    player.health--;
-                    SetPlayerHealth();
-                    SavePlayer();
-                    break;
-                case "TrialOfStrength":
-                    player.TrialOfStrength = true;
-                    SavePlayer();
-                    break;
-                case "TrialOfMind":
-                    player.TrialOfMind = true;
-                    SavePlayer();
-                    break;
-                case "TrialOfAgility":
-                    player.TrialOfAgility = true;
-                    SavePlayer();
-                    break;
-                default:
-                    break;
-            }
+            transform.parent = collision.transform;
+        }
+        if (movement.magnitude != 0)
+        {
+            transform.parent = null;
         }
 
 
     }
 
-    void SavePlayer()
-    {
-        player.playerPosition[0] = this.transform.position.x;
-        player.playerPosition[1] = this.transform.position.y;
-        player.playerPosition[2] = this.transform.position.z;
-
-        player.playerRotation[0] = this.transform.rotation.x;
-        player.playerRotation[1] = this.transform.rotation.y;
-        player.playerRotation[2] = this.transform.rotation.z;
-
-        player.SaveGame();
     }
-
-    public void LoadPlayer()
+    private void OnCollisionExit(Collision collision)
     {
-        transform.position = player.playerPosition;
-        transform.rotation = player.playerRotation;
-    }
-
-    public void SetPlayerHealth()
-    {
-        GameObject.Find("Health_Slider").GetComponent<Slider>().value = player.health;
+        if (collision.gameObject.CompareTag("Elevator"))
+        {
+            transform.parent = null;
+        }
     }
 }

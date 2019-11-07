@@ -20,8 +20,6 @@ public class StartupLoader : MonoBehaviour
 
         //OnFadeInComplete(1);
 
-        LevelFadeIn();
-
         if (PlayerPrefs.GetInt("LevelToLoad") != 0)
         {
             //OnFadeComplete(PlayerPrefs.GetInt("LevelToLoad"));
@@ -52,12 +50,13 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = ((int)loadProgress * 100f) + "%";
 
-            //Debug.Log("Loading: " + progressText.text);
+            Debug.Log("Loading: " + progressText.text);
 
             
             if(loadProgress == 1.0f)
             {
-                //Debug.Log("Begin Fade Out");
+                Debug.Log("Begin Fade Out");
+                Debug.Log("Loading... " + sceneIndex);
                 LevelFadeOut();
             }
             
@@ -78,16 +77,14 @@ public class StartupLoader : MonoBehaviour
 
     public void LevelFadeOut()
     {
-        //Debug.Log("Level Faded Out");
+        Debug.Log("Level Faded Out");
         animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeInComplete(int sceneIndex)
     {
-        Debug.Log("Player Prefs" + PlayerPrefs.GetInt("LevelToLoad"));
         Debug.Log("Fade In complete... Loading Level: " + sceneIndex);
-        //LoadLevel(sceneIndex);
-        LoadLevel(PlayerPrefs.GetInt("LevelToLoad"));
+        LoadLevel(sceneIndex);
     }
 
     public void OnFadeOutComplete()
