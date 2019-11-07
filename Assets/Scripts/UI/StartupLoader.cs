@@ -50,7 +50,7 @@ public class StartupLoader : MonoBehaviour
             float loadProgress = Mathf.Clamp01(loadOperation.progress / .9f);
 
             loadingBar.value = loadProgress;
-            progressText.text = (loadProgress * 100f) + "%";
+            progressText.text = ((int)loadProgress * 100f) + "%";
 
             //Debug.Log("Loading: " + progressText.text);
 
