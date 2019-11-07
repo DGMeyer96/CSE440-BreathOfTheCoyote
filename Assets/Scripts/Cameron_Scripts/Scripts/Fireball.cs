@@ -21,7 +21,7 @@ public class Fireball : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.E))
         {
-           // if (cooldownTimer > 2.0f)
+            if (cooldownTimer > 2.0f)
 
              {
                 cooldownTimer = 0f;

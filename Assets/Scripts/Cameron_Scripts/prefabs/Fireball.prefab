@@ -175,3 +175,5 @@ MonoBehaviour:
   time: 0
   rb: {fileID: 0}
   puzzlehold: {fileID: 0}
+  explosion: {fileID: 5077779239261671495, guid: a7127dc3481420f4c8606cf6cb7080dc,
+    type: 3}

@@ -35,6 +35,7 @@ public class Groundslam : MonoBehaviour
                 else
                 {
                     GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
+                    Destroy(slamvfx, 2.0f);
                 }
                 cooldown = 0f;
 
@@ -45,7 +46,8 @@ public class Groundslam : MonoBehaviour
         {
             if(groundedcheck)
             {
-                GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
+                GameObject slamvfx = Instantiate(groundv1,transform.position, transform.rotation);
+                Destroy(slamvfx, 2.0f);
                 temp = false;
             }
         }

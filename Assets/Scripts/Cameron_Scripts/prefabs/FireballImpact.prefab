@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7605543847335268001
+--- !u!1 &5077779239261671495
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7605543847335267996}
-  - component: {fileID: 7605543847335267999}
-  - component: {fileID: 7605543847335267998}
-  - component: {fileID: -2498006162216529908}
-  - component: {fileID: 7893449875143388707}
+  - component: {fileID: 6718390412942994467}
+  - component: {fileID: 8056090281465556763}
+  - component: {fileID: 3553262868870487779}
   m_Layer: 0
-  m_Name: Fireballvfx
+  m_Name: FireballImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7605543847335267996
+--- !u!4 &6718390412942994467
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605543847335268001}
+  m_GameObject: {fileID: 5077779239261671495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.838534, y: 0.9889736, z: 6.478}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 1.196208, y: 2.555796, z: 3.0814104}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &7605543847335267999
+--- !u!2083052967 &8056090281465556763
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605543847335268001}
+  m_GameObject: {fileID: 5077779239261671495}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 0c293ffd23b203249ab15f5a46da3049, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 2ab3af55a8e49944c84d9801c845b296, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_PropertySheet:
@@ -51,13 +49,7 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array:
-      - m_Value: {x: 1, y: 0, z: 0}
-        m_Name: Direction
-        m_Overridden: 1
-      - m_Value: {x: 2, y: 0, z: 0}
-        m_Name: DirectionTail
-        m_Overridden: 1
+      m_Array: []
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -74,13 +66,13 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &7605543847335267998
+--- !u!73398921 &3553262868870487779
 VFXRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605543847335268001}
+  m_GameObject: {fileID: 5077779239261671495}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -91,7 +83,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -113,36 +104,3 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-2498006162216529908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605543847335268001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef06f843c86a4a43a3b16510d4bc1b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0, z: 0}
-  myEffect: {fileID: 0}
-  time: 0
-  rb: {fileID: 0}
-  puzzlehold: {fileID: 0}
---- !u!54 &7893449875143388707
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605543847335268001}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0

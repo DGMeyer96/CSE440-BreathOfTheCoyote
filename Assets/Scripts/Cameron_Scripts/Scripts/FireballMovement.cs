@@ -12,6 +12,7 @@ public class FireballMovement : MonoBehaviour
     public float time;
     public Rigidbody rb;
     public GameObject puzzlehold;
+    public GameObject explosion;
     public static readonly string DirectionBall = "Direction";
     public static readonly string DirectionTail = "DirectionTail";
 
@@ -55,14 +56,18 @@ public class FireballMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
-            
-           // Destroy(collision.gameObject);
 
-            //Switch this over to programs on the pillars end, and when they are hit, solve is set to true.
-           // Destroy(gameObject);
+        // Destroy(collision.gameObject);
 
-            
-        
-        
+        //Switch this over to programs on the pillars end, and when they are hit, solve is set to true.
+
+        GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        Destroy(blowup, 3.0f);
+
+        Destroy(gameObject);
+
+
+
+
     }
 }
