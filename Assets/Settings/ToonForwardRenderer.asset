@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ToonForwardRenderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: 0}
+  - {fileID: 2190695097398815035, guid: 457cc0843da90754b899df64c070151a, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
     copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}

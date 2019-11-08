@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8231900043764931120}
   - component: {fileID: 8231900043764931123}
   - component: {fileID: 8231900043764931122}
-  - component: {fileID: 8231900043764931121}
   - component: {fileID: 8231900043764931127}
   - component: {fileID: 8231900043764931126}
   - component: {fileID: 8231900043764931124}
@@ -115,20 +114,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &8231900043764931121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8231900043764931085}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fada9321f559a143b9b7599cc4c3437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myEffect: {fileID: 8231900043764931123}
-  player: {fileID: 0}
 --- !u!54 &8231900043764931127
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef06f843c86a4a43a3b16510d4bc1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0, z: 0}
+  speed: 12
   myEffect: {fileID: 8231900043764931123}
   time: 0
   rb: {fileID: 0}

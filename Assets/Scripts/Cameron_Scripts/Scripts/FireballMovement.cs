@@ -5,13 +5,12 @@ using UnityEngine.Experimental.VFX;
 
 public class FireballMovement : MonoBehaviour
 {
-
-    public Vector3 speed;
+    //Notes for future: change it so effects aren't spawned in single burst
+    public float speed;
     public VisualEffect myEffect;
-
     public float time;
-    public Rigidbody rb;
-    public GameObject puzzlehold;
+    private Rigidbody rb;
+    //public GameObject puzzlehold;
     public GameObject explosion;
     public static readonly string DirectionBall = "Direction";
     public static readonly string DirectionTail = "DirectionTail";
@@ -20,14 +19,15 @@ public class FireballMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         time = 0f;
         rb = GetComponent<Rigidbody>();
-        rb.velocity = (Camera.main.transform.forward * 5);
+        
+        rb.velocity = (Camera.main.transform.forward * speed);
+        Debug.Log(speed);
+
         myEffect.SetVector3(DirectionBall, -rb.velocity);
         myEffect.SetVector3(DirectionTail, -rb.velocity*2);
 
-        Debug.Log(Camera.main.transform.forward);
 
 
         // GameObject puzzlemaster = gameObject.GetComponent<StatHolder>;
@@ -37,7 +37,6 @@ public class FireballMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Camera.main.transform.forward);
 
         //  transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * speed;
         // rigidbody.AddForce(speed);
@@ -45,12 +44,16 @@ public class FireballMovement : MonoBehaviour
         //rigidbody.
         // Destroy(gameObject, 2.0f);
 
-        //    time = time + Time.deltaTime;
+            time = time + Time.deltaTime;
 
-        //    if (time > 5)
-        //    {
-
-        //    }
+            if (time > 3)
+            {
+            Destroy(gameObject);
+            GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+            Destroy(blowup, 3.0f);
+            time = 0f;
+            Debug.Log("here");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -64,7 +67,11 @@ public class FireballMovement : MonoBehaviour
         GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(blowup, 3.0f);
 
+
+        //Come back to later down the line. The attampt going on here is to try and blend the time between the ball and the explosion
         Destroy(gameObject);
+        //Destroy(gameObject, .001f);
+        time = 0f;
 
 
 
