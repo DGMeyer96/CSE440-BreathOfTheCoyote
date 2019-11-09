@@ -197,7 +197,6 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        PlayerPrefs.SetInt("LevelToLoad", 1);
         Debug.Log("Quitting Game");
         Application.Quit();
     }
@@ -228,5 +227,6 @@ public class MenuManager : MonoBehaviour
     public void OnFadeOutComplete()
     {
         SceneManager.LoadScene(0);
+        PlayerPrefs.SetInt("LevelToLoad", 2);
     }
 }

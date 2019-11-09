@@ -31,7 +31,7 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = ((int)loadProgress * 100f) + "%";
 
-            //Debug.Log("Loading: " + progressText.text);
+            Debug.Log("Loading: " + progressText.text);
 
             
             if(loadProgress == 1.0f)
