@@ -204,13 +204,4 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Elevator"))
-        {
-            transform.parent = null;
-        }
-    }
 }

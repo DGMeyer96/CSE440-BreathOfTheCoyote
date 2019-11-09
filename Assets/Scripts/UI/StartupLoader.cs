@@ -8,27 +8,8 @@ public class StartupLoader : MonoBehaviour
     public Slider loadingBar;
     public Text progressText;
     public Animator animator;
-    //public int sceneIndex;
 
     private AsyncOperation loadOperation;
-
-    private void Start()
-    {
-        //LevelFadeOut();
-        //Begin loading the main scene
-        //LoadLevel(1);
-
-        //OnFadeInComplete(1);
-
-        if (PlayerPrefs.GetInt("LevelToLoad") != 0)
-        {
-            //OnFadeComplete(PlayerPrefs.GetInt("LevelToLoad"));
-        }
-        else
-        {
-            //OnFadeComplete(1);
-        }
-    }
 
     public void LoadLevel(int sceneIndex)
     {
@@ -50,7 +31,7 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = ((int)loadProgress * 100f) + "%";
 
-            Debug.Log("Loading: " + progressText.text);
+            //Debug.Log("Loading: " + progressText.text);
 
             
             if(loadProgress == 1.0f)
@@ -65,8 +46,6 @@ public class StartupLoader : MonoBehaviour
 
             yield return null;
         }
-
-        //LevelFadeOut();
     }
 
     public void LevelFadeIn()
@@ -81,10 +60,10 @@ public class StartupLoader : MonoBehaviour
         animator.SetTrigger("FadeOut");
     }
 
-    public void OnFadeInComplete(int sceneIndex)
+    public void OnFadeInComplete()
     {
-        Debug.Log("Fade In complete... Loading Level: " + sceneIndex);
-        LoadLevel(sceneIndex);
+        Debug.Log("Fade In complete... Loading Level: " + PlayerPrefs.GetInt("LevelToLoad"));
+        LoadLevel(PlayerPrefs.GetInt("LevelToLoad"));
     }
 
     public void OnFadeOutComplete()

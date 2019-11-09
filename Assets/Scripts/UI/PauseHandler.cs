@@ -10,6 +10,8 @@ public class PauseHandler : MonoBehaviour
     public GameObject pauseMenuUI;
     public Player player;
 
+    public Animator animator;
+
     // Update is called once per frame
     void Update()
     {
@@ -47,9 +49,11 @@ public class PauseHandler : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("Loading: Main Menu");
-        player.SaveGame();
         PlayerPrefs.SetInt("LevelToLoad", 1);
-        SceneManager.LoadScene(0);
+        player.SaveGame();
+        //SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(1);
+        animator.SetTrigger("FadeOut");
     }
 
     public void QuitGame()
@@ -75,5 +79,10 @@ public class PauseHandler : MonoBehaviour
     {
         player.GetComponent<PlayerController>().enabled = true;
         //player.GetComponentInChildren<eyelook>().enabled = true;
+    }
+
+    public void OnFadeOutComplete()
+    {
+        SceneManager.LoadScene(0);
     }
 }

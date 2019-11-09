@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-5489689261684046522
+--- !u!1102 &-8876920882725847240
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -26,7 +26,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2147563941393335335
+--- !u!1102 &-946637837857673444
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -37,7 +37,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1772027160591403553}
+  - {fileID: 1609656091136206995}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -59,7 +59,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Menu_Canvas
+  m_Name: Pause_Controller
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: FadeOut
@@ -71,7 +71,7 @@ AnimatorController:
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 3723331117432781566}
+    m_StateMachine: {fileID: 3802128894925217960}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -81,7 +81,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &1772027160591403553
+--- !u!1101 &1609656091136206995
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ AnimatorStateTransition:
     m_ConditionEvent: FadeOut
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: -5489689261684046522}
+  m_DstState: {fileID: -8876920882725847240}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -106,7 +106,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1107 &3723331117432781566
+--- !u!1107 &3802128894925217960
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -116,11 +116,11 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -2147563941393335335}
-    m_Position: {x: 260, y: 10, z: 0}
+    m_State: {fileID: -946637837857673444}
+    m_Position: {x: 270, y: 10, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -5489689261684046522}
-    m_Position: {x: 260, y: 130, z: 0}
+    m_State: {fileID: -8876920882725847240}
+    m_Position: {x: 270, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -128,6 +128,6 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ExitPosition: {x: 530, y: 110, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -2147563941393335335}
+  m_DefaultState: {fileID: -946637837857673444}

@@ -14,19 +14,9 @@ public class MenuManager : MonoBehaviour
     public Texture2D dataErrorTex;
     public Texture2D dataFoundTex;
 
+    public Animator animator;
+
     private string saveGameName;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void MainMenu(GameObject prevMenu)
     {
@@ -207,6 +197,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
+        PlayerPrefs.SetInt("LevelToLoad", 1);
         Debug.Log("Quitting Game");
         Application.Quit();
     }
@@ -221,14 +212,21 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("NewGame", 1);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
-        SceneManager.LoadScene(0);
+        animator.SetTrigger("FadeOut");
+        //SceneManager.LoadScene(0);
     }
 
     public void LoadGame()
     {
         Debug.Log("Loading... " + saveGameName);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
-        SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("LevelToLoad", 2);
+        animator.SetTrigger("FadeOut");
+        //SceneManager.LoadScene(0);
+    }
+
+    public void OnFadeOutComplete()
+    {
+        SceneManager.LoadScene(0);
     }
 }
