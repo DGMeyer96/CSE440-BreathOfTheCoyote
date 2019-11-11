@@ -19,6 +19,10 @@ public class StatHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (solve1 && solve2 && solve3)
+        {
+            Debug.Log("This works");
+        }
+
     }
 }

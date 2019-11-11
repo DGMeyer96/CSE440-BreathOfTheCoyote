@@ -23,7 +23,6 @@ public class FireballMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         
         rb.velocity = (Camera.main.transform.forward * speed);
-        Debug.Log(speed);
 
         myEffect.SetVector3(DirectionBall, -rb.velocity);
         myEffect.SetVector3(DirectionTail, -rb.velocity*2);
@@ -52,7 +51,6 @@ public class FireballMovement : MonoBehaviour
             GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             Destroy(blowup, 3.0f);
             time = 0f;
-            Debug.Log("here");
         }
     }
 
