@@ -54,6 +54,7 @@ public class PauseHandler : MonoBehaviour
         //SceneManager.LoadScene(0);
         //SceneManager.LoadScene(1);
         animator.SetTrigger("FadeOut");
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()

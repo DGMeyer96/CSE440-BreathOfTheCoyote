@@ -11,6 +11,11 @@ public class StartupLoader : MonoBehaviour
 
     private AsyncOperation loadOperation;
 
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void LoadLevel(int sceneIndex)
     {
         Debug.Log("Load Level");
