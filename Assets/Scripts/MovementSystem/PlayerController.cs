@@ -58,9 +58,6 @@ public class PlayerController : MonoBehaviour
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float xtrans = transform.rotation.x;
-        float ytrans = transform.rotation.y;
-        float ztrans = transform.rotation.z;
 
         if (Input.GetAxis("Sprint") > 0 && isGrounded)
         {
