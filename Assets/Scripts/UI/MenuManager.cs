@@ -14,19 +14,9 @@ public class MenuManager : MonoBehaviour
     public Texture2D dataErrorTex;
     public Texture2D dataFoundTex;
 
+    public Animator animator;
+
     private string saveGameName;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void MainMenu(GameObject prevMenu)
     {
@@ -66,18 +56,18 @@ public class MenuManager : MonoBehaviour
             //Set image to saved image
             tex = new Texture2D(2, 2);
             tex.LoadImage(save1.texData);
-            saveGame1.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            saveGame1.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame1.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + save1.playTime + "\n" + "Date: " + save1.playDate;
+            saveGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save1.playTime + "\n" + "Date: " + save1.playDate;
         }
         else
         {
             Debug.Log("[GAMEMANAGER] No save found");
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            saveGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            saveGame1.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            saveGame1.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            saveGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
 
         if (save2 != null)
@@ -85,17 +75,17 @@ public class MenuManager : MonoBehaviour
             tex = new Texture2D(2, 2);
             tex.LoadImage(save2.texData);
             //Set image to saved image
-            saveGame2.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            saveGame2.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame2.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + save2.playTime + "\n" + "Date: " + save2.playDate;
+            saveGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save2.playTime + "\n" + "Date: " + save2.playDate;
         }
         else
         {
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            saveGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            saveGame2.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            saveGame2.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            saveGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
 
         if (save3 != null)
@@ -103,17 +93,17 @@ public class MenuManager : MonoBehaviour
             tex = new Texture2D(2, 2);
             tex.LoadImage(save3.texData);
             //Set image to saved image
-            saveGame3.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            saveGame3.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame3.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + save3.playTime + "\n" + "Date: " + save3.playDate;
+            saveGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save3.playTime + "\n" + "Date: " + save3.playDate;
         }
         else
         {
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            saveGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            saveGame3.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            saveGame3.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            saveGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
     }
 
@@ -143,17 +133,17 @@ public class MenuManager : MonoBehaviour
 
             tex = new Texture2D(2, 2);
             tex.LoadImage(load1.texData);
-            loadGame1.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            loadGame1.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame1.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + load1.playTime + "\n" + "Date: " + load1.playDate;
+            loadGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load1.playTime + "\n" + "Date: " + load1.playDate;
         }
         else
         {
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            loadGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            loadGame1.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            loadGame1.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            loadGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
 
         if (load2 != null)
@@ -164,17 +154,17 @@ public class MenuManager : MonoBehaviour
             tex = new Texture2D(2, 2);
             tex.LoadImage(load2.texData);
             //Set image to saved image
-            loadGame2.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            loadGame2.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame2.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + load2.playTime + "\n" + "Date: " + load2.playDate;
+            loadGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load2.playTime + "\n" + "Date: " + load2.playDate;
         }
         else
         {
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            loadGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            loadGame2.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            loadGame2.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            loadGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
 
         if (load3 != null)
@@ -185,17 +175,17 @@ public class MenuManager : MonoBehaviour
             tex = new Texture2D(2, 2);
             tex.LoadImage(load3.texData);
             //Set image to saved image
-            loadGame3.transform.GetChild(0).GetComponent<RawImage>().texture = tex;
+            loadGame3.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame3.transform.GetChild(2).GetComponent<Text>().text = "Play Time: " + load3.playTime + "\n" + "Date: " + load3.playDate;
+            loadGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load3.playTime + "\n" + "Date: " + load3.playDate;
         }
         else
         {
             tex = new Texture2D(2, 2);
             //No existing Player Data, use defaults
-            loadGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataErrorTex;
-            loadGame3.transform.GetChild(2).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
+            loadGame3.transform.GetChild(1).GetComponent<RawImage>().texture = dataErrorTex;
+            loadGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: N/A" + "\n" + "Date: N/A";
         }
     }
 
@@ -221,13 +211,21 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt("NewGame", 1);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
-        SceneManager.LoadScene(0);
+        animator.SetTrigger("FadeOut");
+        //SceneManager.LoadScene(0);
     }
 
     public void LoadGame()
     {
         Debug.Log("Loading... " + saveGameName);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
+        PlayerPrefs.SetInt("LevelToLoad", 2);
+        animator.SetTrigger("FadeOut");
+        //SceneManager.LoadScene(0);
+    }
+
+    public void OnFadeOutComplete()
+    {
         SceneManager.LoadScene(0);
         PlayerPrefs.SetInt("LevelToLoad", 2);
     }

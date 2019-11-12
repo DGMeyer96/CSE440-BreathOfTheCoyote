@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gameCanvas.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        //GameObject.Find("PauseMenu").gameObject.SetActive(false);
+
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         if (player != null)
         {

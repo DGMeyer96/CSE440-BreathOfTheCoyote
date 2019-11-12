@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     private bool candash;
     public bool dashing;
     public bool isfalling;
-    private bool isGrounded;
+    public bool isGrounded;
+	public Camera cam;
+    private Vector3 movement;
 
     void Start()
     {
@@ -38,11 +40,13 @@ public class PlayerController : MonoBehaviour
         dashing = false;
         timerdash = 0f;
         timer = 0f;
-        animate.SetTrigger("isNotWalking");
+        //animate.SetTrigger("isNotWalking");
     }
 
     void FixedUpdate()
     {
+        Debug.Log("jump " + isGrounded);
+
         WalkHandler();
         DashHandler();
         JumpHandler();
@@ -69,12 +73,11 @@ public class PlayerController : MonoBehaviour
         }
         if (moveVertical < 0)
         {
-            speedS = .9f;
+            speedS = speed / 1.5f;
             animate.speed = 1f;
 
         }
 
-        Vector3 movement;
         if (isGrounded)//restricts movement on the x axis if the pla,yer is jumping
         {
             movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
@@ -96,6 +99,8 @@ public class PlayerController : MonoBehaviour
         }
         if (movement.magnitude > 0)
         {
+            transform.parent = null;
+
             //when moving, the animation for walking plays
             //animate.ResetTrigger("isNotWalking");
             //animate.SetTrigger("isWalking");
@@ -103,9 +108,11 @@ public class PlayerController : MonoBehaviour
 
             //speed of walking
             animate.speed = 2.0f;
-
+			
+			
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
+            //fwd.x = 0;
             fwd = fwd.normalized;
             if (fwd.magnitude > 0.001f)
             {
@@ -119,7 +126,10 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
                 }
             }
-
+        }
+        if (movement.magnitude == 0 && isGrounded)
+        {
+           // rb.velocity = Vector3.zero;
         }
     }
     private void DashHandler()
@@ -165,7 +175,6 @@ public class PlayerController : MonoBehaviour
     }
     private void JumpHandler()
     {
-        //Debug.Log(isGrounded);
         float moveJump = Input.GetAxis("Jump");
         if (isGrounded && moveJump > 0)
         {
@@ -176,9 +185,23 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
         }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Elevator") && movement.magnitude == 0)
+        {
+            transform.parent = collision.transform;
+        }
+        if (movement.magnitude != 0)
+        {
+            transform.parent = null;
+        }
+
+
     }
 }
