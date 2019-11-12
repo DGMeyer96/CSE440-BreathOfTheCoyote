@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     public bool isfalling;
     public bool isGrounded;
 	public Camera cam;
-    private Vector3 movement;
+    private Vector3 movement;//controlls rotation
+    private Vector3 movement2;//controlls movement forces
 
     void Start()
     {
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log("jump " + isGrounded);
+        //Debug.Log("jump " + isGrounded);
 
         WalkHandler();
         DashHandler();
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
+
         if (Input.GetAxis("Sprint") > 0 && isGrounded)
         {
             speedS = speed * 2f;
@@ -108,8 +110,6 @@ public class PlayerController : MonoBehaviour
 
             //speed of walking
             animate.speed = 2.0f;
-			
-			
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
             //fwd.x = 0;
@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
                     rb.MovePosition(transform.position + movement);
                     transformrotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
                     transform.rotation = Quaternion.Slerp(transform.rotation, transformrotation, Time.deltaTime * smooth);
+
                 }
             }
         }
@@ -202,6 +203,12 @@ public class PlayerController : MonoBehaviour
             transform.parent = null;
         }
 
-
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Elevator"))
+        {
+            transform.parent = null;
+        }
     }
 }
