@@ -24,7 +24,7 @@ public class Groundslam : MonoBehaviour
         groundedcheck = GetComponent<PlayerController>().isGrounded;
         if (cooldown > 2)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetAxis("Groundslam") > 0)
             {
                 if (!groundedcheck)
 
