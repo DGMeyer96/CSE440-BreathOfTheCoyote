@@ -10,7 +10,8 @@ TagManager:
   - Ground
   - ground
   - Pick Up
-  - Elevator
+  - EnemySpawn
+  - AI
   layers:
   - Default
   - TransparentFX
