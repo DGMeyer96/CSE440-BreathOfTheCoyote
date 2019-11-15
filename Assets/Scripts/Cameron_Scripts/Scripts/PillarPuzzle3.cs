@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PillarPuzzle3 : MonoBehaviour
 {
+
+    public GameObject lit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,8 @@ public class PillarPuzzle3 : MonoBehaviour
         if (collision.gameObject.GetComponent<FireballMovement>() != null)
         {
             gameObject.GetComponentInParent<StatHolder>().solve3 = true;
+            GameObject floom = Instantiate(lit, transform.position, Quaternion.identity);
+
         }
     }
 }
