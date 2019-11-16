@@ -49,7 +49,7 @@ public class FireballMovement : MonoBehaviour
             {
             Destroy(gameObject);
             GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(blowup, 3.0f);
+            Destroy(blowup, 5.0f);
             time = 0f;
         }
     }

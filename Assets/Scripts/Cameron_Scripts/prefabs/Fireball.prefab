@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef06f843c86a4a43a3b16510d4bc1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 16
   myEffect: {fileID: 8231900043764931123}
   time: 0
   explosion: {fileID: 5077779239261671495, guid: a7127dc3481420f4c8606cf6cb7080dc,

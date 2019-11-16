@@ -29,7 +29,7 @@ public class Groundslam : MonoBehaviour
                 if (!groundedcheck)
 
                 {
-                    rb.AddForce(0, -1000, 0);
+                    rb.AddForce(0, -1500, 0);
                     temp = true;
                 }
                 else

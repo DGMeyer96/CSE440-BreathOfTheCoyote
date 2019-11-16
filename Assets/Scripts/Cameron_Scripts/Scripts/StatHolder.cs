@@ -8,6 +8,7 @@ public class StatHolder : MonoBehaviour
     public bool solve1;
     public bool solve2;
     public bool solve3;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,12 @@ public class StatHolder : MonoBehaviour
         if (solve1 && solve2 && solve3)
         {
             Debug.Log("This works");
+            OpenChest();
         }
 
+    }
+    void OpenChest()
+    {
+        animator.SetTrigger("OpenChest");
     }
 }
