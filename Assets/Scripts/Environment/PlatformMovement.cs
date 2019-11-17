@@ -11,13 +11,7 @@ public class PlatformMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (current != 0 && transform.position != points[current].transform.position)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
-
-        }
-        if (current == 0 && transform.position != points[current].transform.position)
+        if (transform.position != points[current].transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
         }

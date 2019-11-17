@@ -1514,13 +1514,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50baf4451f6c8f44fa4abda33c395d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpSpeed: 300
+  speed: 8
+  jumpSpeed: 500
   dashSpeed: 20
   timetodash: 0.4
   cooldowntime: 3
   dashing: 0
   isfalling: 0
+  isGrounded: 0
+  cam: {fileID: 0}
 --- !u!114 &8978536176503676267
 MonoBehaviour:
   m_ObjectHideFlags: 0
