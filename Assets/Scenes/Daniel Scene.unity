@@ -28728,7 +28728,7 @@ PrefabInstance:
     - target: {fileID: 8978536177077934654, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -5.328424e-16
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8978536177077934654, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
@@ -28753,7 +28753,7 @@ PrefabInstance:
     - target: {fileID: 8978536177077934654, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 3.5125285e-15
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8978536177036421782, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
@@ -28773,7 +28773,7 @@ PrefabInstance:
     - target: {fileID: 8978536177036421782, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000018959156
+      value: -0.0000000018959154
       objectReference: {fileID: 0}
     - target: {fileID: 8978536177036421782, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
@@ -28808,7 +28808,7 @@ PrefabInstance:
     - target: {fileID: 8978536176922359424, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000023494813
+      value: -0.000000023494811
       objectReference: {fileID: 0}
     - target: {fileID: 8978536176922359424, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
@@ -28838,12 +28838,12 @@ PrefabInstance:
     - target: {fileID: 8978536177529318869, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004959635
+      value: -0.000000049596334
       objectReference: {fileID: 0}
     - target: {fileID: 8978536177529318869, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000005071682
+      value: 0.00000050716795
       objectReference: {fileID: 0}
     - target: {fileID: 8978536177529318869, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
@@ -28950,6 +28950,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BindingMode
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978536177491361177, guid: eaa72822a725304489f871cce9d0b25a,
+        type: 3}
+      propertyPath: m_YAxis.m_InputAxisName
+      value: Mouse Y joy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978536177491361177, guid: eaa72822a725304489f871cce9d0b25a,
+        type: 3}
+      propertyPath: m_XAxis.m_InputAxisName
+      value: Mouse X joy
       objectReference: {fileID: 0}
     - target: {fileID: 8978536178352879470, guid: eaa72822a725304489f871cce9d0b25a,
         type: 3}
