@@ -186,9 +186,34 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collided with: " + collision.gameObject.name);
+
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
+        }
+
+        if (collision.gameObject.name == "TrialOfMind")
+        {
+            Debug.Log("Entered Trial Of Mind");
+        }
+
+        if (collision.gameObject.name == "TrialOfAgility" && GetComponent<Player>().TrialOfAgility != true)
+        {
+            GetComponent<Player>().TrialOfAgility = true;
+            GetComponent<Player>().SaveGame();
+        }
+
+        if (collision.gameObject.name == "TrialOfMind" && GetComponent<Player>().TrialOfMind != true)
+        {
+            GetComponent<Player>().TrialOfMind = true;
+            GetComponent<Player>().SaveGame();
+        }
+
+        if (collision.gameObject.name == "TrialOfStrength" && GetComponent<Player>().TrialOfStrength != true)
+        {
+            GetComponent<Player>().TrialOfStrength = true;
+            GetComponent<Player>().SaveGame();
         }
     }
     private void OnCollisionStay(Collision collision)

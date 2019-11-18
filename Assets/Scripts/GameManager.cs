@@ -52,6 +52,11 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        if(player.TrialOfAgility && player.TrialOfMind && player.TrialOfStrength)
+        {
+            GameWin();
+        }
     }
 
     public void GameOver()
