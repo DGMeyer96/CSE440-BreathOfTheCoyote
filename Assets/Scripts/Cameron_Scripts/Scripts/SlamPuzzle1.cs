@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PillarPuzzle1 : MonoBehaviour
+public class SlamPuzzle1 : MonoBehaviour
 {
 
     public GameObject lit;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
-    }
 
+    }
     private void OnTriggerEnter(Collider collision)
     {
-
-        if (collision.gameObject.GetComponent<FireballMovement>() != null)
+        Debug.Log("runs");
+        if (GameObject.Find("GroundSlam") != null)
+      //  if (collision.gameObject.GetComponent<Groundslammer>() != null)
         {
+            Debug.Log("It gets here");
             gameObject.GetComponentInParent<StatHolder>().solve1 = true;
             GameObject floom = Instantiate(lit, transform.position, Quaternion.identity);
         }

@@ -17,7 +17,7 @@ public class PillarPuzzle2 : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
 
         if (collision.gameObject.GetComponent<FireballMovement>() != null)
