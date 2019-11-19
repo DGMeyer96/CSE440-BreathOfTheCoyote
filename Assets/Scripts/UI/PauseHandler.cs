@@ -86,4 +86,10 @@ public class PauseHandler : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void AutosaveComplete()
+    {
+        Debug.Log("Autosave Complete");
+        animator.SetBool("Saving", false);
+    }
 }

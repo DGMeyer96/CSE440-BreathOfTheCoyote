@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 50f;
     public float dashSpeed = 20f;
 
+    public GameObject MindTrophy;
+    public GameObject StrengthTrophy;
+    public GameObject AgilityTrophy;
+
+    public Animator CanvasAnimator;
+
     private Quaternion transformrotation;
     private Rigidbody rb;
 
@@ -33,6 +39,10 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animate = GetComponent<Animator>();
+
+        MindTrophy.SetActive(false);
+        StrengthTrophy.SetActive(false);
+        AgilityTrophy.SetActive(false);
 
         isfalling = false;
         isGrounded = false;
@@ -186,34 +196,45 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        //Debug.Log("Collided with: " + collision.gameObject.name);
 
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
         }
 
-        if (collision.gameObject.name == "TrialOfMind")
+        /*
+        if (collision.gameObject.name == "Mind Trophy")
         {
             Debug.Log("Entered Trial Of Mind");
         }
+        */
 
-        if (collision.gameObject.name == "TrialOfAgility" && GetComponent<Player>().TrialOfAgility != true)
+        if (collision.gameObject.name == "Agility Trophy" && GetComponent<Player>().TrialOfAgility != true)
         {
             GetComponent<Player>().TrialOfAgility = true;
             GetComponent<Player>().SaveGame();
+            AgilityTrophy.SetActive(true);
+            CanvasAnimator.SetBool("Saving", true);
+            Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.name == "TrialOfMind" && GetComponent<Player>().TrialOfMind != true)
+        if (collision.gameObject.name == "Mind Trophy" && GetComponent<Player>().TrialOfMind != true)
         {
             GetComponent<Player>().TrialOfMind = true;
             GetComponent<Player>().SaveGame();
+            MindTrophy.SetActive(true);
+            CanvasAnimator.SetBool("Saving", true);
+            Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.name == "TrialOfStrength" && GetComponent<Player>().TrialOfStrength != true)
+        if (collision.gameObject.name == "Strength Trophy" && GetComponent<Player>().TrialOfStrength != true)
         {
             GetComponent<Player>().TrialOfStrength = true;
             GetComponent<Player>().SaveGame();
+            StrengthTrophy.SetActive(true);
+            CanvasAnimator.SetBool("Saving", true);
+            Destroy(collision.gameObject);
         }
     }
     private void OnCollisionStay(Collision collision)

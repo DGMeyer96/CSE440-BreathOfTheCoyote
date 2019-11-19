@@ -49,6 +49,7 @@ public class MenuManager : MonoBehaviour
         //Debug.Log("[GAMEMANAGER] " + save3.saveName);
 
         Texture2D tex = new Texture2D(2, 2);
+        string time;
 
         //Check if Player Data exists
         if (save1 != null)
@@ -59,7 +60,8 @@ public class MenuManager : MonoBehaviour
             saveGame1.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save1.playTime + "\n" + "Date: " + save1.playDate;
+            time = (int)(save1.playTime / 60) + "min " + (int)(save1.playTime % 60) + "sec";
+            saveGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + save1.playDate;
         }
         else
         {
@@ -78,7 +80,8 @@ public class MenuManager : MonoBehaviour
             saveGame2.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save2.playTime + "\n" + "Date: " + save2.playDate;
+            time = (int)(save2.playTime / 60) + "min " + (int)(save2.playTime % 60) + "sec";
+            saveGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + save2.playDate;
         }
         else
         {
@@ -96,7 +99,8 @@ public class MenuManager : MonoBehaviour
             saveGame3.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //saveGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            saveGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + save3.playTime + "\n" + "Date: " + save3.playDate;
+            time = (int)(save3.playTime / 60) + "min " + (int)(save3.playTime % 60) + "sec";
+            saveGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + save3.playDate;
         }
         else
         {
@@ -123,6 +127,7 @@ public class MenuManager : MonoBehaviour
         PlayerData load3 = SaveSystem.LoadPlayerData("Save3.sav");
 
         Texture2D tex = new Texture2D(2, 2);
+        string time;
 
         //Check if Player Data exists
         if (load1 != null)
@@ -136,7 +141,8 @@ public class MenuManager : MonoBehaviour
             loadGame1.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame1.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load1.playTime + "\n" + "Date: " + load1.playDate;
+            time = (int)(load1.playTime / 60) + "min " + (int)(load1.playTime % 60) + "sec";
+            loadGame1.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + load1.playDate;
         }
         else
         {
@@ -157,7 +163,8 @@ public class MenuManager : MonoBehaviour
             loadGame2.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame2.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load2.playTime + "\n" + "Date: " + load2.playDate;
+            time = (int)(load2.playTime / 60) + "min " + (int)(load2.playTime % 60) + "sec";
+            loadGame2.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + load2.playDate;
         }
         else
         {
@@ -178,7 +185,8 @@ public class MenuManager : MonoBehaviour
             loadGame3.transform.GetChild(1).GetComponent<RawImage>().texture = tex;
             //loadGame3.transform.GetChild(0).GetComponent<RawImage>().texture = dataFoundTex;
             //Set description text to saved date and time
-            loadGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + load3.playTime + "\n" + "Date: " + load3.playDate;
+            time = (int)(load3.playTime / 60) + "min " + (int)(load3.playTime % 60) + "sec";
+            loadGame3.transform.GetChild(3).GetComponent<Text>().text = "Play Time: " + time + "\n" + "Date: " + load3.playDate;
         }
         else
         {
