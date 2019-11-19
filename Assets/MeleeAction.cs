@@ -5,7 +5,8 @@ using UnityEngine;
 public class MeleeAction : MonoBehaviour
 {
     Animator meleeAction;
-    private int meleeCounter = 0;
+    private int weaponCounter = 0;
+    
 
     void Start()
     {
@@ -15,20 +16,35 @@ public class MeleeAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        meleeAction.ResetTrigger("Melee");
-        if (Input.GetMouseButton(0) && meleeCounter == 0)
+        if (Input.GetMouseButton(0) && weaponCounter == 0)
         {
-            meleeAction.SetTrigger("Melee");
-            meleeCounter = 1;
-            
-            
+            meleeAction.SetBool("FirstAttack", true);
+            weaponCounter = 1;
+        }
+
+        else if(Input.GetMouseButton(0) && weaponCounter == 1)
+        {
+            meleeAction.SetBool("SecondAttack", true);
+            weaponCounter = 0;
+                
+        }
+        else
+        {
+            meleeAction.SetBool("FirstAttack", false);
+            meleeAction.SetBool("SecondAttack", false);
             
         }
 
-        
+        /*else if(Input.GetMouseButtonDown(0) && weaponCounter == 1)
+        {
+            meleeAction.SetBool("SecondAttack", true);
+            weaponCounter = 2;
+        }*/
 
-
-        
-        
+        //if (Input.GetMouseButton(0))
+        //{
+        //    meleeAction.SetBool("FirstAttack", false);
+        //    //meleeAction.SetBool("SecondAttack", false);
+        //}
     }
 }
