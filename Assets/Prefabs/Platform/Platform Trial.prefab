@@ -3369,7 +3369,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026464853551192}
   - component: {fileID: 4213026464853551174}
-  - component: {fileID: 4213026464853551193}
   m_Layer: 0
   m_Name: Easter island Pillars (3)
   m_TagString: Untagged
@@ -3397,20 +3396,6 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 1, y: 124.11, z: 14.08}
 --- !u!64 &4213026464853551174
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026464853551195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026464853551193
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3650,7 +3635,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026464930939403}
   - component: {fileID: 4213026464930939401}
-  - component: {fileID: 4213026464930939400}
   m_Layer: 0
   m_Name: Easter island Pillars (6)
   m_TagString: Untagged
@@ -3678,20 +3662,6 @@ Transform:
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 279, z: -7}
 --- !u!64 &4213026464930939401
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026464930939402}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026464930939400
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5048,7 +5018,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026465282940729}
   - component: {fileID: 4213026465282940711}
-  - component: {fileID: 4213026465282940710}
   m_Layer: 0
   m_Name: Easter island Pillars (4)
   m_TagString: Untagged
@@ -5089,20 +5058,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
---- !u!64 &4213026465282940710
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026465282940728}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!1 &4213026465286418775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,7 +5068,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026465286418772}
   - component: {fileID: 4213026465286418770}
-  - component: {fileID: 4213026465286418773}
   m_Layer: 0
   m_Name: Easter island Pillars (5)
   m_TagString: Untagged
@@ -5141,20 +5095,6 @@ Transform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 227.43, z: -3.37}
 --- !u!64 &4213026465286418770
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026465286418775}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026465286418773
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6447,7 +6387,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026465716570606}
   - component: {fileID: 4213026465716570604}
-  - component: {fileID: 4213026465716570607}
   m_Layer: 0
   m_Name: Easter island Pillars (1)
   m_TagString: Untagged
@@ -6475,20 +6414,6 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -1.33, y: 44.4, z: 0}
 --- !u!64 &4213026465716570604
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026465716570593}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026465716570607
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7921,7 +7846,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026466256307828}
   - component: {fileID: 4213026466256307826}
-  - component: {fileID: 4213026466256307829}
   m_Layer: 0
   m_Name: Easter island Pillars (7)
   m_TagString: Untagged
@@ -7949,20 +7873,6 @@ Transform:
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 311.4, z: -2.5}
 --- !u!64 &4213026466256307826
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026466256307831}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026466256307829
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8817,7 +8727,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4213026466563381663}
   - component: {fileID: 4213026466563381661}
-  - component: {fileID: 4213026466563381660}
   m_Layer: 0
   m_Name: Easter island Pillars
   m_TagString: Untagged
@@ -8844,20 +8753,6 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -3.4, y: -2.5, z: -2.39}
 --- !u!64 &4213026466563381661
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213026466563381662}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!64 &4213026466563381660
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
