@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -186,6 +186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Menu_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757825084572026694, guid: d126f8fc85d62a7458968e408f3537b3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8757825084572026690, guid: d126f8fc85d62a7458968e408f3537b3,
         type: 3}
@@ -682,6 +687,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6979240457887181953, guid: d126f8fc85d62a7458968e408f3537b3,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2297715896728985052, guid: d126f8fc85d62a7458968e408f3537b3,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -772,7 +782,7 @@ PrefabInstance:
     - target: {fileID: 6679065549463613118, guid: d126f8fc85d62a7458968e408f3537b3,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2470900944967258221, guid: d126f8fc85d62a7458968e408f3537b3,
         type: 3}
@@ -2293,6 +2303,21 @@ MonoBehaviour:
   masterMixer: {fileID: 24100000, guid: 2ef755e36c761b74e82909ceab0e8a58, type: 2}
   resolutionDropdown: {fileID: 639844948}
   lookSensitivity: 4
+--- !u!114 &1039612139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039612137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc86b6fb73640514fb486e9b61e8356a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingBar: {fileID: 0}
+  progressText: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &1074862353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2729844233568542118, guid: d126f8fc85d62a7458968e408f3537b3,

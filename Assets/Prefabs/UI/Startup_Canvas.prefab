@@ -111,7 +111,7 @@ RectTransform:
   - {fileID: 3620143670428749481}
   - {fileID: 3620143670131484025}
   m_Father: {fileID: 3620143670112650277}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -350,7 +350,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3620143670112650277}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -429,9 +429,9 @@ RectTransform:
   m_Children:
   - {fileID: 3620143670501557862}
   - {fileID: 3620143668990814018}
+  - {fileID: 4937441599966543264}
   - {fileID: 3620143669246767419}
   - {fileID: 3620143670105587990}
-  - {fileID: 4937441599966543264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -779,7 +779,7 @@ PrefabInstance:
     - target: {fileID: 8482367900119292528, guid: f0ebba5efc605424b9f7a2fda780aaf6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8482367900119292528, guid: f0ebba5efc605424b9f7a2fda780aaf6,
         type: 3}
@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 8482367900119292528, guid: f0ebba5efc605424b9f7a2fda780aaf6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000015258789
       objectReference: {fileID: 0}
     - target: {fileID: 8482367900119292528, guid: f0ebba5efc605424b9f7a2fda780aaf6,
         type: 3}
@@ -845,6 +845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482367900119292528, guid: f0ebba5efc605424b9f7a2fda780aaf6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ebba5efc605424b9f7a2fda780aaf6, type: 3}

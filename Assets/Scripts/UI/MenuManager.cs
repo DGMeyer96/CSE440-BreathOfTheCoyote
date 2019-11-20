@@ -216,10 +216,11 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        PlayerPrefs.SetInt("NewGame", 1);
+        //PlayerPrefs.SetInt("NewGame", 1);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
         animator.SetTrigger("FadeOut");
+        gameObject.GetComponent<StartupLoader>().LoadLevel(1);
         //SceneManager.LoadScene(0);
     }
 
@@ -229,6 +230,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
         animator.SetTrigger("FadeOut");
+        gameObject.GetComponent<StartupLoader>().LoadLevel(1);
         //SceneManager.LoadScene(0);
     }
 

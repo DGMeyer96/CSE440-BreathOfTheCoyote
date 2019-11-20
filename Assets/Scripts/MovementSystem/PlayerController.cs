@@ -216,7 +216,9 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().SaveGame();
             AgilityTrophy.SetActive(true);
             CanvasAnimator.SetBool("Saving", true);
-            Destroy(collision.gameObject);
+            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.name == "Mind Trophy" && GetComponent<Player>().TrialOfMind != true)
@@ -225,7 +227,9 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().SaveGame();
             MindTrophy.SetActive(true);
             CanvasAnimator.SetBool("Saving", true);
-            Destroy(collision.gameObject);
+            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.name == "Strength Trophy" && GetComponent<Player>().TrialOfStrength != true)
@@ -234,7 +238,21 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().SaveGame();
             StrengthTrophy.SetActive(true);
             CanvasAnimator.SetBool("Saving", true);
-            Destroy(collision.gameObject);
+            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+        }
+
+        if(collision.gameObject.name == "Village" && GetComponent<Player>().TrialOfAgility == true 
+            && GetComponent<Player>().TrialOfStrength == true && GetComponent<Player>().TrialOfMind == true)
+        {
+            Debug.Log("Loading: Main Menu");
+            PlayerPrefs.SetInt("LevelToLoad", 1);
+            GetComponent<Player>().SaveGame();
+            //SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(1);
+            CanvasAnimator.SetTrigger("FadeOut");
+            //Time.timeScale = 1f;
         }
     }
     private void OnCollisionStay(Collision collision)
