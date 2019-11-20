@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
         StrengthTrophy.SetActive(false);
         AgilityTrophy.SetActive(false);
 
+        
+
         isfalling = false;
         isGrounded = false;
 
@@ -61,6 +63,21 @@ public class PlayerController : MonoBehaviour
         WalkHandler();
         DashHandler();
         JumpHandler();
+
+        if (GetComponent<Player>().TrialOfAgility == true)
+        {
+            AgilityTrophy.SetActive(true);
+        }
+
+        if (GetComponent<Player>().TrialOfMind == true)
+        {
+            MindTrophy.SetActive(true);
+        }
+
+        if (GetComponent<Player>().TrialOfStrength == true)
+        {
+            StrengthTrophy.SetActive(true);
+        }
     }
 
     void WalkHandler()

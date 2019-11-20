@@ -216,7 +216,7 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        //PlayerPrefs.SetInt("NewGame", 1);
+        PlayerPrefs.SetInt("NewGame", 1);
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
         animator.SetTrigger("FadeOut");
