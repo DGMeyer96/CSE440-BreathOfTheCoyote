@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 653563973643636155}
   - component: {fileID: 12919352323017257}
   - component: {fileID: 1981956860670012893}
+  - component: {fileID: 3386235771055940513}
   m_Layer: 0
   m_Name: SwordImpact
   m_TagString: Untagged
@@ -84,6 +85,7 @@ VFXRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,3 +106,16 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3386235771055940513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5984861962652982660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db75d6dd256c8942b39ad67a87b2e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEffect: {fileID: 12919352323017257}

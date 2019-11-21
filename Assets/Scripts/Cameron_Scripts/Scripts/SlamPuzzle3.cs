@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlamPuzzle3 : MonoBehaviour
 {
     public GameObject lit;
+    public bool spawnvfx;
 
     void Start()
     {

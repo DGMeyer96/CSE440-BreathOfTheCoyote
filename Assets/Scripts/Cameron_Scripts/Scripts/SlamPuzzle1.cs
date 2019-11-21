@@ -6,6 +6,7 @@ public class SlamPuzzle1 : MonoBehaviour
 {
 
     public GameObject lit;
+    public bool spawnvfx = false;
 
     void Start()
     {
@@ -13,17 +14,14 @@ public class SlamPuzzle1 : MonoBehaviour
     }
     void Update()
     {
-
+        if (spawnvfx == true)
+        {
+            GameObject floom = Instantiate(lit, transform.position, Quaternion.identity);
+            spawnvfx = false;
+        }
     }
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("runs");
-        if (GameObject.Find("GroundSlam") != null)
-      //  if (collision.gameObject.GetComponent<Groundslammer>() != null)
-        {
-            Debug.Log("It gets here");
-            gameObject.GetComponentInParent<StatHolder>().solve1 = true;
-            GameObject floom = Instantiate(lit, transform.position, Quaternion.identity);
-        }
+        Debug.Log(collision);
     }
 }

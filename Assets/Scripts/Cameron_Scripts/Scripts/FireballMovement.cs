@@ -64,7 +64,14 @@ public class FireballMovement : MonoBehaviour
 
         GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(blowup, 3.0f);
-
+        if(collision.gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            collision.gameObject.GetComponent<EnemyHealth>().isDamaged = true;
+        }
+        else if (collision.gameObject.GetComponent<PlayerHealth>() != null)
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().isDamaged = true;
+        }
 
         //Come back to later down the line. The attampt going on here is to try and blend the time between the ball and the explosion
         Destroy(gameObject);

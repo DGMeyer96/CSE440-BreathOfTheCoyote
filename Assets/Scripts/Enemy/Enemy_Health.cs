@@ -2,35 +2,40 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-   
-    public float maxHealth = 50;              // The amount of health the enemy starts the game with.
+
+    //private CharacterControl ccRef;
+    public float maxHealth = 50;                    // The amount of health the enemy starts the game with.
     public float currentHealth;                    // The current health the enemy has.
+    //public slider heartSlider;
+
+    public Animator animate;                              // Reference to the animator.
 
 
-    Animator animate;                              // Reference to the animator.
-           
+    bool isDead;                                  //Checks whether the enemy is Dead
+    public bool isDamaged;
+    //Checks whether enemy has been damaged
 
-    bool isDead;                                  // Whether the enemy is dead.
 
-    void Awake()
+
+    void Start()
     {
-        // Setting up the references.
-        animate = GetComponent<Animator>();
-       
-        // Setting the current health when the enemy first spawns.
         currentHealth = maxHealth;
+     //   ccRef = GetComponent<CharacterControl>();
     }
 
-     void Update()
+
+
+
+    void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
             Dead();
     }
 
-    public void Damage(float  damageAmount, Vector3 hitPoint)
+    public void Damage(float damageAmount, Vector3 hitPoint)
     {
-      
-
+        //The enemy is damaged
+        isDamaged = true;
 
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= damageAmount;
@@ -38,7 +43,7 @@ public class EnemyHealth : MonoBehaviour
 
 
         // If the current health is less than or equal to zero...
-       
+
     }
 
     void Dead()

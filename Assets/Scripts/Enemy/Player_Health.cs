@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
    Animator animate;                                              // Reference to the Animator component.                                 
     //PlayerController playerController;                        //Reference to Ben's Player Controller Script(Commented out since I didnt download that script yet.)                            
     bool isDead;                                               
-    bool isDamaged;
+   public bool isDamaged;
 
     void Awake()
     {
