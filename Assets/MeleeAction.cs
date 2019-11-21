@@ -29,14 +29,26 @@ public class MeleeAction : MonoBehaviour
                 cooldown = 0;
                 Attack();
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Fireball();
+            }
         }
         cooldown += Time.deltaTime;
-        if(reset > 2f)
+
+        if(reset > 1f)
+        {
+            meleeAction.SetBool("Fireball", false);
+        }
+        if(reset > 3f)
         {
             reset = 0f;
             attackCounter = 0;
             meleeAction.SetBool("FirstAttack", false);
             meleeAction.SetBool("SecondAttack", false);
+            meleeAction.SetBool("FinalAttack", false);
+            
         }
 
         reset += Time.deltaTime;
@@ -56,9 +68,18 @@ public class MeleeAction : MonoBehaviour
         {
             meleeAction.SetBool("FirstAttack", false);
             meleeAction.SetBool("SecondAttack", true);
-            attackCounter = 0;
+            attackCounter = 2;
             reset = 0f;
         }
+
+        else if (attackCounter == 2)
+        {
+            meleeAction.SetBool("SecondAttack", false);
+            meleeAction.SetBool("FinalAttack", true);
+            reset = 0f;
+        }
+
+       
     /*if (Input.GetMouseButtonDown(0) && attackCounter == 0)
         {
             meleeAction.SetBool("FirstAttack", true);
@@ -79,6 +100,11 @@ public class MeleeAction : MonoBehaviour
             meleeAction.SetBool("StopAttack", true);
             attackCounter = 0;
         }*/
+    }
+
+    private void Fireball()
+    {
+        meleeAction.SetBool("Fireball", true);
     }
 
 }

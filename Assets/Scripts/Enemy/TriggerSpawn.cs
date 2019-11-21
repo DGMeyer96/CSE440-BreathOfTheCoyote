@@ -6,6 +6,8 @@ public class TriggerSpawn : MonoBehaviour
 {
     public GameObject AI;
     public Transform aiPosition;
+    public GameObject Enemy2;
+    public GameObject FinalBoss;
     private int spawnCounter = 0;
     
 
@@ -17,10 +19,7 @@ public class TriggerSpawn : MonoBehaviour
 
     private void Update()
     {
-        /*if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter < 3){
-            Instantiate(AI, aiPosition.position, aiPosition.rotation);
-            spawnCounter++;
-        }*/
+        
 
     }
 
@@ -28,9 +27,21 @@ public class TriggerSpawn : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter < 3)
+            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 0)
             {
                 Instantiate(AI, aiPosition.position, aiPosition.rotation);
+                spawnCounter++;
+            }
+
+            else if(GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 1)
+            {
+                Instantiate(Enemy2, aiPosition.position, aiPosition.rotation);
+                spawnCounter++;
+            }
+
+            else if(GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 2)
+            {
+                Instantiate(FinalBoss, aiPosition.position, aiPosition.rotation);
                 spawnCounter++;
             }
         }

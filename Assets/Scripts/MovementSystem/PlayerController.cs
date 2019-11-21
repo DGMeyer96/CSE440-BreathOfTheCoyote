@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Sprint") > 0 && isGrounded)
         {
+            if(animate.GetBool("Walk Forward"))
+            {
+                animate.SetBool("Running", true);
+            }
             speedS = speed * 2f;
             animate.speed = 1.4f;
         }
