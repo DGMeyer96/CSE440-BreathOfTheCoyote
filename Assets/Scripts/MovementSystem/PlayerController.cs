@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject AgilityTrophy;
 
     public Animator CanvasAnimator;
+    public Animator SaveAnimator;
 
     private Quaternion transformrotation;
     private Rigidbody rb;
@@ -225,7 +226,7 @@ public class PlayerController : MonoBehaviour
             AgilityTrophy.SetActive(true);
 
             //This is causing the pause menu to break
-            CanvasAnimator.SetBool("Saving", true);
+            SaveAnimator.SetBool("Saving", true);
 
             //Destroy(collision.gameObject);
             //collision.gameObject.SetActive(false);
@@ -236,7 +237,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().TrialOfMind = true;
             GetComponent<Player>().SaveGame();
             MindTrophy.SetActive(true);
-            CanvasAnimator.SetBool("Saving", true);
+            SaveAnimator.SetBool("Saving", true);
 
             //Destroy(collision.gameObject);
             //collision.gameObject.SetActive(false);
@@ -247,7 +248,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().TrialOfStrength = true;
             GetComponent<Player>().SaveGame();
             StrengthTrophy.SetActive(true);
-            CanvasAnimator.SetBool("Saving", true);
+            SaveAnimator.SetBool("Saving", true);
 
             //Destroy(collision.gameObject);
             //collision.gameObject.SetActive(false);
