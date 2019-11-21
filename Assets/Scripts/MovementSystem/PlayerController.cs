@@ -213,29 +213,22 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("Collided with: " + collision.gameObject.name);
-
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
         }
-
-        /*
-        if (collision.gameObject.name == "Mind Trophy")
-        {
-            Debug.Log("Entered Trial Of Mind");
-        }
-        */
 
         if (collision.gameObject.name == "Agility Trophy" && GetComponent<Player>().TrialOfAgility != true)
         {
             GetComponent<Player>().TrialOfAgility = true;
             GetComponent<Player>().SaveGame();
             AgilityTrophy.SetActive(true);
+
+            //This is causing the pause menu to break
             CanvasAnimator.SetBool("Saving", true);
-            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+
             //Destroy(collision.gameObject);
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.name == "Mind Trophy" && GetComponent<Player>().TrialOfMind != true)
@@ -244,9 +237,9 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().SaveGame();
             MindTrophy.SetActive(true);
             CanvasAnimator.SetBool("Saving", true);
-            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+
             //Destroy(collision.gameObject);
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
         }
 
         if (collision.gameObject.name == "Strength Trophy" && GetComponent<Player>().TrialOfStrength != true)
@@ -255,9 +248,9 @@ public class PlayerController : MonoBehaviour
             GetComponent<Player>().SaveGame();
             StrengthTrophy.SetActive(true);
             CanvasAnimator.SetBool("Saving", true);
-            //collision.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Disappear");
+
             //Destroy(collision.gameObject);
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
         }
 
         if(collision.gameObject.name == "Village" && GetComponent<Player>().TrialOfAgility == true 
