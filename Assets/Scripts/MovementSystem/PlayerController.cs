@@ -10,6 +10,13 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 50f;
     public float dashSpeed = 20f;
 
+    public GameObject MindTrophy;
+    public GameObject StrengthTrophy;
+    public GameObject AgilityTrophy;
+
+    public Animator CanvasAnimator;
+    public Animator SaveAnimator;
+
     private Quaternion transformrotation;
     private Rigidbody rb;
 
@@ -34,6 +41,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         animate = GetComponent<Animator>();
 
+        MindTrophy.SetActive(false);
+        StrengthTrophy.SetActive(false);
+        AgilityTrophy.SetActive(false);
+
+        
+
         isfalling = false;
         isGrounded = false;
 
@@ -51,6 +64,21 @@ public class PlayerController : MonoBehaviour
         WalkHandler();
         DashHandler();
         JumpHandler();
+
+        if (GetComponent<Player>().TrialOfAgility == true)
+        {
+            AgilityTrophy.SetActive(true);
+        }
+
+        if (GetComponent<Player>().TrialOfMind == true)
+        {
+            MindTrophy.SetActive(true);
+        }
+
+        if (GetComponent<Player>().TrialOfStrength == true)
+        {
+            StrengthTrophy.SetActive(true);
+        }
     }
 
     void WalkHandler()
@@ -189,6 +217,53 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
+        }
+
+        if (collision.gameObject.name == "Agility Trophy" && GetComponent<Player>().TrialOfAgility != true)
+        {
+            GetComponent<Player>().TrialOfAgility = true;
+            GetComponent<Player>().SaveGame();
+            AgilityTrophy.SetActive(true);
+
+            //This is causing the pause menu to break
+            SaveAnimator.SetBool("Saving", true);
+
+            //Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.name == "Mind Trophy" && GetComponent<Player>().TrialOfMind != true)
+        {
+            GetComponent<Player>().TrialOfMind = true;
+            GetComponent<Player>().SaveGame();
+            MindTrophy.SetActive(true);
+            SaveAnimator.SetBool("Saving", true);
+
+            //Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.name == "Strength Trophy" && GetComponent<Player>().TrialOfStrength != true)
+        {
+            GetComponent<Player>().TrialOfStrength = true;
+            GetComponent<Player>().SaveGame();
+            StrengthTrophy.SetActive(true);
+            SaveAnimator.SetBool("Saving", true);
+
+            //Destroy(collision.gameObject);
+            //collision.gameObject.SetActive(false);
+        }
+
+        if(collision.gameObject.name == "Village" && GetComponent<Player>().TrialOfAgility == true 
+            && GetComponent<Player>().TrialOfStrength == true && GetComponent<Player>().TrialOfMind == true)
+        {
+            Debug.Log("Loading: Main Menu");
+            PlayerPrefs.SetInt("LevelToLoad", 1);
+            GetComponent<Player>().SaveGame();
+            //SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(1);
+            CanvasAnimator.SetTrigger("FadeOut");
+            //Time.timeScale = 1f;
         }
     }
     private void OnCollisionStay(Collision collision)

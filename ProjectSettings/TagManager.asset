@@ -12,6 +12,8 @@ TagManager:
   - Pick Up
   - EnemySpawn
   - AI
+  - Elevator
+  - Combat
   layers:
   - Default
   - TransparentFX
