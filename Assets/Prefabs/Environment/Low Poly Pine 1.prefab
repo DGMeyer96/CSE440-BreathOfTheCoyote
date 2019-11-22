@@ -122,11 +122,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8998731637976613649}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 31d1ab6e5c1225b498ca9a703edd40cc,
-        type: 3}
-      propertyPath: m_Name
-      value: Low Poly Pine
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 31d1ab6e5c1225b498ca9a703edd40cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,6 +176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 31d1ab6e5c1225b498ca9a703edd40cc,
+        type: 3}
+      propertyPath: m_Name
+      value: Low Poly Pine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d1ab6e5c1225b498ca9a703edd40cc, type: 3}

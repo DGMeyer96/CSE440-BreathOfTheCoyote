@@ -46,7 +46,7 @@ public class KeyCombo
                       false; // failed
             }
         }
-        
+        return false;
     }
 
 }
