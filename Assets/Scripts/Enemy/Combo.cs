@@ -27,8 +27,9 @@ public class KeyCombo
     // Combo Function, returns true if player successfully completed the series of button presses.
     public bool Check()
     {
-        if (Time.time > timeLastButtonPressed + allowedTimeBetweenButtons) currentIndex = 0;
+        if (Time.time > timeLastButtonPressed + allowedTimeBetweenButtons)// currentIndex = 0;
         {
+
             if (currentIndex < buttons.Length)
             {  
                 
@@ -42,10 +43,11 @@ public class KeyCombo
                     currentIndex = 0;
                     return true; // Combo was successfully completed
                 }
-                else return 
-                      false; // failed
+                else 
+                    return false; // failed
             }
         }
+        return false;
         
     }
 
