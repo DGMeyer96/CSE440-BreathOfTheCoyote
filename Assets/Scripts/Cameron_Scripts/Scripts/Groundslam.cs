@@ -5,55 +5,77 @@ using UnityEngine;
 public class Groundslam : MonoBehaviour
 {
     public GameObject groundv1;
+    private Animator grndslamAni;
     public GameObject player;
     private bool temp;
-    private Rigidbody rb;
+    CharacterController characterController;
     private bool groundedcheck;
     private float cooldown;
+    private float timeClip;
+    private Vector3 moveDirection = Vector3.zero;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
+        grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
+        grndslamAni.SetBool("GroundSlam", false);
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldown += Time.deltaTime;
-        groundedcheck = GetComponent<PlayerController>().isGrounded;
+        groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;
         if (cooldown > 2)
         {
-            if (Input.GetAxis("Groundslam") > 0)
-            {
-                if (!groundedcheck)
 
-                {
-                    rb.AddForce(0, -1000, 0);
-                    temp = true;
-                }
-                else
-                {
-                    GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
-                    Destroy(slamvfx, 2.0f);
-                }
-                cooldown = 0f;
+            if (Input.GetAxis("Groundslam") != 0)
+            {
+                grndslamAni.SetBool("GroundSlam", true);
+                timeClip = grndslamAni.GetCurrentAnimatorStateInfo(0).length;
+                Invoke("groundEffect", 1.6f);
+
 
             }
 
         }
         if (temp)
         {
-            if(groundedcheck)
+            if (groundedcheck)
             {
-                GameObject slamvfx = Instantiate(groundv1,transform.position, transform.rotation);
+                GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
                 Destroy(slamvfx, 2.0f);
                 temp = false;
+
             }
         }
         //Placeholder
         //This program isn't set yet as nothing is prepared to use it
         //If an object that has a certain attachment to it is nearby when it is pressed, then something happens
 
+    }
+
+    void groundEffect()
+    {
+        moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+
+        if (!groundedcheck)
+        {
+            moveDirection.y -= 100 * Time.deltaTime;
+            characterController.Move(moveDirection * Time.deltaTime); temp = true;
+        }
+        else
+        {
+
+            GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
+            Destroy(slamvfx, 2.0f);
+            grndslamAni.SetBool("GroundSlam", false);
+
+
+        }
+        cooldown = 0f;
     }
 }

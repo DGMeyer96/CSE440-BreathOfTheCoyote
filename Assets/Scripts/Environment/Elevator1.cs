@@ -24,19 +24,27 @@ public class Elevator1 : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             current = 1;
-            Debug.Log(current);
+            //Debug.Log(current);
+        }
+    }
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            current = 1;
+            //Debug.Log(current);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         current = 0;
-        Debug.Log(current);
+        //Debug.Log(current);
     }
 
 }
