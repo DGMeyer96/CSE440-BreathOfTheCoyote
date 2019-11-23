@@ -5,15 +5,19 @@ using UnityEngine;
 public class Groundslam : MonoBehaviour
 {
     public GameObject groundv1;
+    private Animator grndslamAni;
     public GameObject player;
     private bool temp;
     private Rigidbody rb;
     private bool groundedcheck;
     private float cooldown;
+    private float timeClip;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
     }
 
@@ -24,6 +28,7 @@ public class Groundslam : MonoBehaviour
         groundedcheck = GetComponent<PlayerController>().isGrounded;
         if (cooldown > 2)
         {
+            grndslamAni.SetBool("GroundSlam", true);
             if (Input.GetAxis("Groundslam") > 0)
             {
                 if (!groundedcheck)
@@ -34,8 +39,10 @@ public class Groundslam : MonoBehaviour
                 }
                 else
                 {
+                    
                     GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
                     Destroy(slamvfx, 2.0f);
+               
                 }
                 cooldown = 0f;
 
@@ -49,6 +56,7 @@ public class Groundslam : MonoBehaviour
                 GameObject slamvfx = Instantiate(groundv1,transform.position, transform.rotation);
                 Destroy(slamvfx, 2.0f);
                 temp = false;
+                grndslamAni.SetBool("GroundSlam", true);
             }
         }
         //Placeholder
