@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2550487618065127030}
   - component: {fileID: 2550487618065127028}
   - component: {fileID: 2550487618065127031}
-  - component: {fileID: 3368023280358151153}
-  - component: {fileID: 757280282416463579}
+  - component: {fileID: 753599120539129321}
   m_Layer: 0
   m_Name: GroundSlam
   m_TagString: Untagged
@@ -86,7 +85,6 @@ VFXRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,20 +105,8 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3368023280358151153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2550487618065127025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062926e750377774c96baa08b947e3d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &757280282416463579
-SphereCollider:
+--- !u!65 &753599120539129321
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,5 +116,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.6658778, y: 0.8101764, z: 2.8242254}
+  m_Center: {x: 0.23863363, y: -0.094911814, z: 0.13352138}

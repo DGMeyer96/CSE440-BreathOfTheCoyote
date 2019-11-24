@@ -5,6 +5,7 @@ using UnityEngine;
 public class TriggerSpawn : MonoBehaviour
 {
     public GameObject AI;
+    public GameObject AI2;
     public Transform aiPosition;
     private int spawnCounter = 0;
     
@@ -28,18 +29,18 @@ public class TriggerSpawn : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter < 3)
+            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 0)
             {
                 Instantiate(AI, aiPosition.position, aiPosition.rotation);
                 spawnCounter++;
             }
+
+            else if(GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 1)
+            {
+                Instantiate(AI2, aiPosition.position, aiPosition.rotation);
+                spawnCounter++;
+            }
         }
-        
-    }
-
-
-    void Spawn()
-    {
         
     }
 }

@@ -8,9 +8,10 @@ public class Elevator : MonoBehaviour
     int current = 0;
     public float speed;
     public ElevatorCheckpoint Chp;
+    public bool colliding;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
         if (current !=0 && transform.position != points[current].transform.position)
@@ -25,21 +26,26 @@ public class Elevator : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            colliding = true;
             if (Chp.touched)
             {
                 current = 2;
             }
             else
                 current = 1;
-            Debug.Log(current);
         }
+        else 
+        {
+            colliding = false;
+        }
+        Debug.Log("hit");
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         current = 0;
         Debug.Log(current);

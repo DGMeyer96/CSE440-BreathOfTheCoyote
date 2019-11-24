@@ -7,12 +7,14 @@ public class AIMovement : MonoBehaviour
     public GameObject player;
     public Animator animate;
     private Vector3 startPoint;
+    public Transform originalPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         animate = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
+
         startPoint = transform.position;
     }
 
@@ -36,7 +38,7 @@ public class AIMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
+        transform.position = startPoint;
     }
 
 }

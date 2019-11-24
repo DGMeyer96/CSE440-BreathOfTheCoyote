@@ -21,7 +21,7 @@ MonoBehaviour:
     x: 1038
     y: -217
     width: 1321
-    height: 1959
+    height: 1977
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,8 +223,9 @@ VisualEffectResource:
       1\n\t\t#define VFX_USE_SIZE_CURRENT 1\n\t\t#define VFX_USE_SCALEX_CURRENT 1\n\t\t#define
       VFX_USE_SCALEY_CURRENT 1\n\t\t#define VFX_USE_SCALEZ_CURRENT 1\n\t\t#define
       VFX_USE_AGE_CURRENT 1\n\t\t#define VFX_COLORMAPPING_DEFAULT 1\n\t\t#define IS_TRANSPARENT_PARTICLE
-      1\n\t\t#define VFX_BLENDMODE_ADD 1\n\t\t#define VFX_PRIMITIVE_QUAD 1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define
-      VFX_LOCAL_SPACE 1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
+      1\n\t\t#define USE_SOFT_PARTICLE 1\n\t\t#define VFX_BLENDMODE_ADD 1\n\t\t#define
+      VFX_PRIMITIVE_QUAD 1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_LOCAL_SPACE 1\n\t\t#include
+      \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
       \   float4 Size_b;\n\t\t    float gradient_c;\n\t\t    uint3 PADDING_0;\n\t\tCBUFFER_END\n\t\tTexture2D
       mainTexture;\n\t\tSamplerState samplermainTexture;\n\t\t\n\n\t\t\n\t\t#define
       VFX_NEEDS_COLOR_INTERPOLATOR (VFX_USE_COLOR_CURRENT || VFX_USE_ALPHA_CURRENT)\n\t\t\n\t\tByteAddressBuffer
@@ -271,11 +272,16 @@ VisualEffectResource:
       alpha, float gradient) /*mode:ColorAndAlpha ColorComposition:Multiply AlphaComposition:Multiply
       */\n\t\t\t{\n\t\t\t    \n\t\t\t    float4 sampledColor = SampleGradient(gradient,
       age/lifetime);\n\t\t\t    color *= sampledColor.rgb;\n\t\t\t    alpha *= sampledColor.a;\n\t\t\t
-      \   \n\t\t\t}\n\t\t\t\n\n\t\t\t\n\t\t\t#pragma vertex vert\n\t\t\tVFX_VARYING_PS_INPUTS
-      vert(uint id : SV_VertexID, uint instanceID : SV_InstanceID)\n\t\t\t{\n\t\t\t#if
-      VFX_PRIMITIVE_TRIANGLE\n\t\t\t\tuint index = id / 3;\n\t\t\t#elif VFX_PRIMITIVE_QUAD\n\t\t\t\tuint
-      index = (id >> 2) + instanceID * 2048;\n\t\t\t#elif VFX_PRIMITIVE_OCTAGON\n\t\t\t\tuint
-      index = (id >> 3) + instanceID * 1024;\n\t\t\t#endif\n\t\t\t\n\t\t\t\tVFX_VARYING_PS_INPUTS
+      \   \n\t\t\t}\n\t\t\tvoid KillSphere_1(float3 position, inout bool alive, float3
+      Sphere_center, float Sphere_radius, float colliderSign) /*mode:Inverted */\n\t\t\t{\n\t\t\t
+      \   \n\t\t\t    float3 dir = position - Sphere_center;\n\t\t\t    float sqrLength
+      = dot(dir, dir);\n\t\t\t    if (colliderSign * sqrLength <= colliderSign * Sphere_radius
+      * Sphere_radius)\n\t\t\t        alive = false;\n\t\t\t}\n\t\t\t\n\n\t\t\t\n\t\t\t#pragma
+      vertex vert\n\t\t\tVFX_VARYING_PS_INPUTS vert(uint id : SV_VertexID, uint instanceID
+      : SV_InstanceID)\n\t\t\t{\n\t\t\t#if VFX_PRIMITIVE_TRIANGLE\n\t\t\t\tuint index
+      = id / 3;\n\t\t\t#elif VFX_PRIMITIVE_QUAD\n\t\t\t\tuint index = (id >> 2) +
+      instanceID * 2048;\n\t\t\t#elif VFX_PRIMITIVE_OCTAGON\n\t\t\t\tuint index =
+      (id >> 3) + instanceID * 1024;\n\t\t\t#endif\n\t\t\t\n\t\t\t\tVFX_VARYING_PS_INPUTS
       o = (VFX_VARYING_PS_INPUTS)0;\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\tuint deadCount
       = 0;\n\t\t\t\t\t\t#if USE_DEAD_LIST_COUNT\n\t\t\t\t\t\tdeadCount = deadListCount.Load(0);\n\t\t\t\t\t\t#endif\t\n\t\t\t\t\t\tif
       (index >= asuint(nbMax) - deadCount)\n\t\t\t\t\t\t#if USE_GEOMETRY_SHADER\n\t\t\t\t\t\t\treturn;
@@ -308,7 +314,8 @@ VisualEffectResource:
       * 0x8 + 0x4) << 2));\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\tOrient_0(
       /*inout */axisX,  /*inout */axisY,  /*inout */axisZ);\n\t\t\t\tAttributeFromCurve_45ABB90F(
       /*inout */size, age, lifetime, Size_b);\n\t\t\t\tColorOverLife_733E3(age, lifetime,
-      \ /*inout */color,  /*inout */alpha, gradient_c);\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\tif
+      \ /*inout */color,  /*inout */alpha, gradient_c);\n\t\t\t\t{\n\t\t\t\t    KillSphere_1(position,
+      \ /*inout */alive, float3(0,0,0), (float)12, (float)-1);\n\t\t\t\t}\n\t\t\t\t\n\n\t\t\t\t\n\t\t\t\tif
       (!alive)\n\t\t\t\t\treturn o;\n\t\t\t\t\n\t\t\t#if VFX_PRIMITIVE_QUAD\n\t\t\t\n\t\t\t\to.VFX_VARYING_UV.x
       = float(id & 1);\n\t\t\t\to.VFX_VARYING_UV.y = float((id & 2) >> 1);\n\t\t\t\tconst
       float2 vOffsets = o.VFX_VARYING_UV.xy - 0.5f;\n\t\t\t\t\n\t\t\t#elif VFX_PRIMITIVE_TRIANGLE\n\t\t\t\n\t\t\t\tconst
@@ -338,7 +345,9 @@ VisualEffectResource:
       \n\t\t\t\t\t\to.VFX_VARYING_ALPHA = alpha;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#ifdef
       VFX_VARYING_EXPOSUREWEIGHT\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_EXPOSUREWEIGHT
       = exposureWeight;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_SOFT_PARTICLE
-      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
+      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\tfloat invSoftParticlesFadeDistance
+      = (float)0;\n\t\t\t\t\t\t{\n\t\t\t\t\t\t    \n\t\t\t\t\t\t    invSoftParticlesFadeDistance
+      = (float)1;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
       = invSoftParticlesFadeDistance;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if
       USE_ALPHA_TEST && defined(VFX_VARYING_ALPHATHRESHOLD)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_ALPHATHRESHOLD
       = alphaThreshold;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_UV_SCALE_BIAS\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_UV.xy
@@ -370,13 +379,13 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 13
+        data[3]: 14
       - op: 1
         valueIndex: 1
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 14
+        data[3]: 13
       - op: 1
         valueIndex: 2
         data[0]: -1
@@ -385,13 +394,13 @@ VisualEffectResource:
         data[3]: 1
       - op: 57
         valueIndex: 3
-        data[0]: 1
+        data[0]: 0
         data[1]: -1
         data[2]: -1
         data[3]: 0
       - op: 56
         valueIndex: 4
-        data[0]: 0
+        data[0]: 1
         data[1]: -1
         data[2]: -1
         data[3]: 0
@@ -436,45 +445,51 @@ VisualEffectResource:
         data[0]: -1
         data[1]: -1
         data[2]: -1
-        data[3]: 9
-      - op: 1
-        valueIndex: 30
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 31
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 32
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 1
-      - op: 1
-        valueIndex: 33
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
-      - op: 1
-        valueIndex: 36
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
-        data[3]: 3
-      - op: 1
-        valueIndex: 39
-        data[0]: -1
-        data[1]: -1
-        data[2]: -1
         data[3]: 12
       - op: 1
+        valueIndex: 45
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 9
+      - op: 1
+        valueIndex: 46
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 47
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 48
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 49
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 1
+        valueIndex: 52
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 3
+      - op: 1
         valueIndex: 55
+        data[0]: -1
+        data[1]: -1
+        data[2]: -1
+        data[3]: 1
+      - op: 1
+        valueIndex: 56
         data[0]: -1
         data[1]: -1
         data[2]: -1
@@ -495,19 +510,21 @@ VisualEffectResource:
           m_Value: 0.5
         - m_ExpressionIndex: 9
           m_Value: 12
-        - m_ExpressionIndex: 12
-          m_Value: 3
         - m_ExpressionIndex: 13
-          m_Value: 6.2831855
+          m_Value: 3
         - m_ExpressionIndex: 14
+          m_Value: 6.2831855
+        - m_ExpressionIndex: 15
           m_Value: 1
+        - m_ExpressionIndex: 18
+          m_Value: -1
       m_Vector2f:
         m_Array: []
       m_Vector3f:
         m_Array:
-        - m_ExpressionIndex: 15
-          m_Value: {x: 5, y: 5, z: 5}
         - m_ExpressionIndex: 16
+          m_Value: {x: 5, y: 5, z: 5}
+        - m_ExpressionIndex: 17
           m_Value: {x: 0, y: 0, z: 0}
       m_Vector4f:
         m_Array: []
@@ -518,24 +535,6 @@ VisualEffectResource:
       m_Matrix4x4f:
         m_Array:
         - m_ExpressionIndex: 10
-          m_Value:
-            e00: 0.5
-            e01: -0
-            e02: 0
-            e03: -0
-            e10: -0
-            e11: 0.5
-            e12: -0
-            e13: -0
-            e20: 0
-            e21: -0
-            e22: 0.5
-            e23: -0
-            e30: 0
-            e31: 0
-            e32: 0
-            e33: 1
-        - m_ExpressionIndex: 17
           m_Value:
             e00: 2
             e01: 0
@@ -553,9 +552,27 @@ VisualEffectResource:
             e31: 0
             e32: 0
             e33: 1
+        - m_ExpressionIndex: 11
+          m_Value:
+            e00: 0.5
+            e01: -0
+            e02: 0
+            e03: -0
+            e10: -0
+            e11: 0.5
+            e12: -0
+            e13: -0
+            e20: 0
+            e21: -0
+            e22: 0.5
+            e23: -0
+            e30: 0
+            e31: 0
+            e32: 0
+            e33: 1
       m_AnimationCurve:
         m_Array:
-        - m_ExpressionIndex: 0
+        - m_ExpressionIndex: 1
           m_Value:
             serializedVersion: 2
             m_Curve:
@@ -591,21 +608,21 @@ VisualEffectResource:
             m_RotationOrder: 4
       m_Gradient:
         m_Array:
-        - m_ExpressionIndex: 1
+        - m_ExpressionIndex: 0
           m_Value:
             serializedVersion: 2
-            key0: {r: 11.984314, g: 11.607843, b: 8.094118, a: 0}
-            key1: {r: 11.984314, g: 4.7686276, b: 0, a: 1}
-            key2: {r: 23.968628, g: 0.1254902, b: 0, a: 1}
-            key3: {r: 0, g: 0, b: 0, a: 0}
+            key0: {r: 2, g: 1.9294118, b: 1.3490196, a: 0}
+            key1: {r: 1, g: 0.39741516, b: 0, a: 1}
+            key2: {r: 1, g: 0, b: 0, a: 1}
+            key3: {r: 1, g: 0, b: 0.3119383, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 4433
-            ctime1: 11180
-            ctime2: 33924
-            ctime3: 0
+            ctime1: 11372
+            ctime2: 39707
+            ctime3: 65535
             ctime4: 0
             ctime5: 0
             ctime6: 0
@@ -619,13 +636,13 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 3
+            m_NumColorKeys: 4
             m_NumAlphaKeys: 4
       m_NamedObject:
         m_Array:
-        - m_ExpressionIndex: 11
+        - m_ExpressionIndex: 12
           m_Value: {fileID: 11700000, guid: 08937e3134903c5488be506a2dac71e9, type: 2}
-        - m_ExpressionIndex: 18
+        - m_ExpressionIndex: 19
           m_Value: {fileID: 2800000, guid: 49cb5aa34272b034d8b754c65d9cdbfa, type: 3}
       m_Bool:
         m_Array: []
@@ -824,9 +841,9 @@ VisualEffectResource:
       index: 1
     values:
     - nameId: bounds_center
-      index: 16
+      index: 17
     - nameId: bounds_size
-      index: 15
+      index: 16
     tasks:
     - type: 536870912
       buffers:
@@ -842,9 +859,9 @@ VisualEffectResource:
       values: []
       params:
       - nameId: bounds_center
-        index: 16
+        index: 17
       - nameId: bounds_size
-        index: 15
+        index: 16
       processor: {fileID: 0}
       shaderSourceIndex: 0
     - type: 805306368
@@ -858,7 +875,7 @@ VisualEffectResource:
       - nameId: deltaTime_a
         index: 7
       - nameId: VectorField_a
-        index: 11
+        index: 12
       params: []
       processor: {fileID: 0}
       shaderSourceIndex: 1
@@ -873,7 +890,7 @@ VisualEffectResource:
       - nameId: gradient_c
         index: 3
       - nameId: mainTexture
-        index: 18
+        index: 19
       params:
       - nameId: sortPriority
         index: 0
@@ -2461,6 +2478,7 @@ MonoBehaviour:
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614608}
+  - {fileID: 8926484042661614651}
   m_OutputSlots: []
   m_Label: 
   m_Data: {fileID: 8926484042661614575}
@@ -2477,7 +2495,7 @@ MonoBehaviour:
   zTestMode: 0
   colorMappingMode: 0
   uvMode: 0
-  useSoftParticle: 0
+  useSoftParticle: 1
   sortPriority: 0
   sort: 0
   indirectDraw: 0
@@ -2567,7 +2585,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":11.98431396484375,"g":11.607843399047852,"b":8.094118118286133,"a":1.0},"time":0.06764324754476547},{"color":{"r":11.98431396484375,"g":4.768627643585205,"b":0.0,"a":1.0},"time":0.17059586942195893},{"color":{"r":23.9686279296875,"g":0.125490203499794,"b":0.0,"a":1.0},"time":0.5176470875740051}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.7499961853027344},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":2.0,"g":1.929411768913269,"b":1.3490196466445923,"a":1.0},"time":0.06764324754476547},{"color":{"r":1.0,"g":0.3974151611328125,"b":0.0,"a":1.0},"time":0.1735256016254425},{"color":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"time":0.6058899760246277},{"color":{"r":1.0,"g":0.0,"b":0.3119382858276367,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.7499961853027344},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -2972,6 +2990,46 @@ MonoBehaviour:
       m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
+--- !u!114 &8926484042661614651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614651}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614607}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: softParticlesFadeDistance
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes:
+    - m_Type: 1
+      m_Min: 0.001
+      m_Max: Infinity
+      m_Tooltip: 
+      m_Regex: 
+      m_RegexMaxLength: 0
+  m_Direction: 0
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,7 +3050,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614671}
   m_OutputSlots: []
-  m_Disabled: 1
+  m_Disabled: 0
   mode: 1
 --- !u!114 &8926484042661614671
 MonoBehaviour:

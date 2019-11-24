@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
         WalkHandler();
         //DashHandler();
         JumpHandler();
-        
     }
 
     void WalkHandler()
@@ -60,20 +59,15 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
         float sprint = Input.GetAxis("Sprint");
-         
 
         if ( sprint != 0 && isGrounded)
         {
-            
-            speedS = speed * 1.2f;
-            animate.SetBool("Running", true);
-            
+            speedS = speed * 2f;
+            animate.speed = 1.4f;
         }
         else
         {
             speedS = speed;
-            animate.SetBool("Running", false);
-            animate.SetBool("WalkBackwards", false);
         }
         if (isGrounded)
         {
@@ -83,7 +77,7 @@ public class PlayerController : MonoBehaviour
         if (moveVertical < 0)
         {
             speedS = speed/2;
-            animate.SetBool("WalkBackwards", true);
+            animate.speed = 1f;
 
         }
 
@@ -104,7 +98,7 @@ public class PlayerController : MonoBehaviour
             animate.SetBool("Walk Forward", false);
 
             //speed of the idle animation
-            
+            animate.speed = 1.2f;
         }
         if (movement.magnitude > 0)
         {
@@ -116,7 +110,7 @@ public class PlayerController : MonoBehaviour
             animate.SetBool("Walk Forward", true);
 
             //speed of walking
-            
+            animate.speed = 2.0f;
             Vector3 fwd = transform.position - Camera.main.transform.position;
             fwd.y = 0;
             //fwd.x = 0;
@@ -186,12 +180,11 @@ public class PlayerController : MonoBehaviour
     private void JumpHandler()
     {
         float moveJump = Input.GetAxis("Jump");
-        if (isGrounded == true && moveJump > 0)
+        if (isGrounded && moveJump > 0)
         {
             Vector3 jump = new Vector3(0f, moveJump, 0.0f);
             rb.AddForce(jump * jumpSpeed * Time.deltaTime, ForceMode.Impulse);
             isGrounded = false;
-            animate.SetBool("Jumping", true);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -199,7 +192,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
         {
             isGrounded = true;
-            animate.SetBool("Jumping", false);
         }
     }
     private void OnCollisionStay(Collision collision)
