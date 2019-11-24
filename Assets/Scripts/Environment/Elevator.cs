@@ -5,7 +5,7 @@ using UnityEngine;
 public class Elevator : MonoBehaviour
 {
     public GameObject[] points;
-    int current = 0;
+    public int current = 0;
     public float speed;
     public ElevatorCheckpoint Chp;
     public bool colliding;
