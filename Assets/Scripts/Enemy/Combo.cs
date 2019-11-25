@@ -24,6 +24,7 @@ public class KeyCombo
         buttons = b;
     }
 
+    /*
     // Combo Function, returns true if player successfully completed the series of button presses.
     public bool Check()
     {
@@ -48,5 +49,5 @@ public class KeyCombo
         }
         
     }
-
+    */
 }
