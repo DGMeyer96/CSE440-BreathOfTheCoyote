@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class AIMovement : MonoBehaviour
 {
+    public GameObject enemy;
     public GameObject player;
-    public Animator animate;
     private Vector3 startPoint;
-    public Transform originalPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        animate = GetComponent<Animator>();
+        enemy = GameObject.FindWithTag("AI");
         player = GameObject.FindWithTag("Player");
-
         startPoint = transform.position;
     }
 
@@ -23,8 +21,8 @@ public class AIMovement : MonoBehaviour
     {
         
         transform.LookAt(player.transform);
-        transform.Translate(0, 0, 3 * Time.deltaTime);
-        animate.SetBool("isWalking", true);
+        transform.Translate(0, 0, 8 * Time.deltaTime);
+        
 
     }
 
@@ -32,13 +30,10 @@ public class AIMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            
             Destroy(gameObject);
+            collision.gameObject.GetComponent<TriggerSpawn>().firstDeath = true;
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        transform.position = startPoint;
     }
 
 }

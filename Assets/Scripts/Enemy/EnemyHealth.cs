@@ -15,10 +15,15 @@ public class EnemyHealth : MonoBehaviour
     public bool isDamaged;
     //Checks whether enemy has been damaged
 
+    public GameObject player;
+
+
+
 
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         currentHealth = maxHealth;
      //   ccRef = GetComponent<CharacterControl>();
     }
@@ -28,6 +33,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(player.transform);
+        transform.Translate(0, 0, 8 * Time.deltaTime);
         if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
             Dead();
     }
@@ -50,6 +57,7 @@ public class EnemyHealth : MonoBehaviour
     {
         // The enemy is dead.
         isDead = true;
+        gameObject.GetComponent<TriggerSpawn>().firstDeath = true;
 
         // Tell the animator that the enemy is dead.
         animate.SetTrigger("Dead");
@@ -59,5 +67,4 @@ public class EnemyHealth : MonoBehaviour
 
 
     }
-
 }

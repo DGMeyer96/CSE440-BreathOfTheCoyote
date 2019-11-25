@@ -11,6 +11,7 @@ public class Groundslam : MonoBehaviour
     CharacterController characterController;
     private bool groundedcheck;
     private float cooldown;
+    private float timeClip;
     private Vector3 moveDirection = Vector3.zero;
 
 
@@ -20,21 +21,21 @@ public class Groundslam : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
-        
+        grndslamAni.SetBool("GroundSlam", false);
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldown += Time.deltaTime;
-        groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;
+        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)
         {
 
             if (Input.GetAxis("Groundslam") != 0)
             {
                 grndslamAni.SetBool("GroundSlam", true);
-                Invoke("groundEffect", 1.2f);
+                Invoke("groundEffect", 1.1f);
 
 
             }
@@ -47,7 +48,6 @@ public class Groundslam : MonoBehaviour
                 GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
                 Destroy(slamvfx, 2.0f);
                 temp = false;
-                grndslamAni.SetBool("GroundSlam", false);
 
             }
         }

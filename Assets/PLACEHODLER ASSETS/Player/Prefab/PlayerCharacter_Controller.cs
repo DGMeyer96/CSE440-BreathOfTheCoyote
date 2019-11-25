@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter_Controller : MonoBehaviour
+public class PlayerCharacterController : MonoBehaviour
 {
     CharacterController characterController;
 
@@ -30,6 +30,12 @@ public class PlayerCharacter_Controller : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
+    private int count;
+    private GameObject[] point;
+    private bool plat;
+    private float platspeed;
+    private Collider go;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -44,6 +50,7 @@ public class PlayerCharacter_Controller : MonoBehaviour
 
         isfalling = false;
         isOnGround = false;
+        plat = false;
     }
 
     void Update()
@@ -139,12 +146,6 @@ public class PlayerCharacter_Controller : MonoBehaviour
         // Move the controller
         //moveDirection.y = moveDirectiong.y;
         characterController.Move(moveDirectionm * Time.deltaTime);
-        if (moveVertical < 0)
-        { 
-            //animate.set
-        }
-
-
         /*
         //Currently handled by the code provided by Unity above, will need rework for just animations
         WalkHandler();
@@ -174,16 +175,46 @@ public class PlayerCharacter_Controller : MonoBehaviour
         {
             StrengthTrophy.SetActive(true);
         }
-
+        if (plat && moveHorizontal == 0 && moveVertical == 0)
+        {
+            if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
+            {
+                count = go.gameObject.GetComponent<PlatformMovement>().current;
+            }
+            platmove();
+        }
 
 
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("ground") || collision.gameObject.CompareTag("Elevator"))
+        //if a palyer steps on a moving platform then get the components of that platform
+        if (collision.gameObject.CompareTag("Elevator"))
         {
-            //isGrounded = true;
+            go = collision;
+
+            if (go.gameObject.GetComponent<Elevator1>() != null && go.gameObject.GetComponent<Elevator1>().isActiveAndEnabled)
+            {
+                count = collision.gameObject.GetComponent<Elevator1>().current;
+                point = collision.gameObject.GetComponent<Elevator1>().points;
+                platspeed = collision.gameObject.GetComponent<Elevator1>().speed;
+            }
+            else if (go.gameObject.GetComponent<Elevator>() != null && go.gameObject.GetComponent<Elevator>().isActiveAndEnabled)
+            {
+                count = collision.gameObject.GetComponent<Elevator>().current;
+                point = collision.gameObject.GetComponent<Elevator>().points;
+                platspeed = collision.gameObject.GetComponent<Elevator>().speed;
+            }
+            else if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
+            {
+                count = collision.gameObject.GetComponent<PlatformMovement>().current;
+                point = collision.gameObject.GetComponent<PlatformMovement>().points;
+                platspeed = collision.gameObject.GetComponent<PlatformMovement>().speed;
+            }
+
+            plat = true;
+
         }
 
         //Used for tracking objectives and saving game
@@ -231,28 +262,16 @@ public class PlayerCharacter_Controller : MonoBehaviour
             CanvasAnimator.SetTrigger("FadeOut");
         }
     }
-    private void OnTriggerStay(Collider collision)
+
+    private void platmove()
     {
-
-        if (collision.gameObject.CompareTag("Elevator") && moveRotation.magnitude == 0)
-        {
-            //transform.parent = collision.transform;
-        }
-        if (moveRotation.magnitude != 0)
-        {
-            //transform.parent = null;
-
-        }
-
+        transform.position = Vector3.MoveTowards(transform.position, point[count].transform.position, Time.deltaTime * platspeed);
+        Debug.Log(count);
     }
+
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Elevator"))
-        {
-            //transform.parent = null;
-
-        }
-        //transform.localScale = new Vector3(.8f, .8f, .8f);
-
+        plat = false;
     }
+
 }

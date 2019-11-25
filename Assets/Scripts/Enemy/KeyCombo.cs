@@ -12,7 +12,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class KeyCombo
+public class KeyCombo : MonoBehaviour
 {
     public string[] buttons; // set up an array for the series of buttons player must hit within allowed time to activate combo
     private int currentIndex = 0; //keep an index of the buttons player has/is pressed/pressing

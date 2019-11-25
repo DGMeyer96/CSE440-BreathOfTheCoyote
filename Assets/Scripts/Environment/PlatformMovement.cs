@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
     public GameObject[] points;
-    int current = 0;
+    public int current = 0;
     public float speed;
 
     // Update is called once per frame
