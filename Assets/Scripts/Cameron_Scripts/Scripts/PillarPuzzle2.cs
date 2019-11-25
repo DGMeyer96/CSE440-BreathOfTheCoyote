@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PillarPuzzle2 : MonoBehaviour
 {
-    public GameObject lit;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +15,12 @@ public class PillarPuzzle2 : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Here trigger");
 
         if (collision.gameObject.GetComponent<FireballMovement>() != null)
         {
             gameObject.GetComponentInParent<StatHolder>().solve2 = true;
-            GameObject floom = Instantiate(lit, transform.position, Quaternion.identity);
-
         }
     }
 }

@@ -5,19 +5,13 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
     public GameObject[] points;
-    int current = 0;
+    public int current = 0;
     public float speed;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (current != 0 && transform.position != points[current].transform.position)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
-
-        }
-        if (current == 0 && transform.position != points[current].transform.position)
+        if (transform.position != points[current].transform.position)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
         }

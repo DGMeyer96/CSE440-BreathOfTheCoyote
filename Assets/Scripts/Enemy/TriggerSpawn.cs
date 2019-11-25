@@ -4,42 +4,46 @@ using UnityEngine;
 
 public class TriggerSpawn : MonoBehaviour
 {
-    public GameObject AI;
-    public Transform aiPosition;
+    public Transform enemyPosition;
+    public GameObject enemy1;
+    public GameObject enemy2;
+    public GameObject enemy3;
     private int spawnCounter = 0;
-    
+    public bool firstDeath;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void Start()
+    { 
     }
 
     private void Update()
     {
-        /*if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter < 3){
-            Instantiate(AI, aiPosition.position, aiPosition.rotation);
-            spawnCounter++;
-        }*/
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter < 3)
-            {
-                Instantiate(AI, aiPosition.position, aiPosition.rotation);
-                spawnCounter++;
+            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 0){
+
+                Instantiate(enemy1, enemyPosition.position, enemyPosition.rotation);
+                spawnCounter = 1;
             }
+
+            else if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 1)
+            {
+
+                Instantiate(enemy2, enemyPosition.position, enemyPosition.rotation);
+                spawnCounter = 2;
+            }
+
+            else if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 2)
+            {
+
+                Instantiate(enemy3, enemyPosition.position, enemyPosition.rotation);
+                spawnCounter = 0;
+            }
+
         }
-        
-    }
-
-
-    void Spawn()
-    {
-        
     }
 }

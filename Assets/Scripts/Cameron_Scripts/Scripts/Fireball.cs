@@ -8,6 +8,7 @@ public class Fireball : MonoBehaviour
     public float speed;
     public GameObject projectile;
     public float cooldownTimer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class Fireball : MonoBehaviour
              {
                 cooldownTimer = 0f;
 
-                GameObject bullet = Instantiate(projectile, transform.position + 0.7f * transform.forward, Quaternion.identity);
+                GameObject bullet = Instantiate(projectile, transform.position + 0.8f * transform.forward, Quaternion.identity);
 
 
             }
