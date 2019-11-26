@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.VFX;
-using UnityEngine.Audio;
-
 
 public class FireballMovement : MonoBehaviour
 {
@@ -16,8 +14,6 @@ public class FireballMovement : MonoBehaviour
     public GameObject explosion;
     public static readonly string DirectionBall = "Direction";
     public static readonly string DirectionTail = "DirectionTail";
-    public AudioSource BGMSource;
-
 
 
     // Start is called before the first frame update
@@ -51,12 +47,10 @@ public class FireballMovement : MonoBehaviour
 
             if (time > 3)
             {
+            Destroy(gameObject);
             GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
             Destroy(blowup, 3.0f);
             time = 0f;
-            BGMSource.Play();
-            Destroy(gameObject);
-
         }
     }
 
@@ -71,12 +65,11 @@ public class FireballMovement : MonoBehaviour
         GameObject blowup = Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(blowup, 3.0f);
 
-       BGMSource.Play();
+
         //Come back to later down the line. The attampt going on here is to try and blend the time between the ball and the explosion
         Destroy(gameObject);
         //Destroy(gameObject, .001f);
         time = 0f;
- 
 
 
 

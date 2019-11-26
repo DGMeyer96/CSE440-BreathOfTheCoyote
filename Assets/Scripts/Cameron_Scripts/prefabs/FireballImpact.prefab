@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6718390412942994467}
   - component: {fileID: 8056090281465556763}
   - component: {fileID: 3553262868870487779}
+  - component: {fileID: 1682826344906649245}
   m_Layer: 0
   m_Name: FireballImpact
   m_TagString: Untagged
@@ -104,3 +105,15 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1682826344906649245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077779239261671495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed4a98b923405a44a054af4c419f02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

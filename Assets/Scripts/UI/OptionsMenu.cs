@@ -73,6 +73,7 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = availableResolutions[desiredResolution];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Debug.Log("Current Resolution: " + Screen.currentResolution.width + " x " + Screen.currentResolution.height);
     }
 
     public void SetLookSensitivity(float sensitivity)

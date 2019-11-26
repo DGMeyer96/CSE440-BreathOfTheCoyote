@@ -49,7 +49,7 @@ public class PauseHandler : MonoBehaviour
     public void MainMenu()
     {
         Debug.Log("Loading: Main Menu");
-        PlayerPrefs.SetInt("LevelToLoad", 1);
+        PlayerPrefs.SetInt("LevelToLoad", 0);
         player.SaveGame();
         //SceneManager.LoadScene(0);
         //SceneManager.LoadScene(1);
@@ -60,7 +60,7 @@ public class PauseHandler : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Quitting Game");
-        PlayerPrefs.SetInt("LevelToLoad", 1);
+        PlayerPrefs.SetInt("LevelToLoad", 0);
         Application.Quit();
     }
 
@@ -86,4 +86,11 @@ public class PauseHandler : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    /*
+    public void AutosaveComplete()
+    {
+        Debug.Log("Autosave Complete");
+        animator.SetBool("Saving", false);
+    }
+    */
 }
