@@ -41,7 +41,7 @@ MonoBehaviour:
     x: -88
     y: -913
     width: 4221
-    height: 4171
+    height: 4189
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,9 +269,10 @@ VisualEffectResource:
       1\n\t\t#define VFX_USE_SCALEX_CURRENT 1\n\t\t#define VFX_USE_SCALEY_CURRENT
       1\n\t\t#define VFX_USE_SCALEZ_CURRENT 1\n\t\t#define VFX_USE_TEXINDEX_CURRENT
       1\n\t\t#define VFX_USE_PARTICLEID_CURRENT 1\n\t\t#define VFX_COLORMAPPING_GRADIENTMAPPED
-      1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define VFX_BLENDMODE_ADD 1\n\t\t#define
-      USE_FLIPBOOK 1\n\t\t#define USE_FLIPBOOK_INTERPOLATION 1\n\t\t#define VFX_PRIMITIVE_QUAD
-      1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_LOCAL_SPACE 1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
+      1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define USE_SOFT_PARTICLE 1\n\t\t#define
+      VFX_BLENDMODE_ADD 1\n\t\t#define USE_FLIPBOOK 1\n\t\t#define USE_FLIPBOOK_INTERPOLATION
+      1\n\t\t#define VFX_PRIMITIVE_QUAD 1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_LOCAL_SPACE
+      1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
       \   float4 Scale_d;\n\t\t    float gradient_e;\n\t\t    float gradient;\n\t\t
       \   uint2 PADDING_0;\n\t\tCBUFFER_END\n\t\tTexture2D attributeMap_f;\n\t\tSamplerState
       samplerattributeMap_f;\n\t\tTexture2D mainTexture;\n\t\tSamplerState samplermainTexture;\n\t\t\n\n\t\t\n\t\t#define
@@ -406,7 +407,9 @@ VisualEffectResource:
       \n\t\t\t\t\t\to.VFX_VARYING_ALPHA = alpha;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#ifdef
       VFX_VARYING_EXPOSUREWEIGHT\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_EXPOSUREWEIGHT
       = exposureWeight;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_SOFT_PARTICLE
-      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
+      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\tfloat invSoftParticlesFadeDistance
+      = (float)0;\n\t\t\t\t\t\t{\n\t\t\t\t\t\t    \n\t\t\t\t\t\t    invSoftParticlesFadeDistance
+      = (float)1;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
       = invSoftParticlesFadeDistance;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if
       USE_ALPHA_TEST && defined(VFX_VARYING_ALPHATHRESHOLD)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_ALPHATHRESHOLD
       = alphaThreshold;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_UV_SCALE_BIAS\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_UV.xy
@@ -541,9 +544,10 @@ VisualEffectResource:
       1\n\t\t#define VFX_USE_SCALEX_CURRENT 1\n\t\t#define VFX_USE_SCALEY_CURRENT
       1\n\t\t#define VFX_USE_SCALEZ_CURRENT 1\n\t\t#define VFX_USE_TEXINDEX_CURRENT
       1\n\t\t#define VFX_USE_PARTICLEID_CURRENT 1\n\t\t#define VFX_COLORMAPPING_GRADIENTMAPPED
-      1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define VFX_BLENDMODE_ADD 1\n\t\t#define
-      USE_FLIPBOOK 1\n\t\t#define USE_FLIPBOOK_INTERPOLATION 1\n\t\t#define VFX_PRIMITIVE_QUAD
-      1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_LOCAL_SPACE 1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
+      1\n\t\t#define IS_TRANSPARENT_PARTICLE 1\n\t\t#define USE_SOFT_PARTICLE 1\n\t\t#define
+      VFX_BLENDMODE_ADD 1\n\t\t#define USE_FLIPBOOK 1\n\t\t#define USE_FLIPBOOK_INTERPOLATION
+      1\n\t\t#define VFX_PRIMITIVE_QUAD 1\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t#define VFX_LOCAL_SPACE
+      1\n\t\t#include \"Packages/com.unity.visualeffectgraph/Shaders/RenderPipeline/LWRP/VFXDefines.hlsl\"\n\t\t\n\n\t\tCBUFFER_START(parameters)\n\t\t
       \   float4 Scale_d;\n\t\t    float gradient_e;\n\t\t    float gradient;\n\t\t
       \   uint2 PADDING_0;\n\t\tCBUFFER_END\n\t\tTexture2D attributeMap_f;\n\t\tSamplerState
       samplerattributeMap_f;\n\t\tTexture2D mainTexture;\n\t\tSamplerState samplermainTexture;\n\t\t\n\n\t\t\n\t\t#define
@@ -683,7 +687,9 @@ VisualEffectResource:
       \n\t\t\t\t\t\to.VFX_VARYING_ALPHA = alpha;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#ifdef
       VFX_VARYING_EXPOSUREWEIGHT\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_EXPOSUREWEIGHT
       = exposureWeight;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_SOFT_PARTICLE
-      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
+      && defined(VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE)\n\t\t\t\t\t\tfloat invSoftParticlesFadeDistance
+      = (float)0;\n\t\t\t\t\t\t{\n\t\t\t\t\t\t    \n\t\t\t\t\t\t    invSoftParticlesFadeDistance
+      = (float)1;\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_INVSOFTPARTICLEFADEDISTANCE
       = invSoftParticlesFadeDistance;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if
       USE_ALPHA_TEST && defined(VFX_VARYING_ALPHATHRESHOLD)\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_ALPHATHRESHOLD
       = alphaThreshold;\n\t\t\t\t\t\t#endif\n\t\t\t\t\t\t\n\t\t\t\t\t\t#if USE_UV_SCALE_BIAS\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\to.VFX_VARYING_UV.xy
@@ -1330,17 +1336,17 @@ VisualEffectResource:
         - m_ExpressionIndex: 0
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
-            key1: {r: 0.03137255, g: 0, b: 5.992157, a: 1}
-            key2: {r: 0.52561337, g: 0, b: 6.7015705, a: 1}
+            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
+            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
+            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 4433
-            ctime1: 30647
-            ctime2: 51272
+            ctime1: 19082
+            ctime2: 39321
             ctime3: 65535
             ctime4: 0
             ctime5: 0
@@ -1360,17 +1366,17 @@ VisualEffectResource:
         - m_ExpressionIndex: 2
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
-            key1: {r: 0.03137255, g: 0, b: 5.992157, a: 1}
-            key2: {r: 0.52561337, g: 0, b: 6.7015705, a: 1}
+            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
+            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
+            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 4433
-            ctime1: 30647
-            ctime2: 51272
+            ctime1: 19082
+            ctime2: 39321
             ctime3: 65535
             ctime4: 0
             ctime5: 0
@@ -1390,17 +1396,17 @@ VisualEffectResource:
         - m_ExpressionIndex: 6
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
-            key1: {r: 0.03137255, g: 0, b: 5.992157, a: 1}
-            key2: {r: 0.52561337, g: 0, b: 6.7015705, a: 1}
+            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
+            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
+            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 4433
-            ctime1: 30647
-            ctime2: 51272
+            ctime1: 19082
+            ctime2: 39321
             ctime3: 65535
             ctime4: 0
             ctime5: 0
@@ -1420,17 +1426,17 @@ VisualEffectResource:
         - m_ExpressionIndex: 7
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
-            key1: {r: 0.03137255, g: 0, b: 5.992157, a: 1}
-            key2: {r: 0.52561337, g: 0, b: 6.7015705, a: 1}
+            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
+            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
+            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
             ctime0: 4433
-            ctime1: 30647
-            ctime2: 51272
+            ctime1: 19082
+            ctime2: 39321
             ctime3: 65535
             ctime4: 0
             ctime5: 0
@@ -3220,6 +3226,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614601}
   - {fileID: 8926484042661614886}
   - {fileID: 8926484042661614927}
+  - {fileID: 8926484042661614770}
   m_OutputSlots: []
   m_Label: 
   m_Data: {fileID: 8926484042661614568}
@@ -3237,7 +3244,7 @@ MonoBehaviour:
   zTestMode: 0
   colorMappingMode: 1
   uvMode: 2
-  useSoftParticle: 0
+  useSoftParticle: 1
   sortPriority: 0
   sort: 0
   indirectDraw: 0
@@ -3496,7 +3503,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.0313725508749485,"g":0.0,"b":5.992156982421875,"a":1.0},"time":0.46764323115348818},{"color":{"r":0.5256133675575256,"g":0.0,"b":6.701570510864258,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -4156,6 +4163,46 @@ MonoBehaviour:
       m_Min: -Infinity
       m_Max: Infinity
       m_Tooltip: Scale Applied to the read float value
+      m_Regex: 
+      m_RegexMaxLength: 0
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661614770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614770}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614600}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: softParticlesFadeDistance
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes:
+    - m_Type: 1
+      m_Min: 0.001
+      m_Max: Infinity
+      m_Tooltip: 
       m_Regex: 
       m_RegexMaxLength: 0
   m_Direction: 0
@@ -5592,7 +5639,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.0313725508749485,"g":0.0,"b":5.992156982421875,"a":1.0},"time":0.46764323115348818},{"color":{"r":0.5256133675575256,"g":0.0,"b":6.701570510864258,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -8963,6 +9010,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615054}
   - {fileID: 8926484042661615055}
   - {fileID: 8926484042661615056}
+  - {fileID: 8926484042661615059}
   m_OutputSlots: []
   m_Label: 
   m_Data: {fileID: 8926484042661615071}
@@ -8979,7 +9027,7 @@ MonoBehaviour:
   zTestMode: 0
   colorMappingMode: 1
   uvMode: 2
-  useSoftParticle: 0
+  useSoftParticle: 1
   sortPriority: 0
   sort: 0
   indirectDraw: 0
@@ -9045,7 +9093,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.0313725508749485,"g":0.0,"b":5.992156982421875,"a":1.0},"time":0.46764323115348818},{"color":{"r":0.5256133675575256,"g":0.0,"b":6.701570510864258,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -9161,6 +9209,46 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
     attributes: []
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661615059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615059}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661615053}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: 2147483647
+  m_Property:
+    name: softParticlesFadeDistance
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    attributes:
+    - m_Type: 1
+      m_Min: 0.001
+      m_Max: Infinity
+      m_Tooltip: 
+      m_Regex: 
+      m_RegexMaxLength: 0
   m_Direction: 0
   m_LinkedSlots: []
 --- !u!114 &8926484042661615061
@@ -11035,7 +11123,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.0313725508749485,"g":0.0,"b":5.992156982421875,"a":1.0},"time":0.46764323115348818},{"color":{"r":0.5256133675575256,"g":0.0,"b":6.701570510864258,"a":1.0},"time":0.7823605537414551},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient

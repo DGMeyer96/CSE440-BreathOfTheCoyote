@@ -87,4 +87,9 @@ public class Player : MonoBehaviour
                     + "Play Time: " + playTime + "\n");
         */
     }
+
+    public void PlayerHealth(int currentHealth)
+    {
+        health = currentHealth;
+    }
 }

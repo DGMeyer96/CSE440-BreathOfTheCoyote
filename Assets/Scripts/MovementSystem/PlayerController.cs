@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("jump " + isGrounded);
 
         WalkHandler();
-        DashHandler();
+        //DashHandler();
         JumpHandler();
     }
 
@@ -58,8 +58,9 @@ public class PlayerController : MonoBehaviour
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
+        float sprint = Input.GetAxis("Sprint");
 
-        if (Input.GetAxis("Sprint") > 0 && isGrounded)
+        if ( sprint != 0 && isGrounded)
         {
             speedS = speed * 2f;
             animate.speed = 1.4f;
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour
            // rb.velocity = Vector3.zero;
         }
     }
+    /*
     private void DashHandler()
     {
         //if lCTRL is pressed dashing = true apply force
@@ -174,6 +176,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    */
     private void JumpHandler()
     {
         float moveJump = Input.GetAxis("Jump");

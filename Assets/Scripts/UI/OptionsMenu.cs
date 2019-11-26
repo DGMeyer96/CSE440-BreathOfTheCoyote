@@ -47,17 +47,33 @@ public class OptionsMenu : MonoBehaviour
     public void SetGraphicsQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+        Debug.Log("Quality: " + QualitySettings.GetQualityLevel());
     }
 
     public void SetFullscreen(bool toggleFullscreen)
     {
-        Screen.fullScreen = toggleFullscreen;
+        //Screen.fullScreen = toggleFullscreen;
+        //Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, Screen.fullScreen);
+
+        if (toggleFullscreen)
+        {
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+            Debug.Log("Fullscreen: True");
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Debug.Log("Fullscreen: False");
+        }
+
+        Debug.Log("Fullscreen: " + Screen.fullScreen);
     }
 
     public void SetResolution(int desiredResolution)
     {
         Resolution resolution = availableResolutions[desiredResolution];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Debug.Log("Current Resolution: " + Screen.currentResolution.width + " x " + Screen.currentResolution.height);
     }
 
     public void SetLookSensitivity(float sensitivity)
