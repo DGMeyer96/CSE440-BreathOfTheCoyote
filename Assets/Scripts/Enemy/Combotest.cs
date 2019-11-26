@@ -3,7 +3,7 @@ using System.Collections;
 
 public class comboTest : MonoBehaviour
 {
-    private KeyCombo warHammer = new KeyCombo(new string[] { "stuff", "stuff", "stuff", "stuff" });
+    /*private KeyCombo warHammer = new KeyCombo(new string[] { "stuff", "stuff", "stuff", "stuff" });
     private KeyCombo battleAxe = new KeyCombo(new string[] { "stuff", "stuff", "stuff", "stuff" });
     private KeyCombo fireball = new KeyCombo(new string[] { "stuff", "stuff", "stuff", "stuff", "stuff", "stuff" });
 
@@ -24,5 +24,5 @@ public class comboTest : MonoBehaviour
             // do Kick to the face combo stuff
             Debug.Log("Fireball Combo activated");
         }
-    }
+    }*/
 }

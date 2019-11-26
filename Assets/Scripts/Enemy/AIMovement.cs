@@ -32,7 +32,7 @@ public class AIMovement : MonoBehaviour
         {
             
             Destroy(gameObject);
-            collision.gameObject.GetComponent<TriggerSpawn>().firstDeath = true;
+            collision.gameObject.GetComponent<TriggerSpawn>().permanentSleep = true;
         }
     }
 

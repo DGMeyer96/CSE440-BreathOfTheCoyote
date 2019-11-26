@@ -1568,7 +1568,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899343196285797}
-  m_LocalRotation: {x: 0.12423512, y: -0.103748865, z: 0.04228433, w: 0.9859076}
+  m_LocalRotation: {x: 0.12423045, y: -0.103754416, z: 0.04232865, w: 0.98590577}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1644,7 +1644,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899343495651232}
-  m_LocalRotation: {x: 0.28856748, y: -0.122267134, z: 0.114299096, w: 0.942717}
+  m_LocalRotation: {x: 0.2876466, y: -0.12441823, z: 0.12133451, w: 0.9418373}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2223,8 +2223,8 @@ GameObject:
   - component: {fileID: 6156169331373929807}
   - component: {fileID: 6156169331373929806}
   - component: {fileID: 1227679066}
-  - component: {fileID: 7344569287063550252}
   - component: {fileID: 1227679076}
+  - component: {fileID: 1772839647}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -2425,20 +2425,6 @@ MonoBehaviour:
   speed: 15
   jumpSpeed: 8
   gravity: 20
---- !u!114 &7344569287063550252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156169331373929801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bed5984ec4bcf44b8015104db4e6b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons: []
-  allowedTimeBetweenButtons: 0
 --- !u!114 &1227679076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2456,6 +2442,20 @@ MonoBehaviour:
     type: 3}
   handLocation: {fileID: 225493639937668980}
   cooldownTimer: 0
+--- !u!114 &1772839647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156169331373929801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bed5984ec4bcf44b8015104db4e6b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDamage: 0
+  enemyHeath: {fileID: 0}
 --- !u!1 &6854245941846662876
 GameObject:
   m_ObjectHideFlags: 0

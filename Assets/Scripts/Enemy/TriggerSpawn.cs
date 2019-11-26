@@ -9,41 +9,55 @@ public class TriggerSpawn : MonoBehaviour
     public GameObject enemy2;
     public GameObject enemy3;
     private int spawnCounter = 0;
-    public bool firstDeath;
+    public bool permanentSleep;
 
-    private void Start()
-    { 
-    }
 
-    private void Update()
-    {
-        
-    }
-
+    //on entering the TriggerSpawn, spawns out the first enemy. increments the counter to 1
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 0){
+            if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 0)
+            {
 
                 Instantiate(enemy1, enemyPosition.position, enemyPosition.rotation);
                 spawnCounter = 1;
             }
-
-            else if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 1)
-            {
-
-                Instantiate(enemy2, enemyPosition.position, enemyPosition.rotation);
-                spawnCounter = 2;
-            }
-
-            else if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 2)
-            {
-
-                Instantiate(enemy3, enemyPosition.position, enemyPosition.rotation);
-                spawnCounter = 0;
-            }
-
         }
+    }
+
+
+    //while still in the TriggerSpawn, once it detects that the first enemy has died, it will spawn out the next enemy and increase the counter by 1
+    //same will happen with the final spawn. after all enemies are dead....do something?
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            if(permanentSleep == true && spawnCounter == 1)
+            {
+                Invoke("Spawn2", 4.0f);
+                spawnCounter = 2;
+                permanentSleep = false;
+            }
+
+            else if(permanentSleep == true && spawnCounter == 2)
+            {
+                Invoke("Spawn3", 4.0f);
+                spawnCounter = 3;
+                permanentSleep = false;
+            }
+        }
+    }
+
+
+    //The spawners for the enemy so they are set on delay due to invoke
+    void Spawn2()
+    {
+        Instantiate(enemy2, enemyPosition.position, enemyPosition.rotation);
+    }
+
+    void Spawn3()
+    {
+        Instantiate(enemy3, enemyPosition.position, enemyPosition.rotation);
     }
 }
