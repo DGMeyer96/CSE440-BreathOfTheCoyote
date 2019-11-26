@@ -22,7 +22,7 @@ public class BattleMusicPlayer : MonoBehaviour
         if(other.gameObject.name == "TrialOfStrength" || other.gameObject.tag == "Combat")
         {
             StartCoroutine(StartFadeOut(master, "MasterVolume", 1.0f, -80.0f, battleClip));
-
+            
             //BGMSource.clip = battleClip;
             //BGMSource.Play();
         }
@@ -88,7 +88,6 @@ public class BattleMusicPlayer : MonoBehaviour
         BGMSource.Stop();
         BGMSource.clip = clip;
         BGMSource.Play();
-
         StartCoroutine(StartFadeIn(master, "MasterVolume", 1.0f, 80.0f));
     }
 }
