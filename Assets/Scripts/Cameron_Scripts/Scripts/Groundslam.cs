@@ -21,12 +21,13 @@ public class Groundslam : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
-        grndslamAni.SetBool("GroundSlam", false);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
         groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)
