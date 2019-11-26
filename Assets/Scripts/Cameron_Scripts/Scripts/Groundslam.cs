@@ -9,16 +9,19 @@ public class Groundslam : MonoBehaviour
     public GameObject player;
     private bool temp;
     CharacterController characterController;
-    private bool groundedcheck;
+    public bool groundedcheck;
     private float cooldown;
     private float timeClip;
     private Vector3 moveDirection = Vector3.zero;
+    public AudioSource BGMSource;
+    //public PlayerCharacterController playerCharacterController;
 
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        //playerCharacterController = GetComponent<PlayerCharacterController>
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
         grndslamAni.SetBool("GroundSlam", false);
@@ -28,7 +31,8 @@ public class Groundslam : MonoBehaviour
     void Update()
     {
         cooldown += Time.deltaTime;
-        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
+        
+        groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;
         if (cooldown > 2)
         {
 
@@ -41,6 +45,7 @@ public class Groundslam : MonoBehaviour
             }
 
         }
+        /*
         if (temp)
         {
             if (groundedcheck)
@@ -51,6 +56,7 @@ public class Groundslam : MonoBehaviour
 
             }
         }
+        */
         //Placeholder
         //This program isn't set yet as nothing is prepared to use it
         //If an object that has a certain attachment to it is nearby when it is pressed, then something happens
@@ -71,6 +77,7 @@ public class Groundslam : MonoBehaviour
 
             GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
             Destroy(slamvfx, 2.0f);
+            BGMSource.Play();
             grndslamAni.SetBool("GroundSlam", false);
 
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2550487618065127028}
   - component: {fileID: 2550487618065127031}
   - component: {fileID: 753599120539129321}
+  - component: {fileID: 5464556972349041946}
   m_Layer: 0
   m_Name: GroundSlam
   m_TagString: Untagged
