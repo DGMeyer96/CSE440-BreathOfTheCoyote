@@ -51,6 +51,8 @@ public class PlayerCharacter_Controller : MonoBehaviour
         isfalling = false;
         isOnGround = false;
         plat = false;
+        Debug.LogError(speed);
+
     }
 
     void Update()
@@ -91,7 +93,8 @@ public class PlayerCharacter_Controller : MonoBehaviour
             }
         }
 
-        Debug.Log(speed);
+        Debug.Log("test");
+
 
 
         if (characterController.isGrounded)
