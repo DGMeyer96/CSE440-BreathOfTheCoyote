@@ -72,13 +72,13 @@ public class PauseHandler : MonoBehaviour
     private void DisableControl()
     {
         //player.GetComponent<CompassHandler>().enabled = false;
-        player.GetComponent<PlayerController>().enabled = false;
+        player.GetComponent<PlayerCharacterController>().enabled = false;
         //player.GetComponentInChildren<eyelook>().enabled = false;
     }
 
     private void EnableControl()
     {
-        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerCharacterController>().enabled = true;
         //player.GetComponentInChildren<eyelook>().enabled = true;
     }
 
