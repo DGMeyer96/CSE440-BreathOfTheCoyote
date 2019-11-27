@@ -35,7 +35,7 @@ public class Fireball : MonoBehaviour
              {
                 cooldownTimer = 0f;
                 Debug.Log("runs");
-                GameObject bullet = Instantiate(projectile, transform.position - 0.8f * transform.forward, Quaternion.identity);
+                GameObject bullet = Instantiate(projectile, handLocation.position - 0.8f * handLocation.forward, Quaternion.identity);
                 Debug.Log(bullet.transform.position);
                 BGMSource.Play();
 

@@ -17,18 +17,28 @@ public class KeyCombo : MonoBehaviour
     Animator meleeAction;
     private int attackCounter;
     private float cooldown;
-    private float reset;
-    public float weaponDamage;
-    public EnemyHealth enemyHeath;
-    
-    
-
+    private float reset;
+
+    public float weaponDamage;
+
+    public EnemyHealth enemyHeath;
+
+    
+
+    
+
+
+
     void Start()
     {
-        meleeAction = gameObject.GetComponent<Animator>();
-        enemyHeath = GameObject.Find("AI").GetComponent<EnemyHealth>();
-        
-
+        meleeAction = gameObject.GetComponent<Animator>();
+
+        enemyHeath = GameObject.Find("AI").GetComponent<EnemyHealth>();
+
+        
+
+
+
     }
 
     //Weapon animations and giving damage to the Weapon
@@ -50,8 +60,10 @@ public class KeyCombo : MonoBehaviour
             attackCounter = 0;
             meleeAction.SetBool("FirstAttack", false);
             meleeAction.SetBool("SecondAttack", false);
-            meleeAction.SetBool("FinalAttack", false);
-
+            meleeAction.SetBool("FinalAttack", false);
+
+
+
         }
 
         reset += Time.deltaTime;
@@ -61,8 +73,10 @@ public class KeyCombo : MonoBehaviour
     private void Attack()
     {
         if (attackCounter == 0)
-        {
-
+        {
+
+
+
             meleeAction.SetBool("FirstAttack", true);
             attackCounter = 1;
             weaponDamage = 2f;
@@ -83,37 +97,66 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetBool("FinalAttack", true);
             weaponDamage = 5f;
             reset = 2f;
-        }
-
-
-        /*if (Input.GetMouseButtonDown(0) && attackCounter == 0)
-            {
-                meleeAction.SetBool("FirstAttack", true);
-                attackCounter++;
-
-            }
-            else if (Input.GetMouseButtonDown(0) && attackCounter == 1)
-            {
-                meleeAction.SetBool("SecondAttack", true);
-                attackCounter++;
-            }
-            else if (attackCounter == 2)
-            {
-                meleeAction.SetBool("FirstAttack", false);
-                meleeAction.SetBool("SecondAttack", false);
-                meleeAction.SetBool("StopAttack", true);
-                attackCounter = 0;
-            }*/
+        }
+
+
+
+
+
+        /*if (Input.GetMouseButtonDown(0) && attackCounter == 0)
+
+            {
+
+                meleeAction.SetBool("FirstAttack", true);
+
+                attackCounter++;
+
+
+
+            }
+
+            else if (Input.GetMouseButtonDown(0) && attackCounter == 1)
+
+            {
+
+                meleeAction.SetBool("SecondAttack", true);
+
+                attackCounter++;
+
+            }
+
+            else if (attackCounter == 2)
+
+            {
+
+                meleeAction.SetBool("FirstAttack", false);
+
+                meleeAction.SetBool("SecondAttack", false);
+
+                meleeAction.SetBool("StopAttack", true);
+
+                attackCounter = 0;
+
+            }*/
+
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "AI")
-        {
-            EnemyHealth hp = collision.gameObject.GetComponent<EnemyHealth>();
-            
-
-        }
+    private void OnCollisionEnter(Collision collision)
+
+    {
+
+        if(collision.gameObject.tag == "AI")
+
+        {
+
+            EnemyHealth hp = collision.gameObject.GetComponent<EnemyHealth>();
+
+            
+
+
+
+        }
+
     }
 
     /*public string[] buttons; // set up an array for the series of buttons player must hit within allowed time to activate combo
