@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter_Controller : MonoBehaviour
+public class PlayerCharacterController : MonoBehaviour
 {
     CharacterController characterController;
 
@@ -57,17 +57,14 @@ public class PlayerCharacter_Controller : MonoBehaviour
 
     void Update()
     {
-
         float walkspeed = 0f;
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveSprint = Input.GetAxis("Sprint");
-        if (moveSprint != 0 && moveVertical != 0f || moveHorizontal != 0f)
+
+        if (moveSprint != 0 && (moveVertical != 0f || moveHorizontal != 0f))
         {
-            Debug.Log(moveVertical);
-            Debug.Log(moveHorizontal);
-            Debug.Log(moveSprint);
             walkspeed = speed * 1.4f;
             if (isOnGround)
             {
@@ -92,10 +89,6 @@ public class PlayerCharacter_Controller : MonoBehaviour
                 animate.SetBool("Running", false);
             }
         }
-
-        Debug.Log("test");
-
-
 
         if (characterController.isGrounded)
         {

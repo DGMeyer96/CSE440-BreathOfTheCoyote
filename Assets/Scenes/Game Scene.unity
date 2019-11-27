@@ -8902,17 +8902,17 @@ PrefabInstance:
     - target: {fileID: 3987899343495651239, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24873509
+      value: 0.24873507
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343495651239, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.13750368
+      value: 0.13750365
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343495651239, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.03994802
+      value: 0.03994803
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343495651239, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
@@ -8942,17 +8942,17 @@ PrefabInstance:
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.15896153
+      value: 0.15896152
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0144763645
+      value: 0.014476366
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.09165803
+      value: 0.091658026
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
@@ -34884,6 +34884,29 @@ CapsuleCollider:
   m_Height: 6.03
   m_Direction: 1
   m_Center: {x: 0, y: 3.93, z: 0}
+--- !u!114 &6156169330942132426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156169330942132414}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6bdc421af329144adf4ab31460a8af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MindTrophy: {fileID: 0}
+  StrengthTrophy: {fileID: 0}
+  AgilityTrophy: {fileID: 0}
+  CanvasAnimator: {fileID: 0}
+  SaveAnimator: {fileID: 0}
+  cam: {fileID: 0}
+  isfalling: 0
+  isOnGround: 0
+  speed: 6
+  jumpSpeed: 8
+  gravity: 20
 --- !u!114 &6494100453722258468
 MonoBehaviour:
   m_ObjectHideFlags: 0
