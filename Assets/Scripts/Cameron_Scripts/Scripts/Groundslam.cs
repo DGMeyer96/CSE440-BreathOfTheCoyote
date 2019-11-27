@@ -32,7 +32,7 @@ public class Groundslam : MonoBehaviour
     {
         cooldown += Time.deltaTime;
         
-        groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;
+        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)
         {
 

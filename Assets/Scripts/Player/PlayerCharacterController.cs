@@ -55,12 +55,17 @@ public class PlayerCharacter_Controller : MonoBehaviour
 
     void Update()
     {
+
         float walkspeed = 0f;
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
-        if (Input.GetAxis("Sprint") != 0)
+        float moveSprint = Input.GetAxis("Sprint");
+        if (moveSprint != 0 && moveVertical != 0f || moveHorizontal != 0f)
         {
+            Debug.Log(moveVertical);
+            Debug.Log(moveHorizontal);
+            Debug.Log(moveSprint);
             walkspeed = speed * 1.4f;
             if (isOnGround)
             {
@@ -86,6 +91,9 @@ public class PlayerCharacter_Controller : MonoBehaviour
             }
         }
 
+        Debug.Log(speed);
+
+
         if (characterController.isGrounded)
         {
 
@@ -109,7 +117,7 @@ public class PlayerCharacter_Controller : MonoBehaviour
         }
         else
         {
-            moveRotation = new Vector3(moveHorizontal / 3, 0.0f, moveVertical);
+            moveRotation = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         }
 
         if (moveRotation.magnitude > 0)
