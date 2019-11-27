@@ -19,8 +19,10 @@ public class BattleMusicPlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "TrialOfStrength" || other.gameObject.tag == "Combat")
+        if(other.gameObject.name == "TrialOfStrength") //|| other.gameObject.tag == "Combat")
         {
+            Debug.Log("Entered Trial of Strength");
+
             StartCoroutine(StartFadeOut(master, "MasterVolume", 1.0f, -80.0f, battleClip));
 
             //BGMSource.clip = battleClip;
@@ -30,8 +32,10 @@ public class BattleMusicPlayer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "TrialOfStrength" || other.gameObject.tag == "Combat")
+        if (other.gameObject.name == "TrialOfStrength") //|| other.gameObject.tag == "Combat")
         {
+            Debug.Log("Left Trial of Strength");
+
             StartCoroutine(StartFadeOut(master, "MasterVolume", 1.0f, -80.0f, currentClip));
 
             //BGMSource.Stop();

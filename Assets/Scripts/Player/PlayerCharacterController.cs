@@ -189,6 +189,8 @@ public class PlayerCharacter_Controller : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("Collided with: " + collision.name);
+
         //if a palyer steps on a moving platform then get the components of that platform
         if (collision.gameObject.CompareTag("Elevator"))
         {
@@ -257,7 +259,7 @@ public class PlayerCharacter_Controller : MonoBehaviour
             && GetComponent<Player>().TrialOfStrength == true && GetComponent<Player>().TrialOfMind == true)
         {
             Debug.Log("Loading: Main Menu");
-            PlayerPrefs.SetInt("LevelToLoad", 1);
+            PlayerPrefs.SetInt("LevelToLoad", 3);
             GetComponent<Player>().SaveGame();
             CanvasAnimator.SetTrigger("FadeOut");
         }
