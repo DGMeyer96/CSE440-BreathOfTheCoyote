@@ -32,9 +32,12 @@ public class PlayerCharacterController : MonoBehaviour
 
     private int count;
     private GameObject[] point;
-    private bool plat;
+    public bool plat;
     private float platspeed;
     private Collider go;
+    private Vector3 Platmov;
+    private float dista;
+    public GameObject elevator;
 
     void Start()
     {
@@ -190,6 +193,18 @@ public class PlayerCharacterController : MonoBehaviour
             if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
             {
                 count = go.gameObject.GetComponent<PlatformMovement>().current;
+                Platmov = go.gameObject.GetComponent<PlatformMovement>().Platmove;
+                dista = go.gameObject.GetComponent<PlatformMovement>().dist;
+
+            }
+            if (go.gameObject.GetComponent<Elevator>() != null && go.gameObject.GetComponent<Elevator>().isActiveAndEnabled)
+            {
+                dista = go.gameObject.GetComponent<Elevator>().dist;
+
+            }
+            if (go.gameObject.GetComponent<Elevator1>() != null && go.gameObject.GetComponent<Elevator1>().isActiveAndEnabled)
+            {
+                dista = go.gameObject.GetComponent<Elevator1>().dist;
             }
             platmove();
         }
@@ -201,24 +216,31 @@ public class PlayerCharacterController : MonoBehaviour
         if (collision.gameObject.CompareTag("Elevator"))
         {
             go = collision;
+            elevator = collision.gameObject;
 
             if (go.gameObject.GetComponent<Elevator1>() != null && go.gameObject.GetComponent<Elevator1>().isActiveAndEnabled)
             {
                 count = collision.gameObject.GetComponent<Elevator1>().current;
                 point = collision.gameObject.GetComponent<Elevator1>().points;
                 platspeed = collision.gameObject.GetComponent<Elevator1>().speed + 0.3f;
+                Platmov = collision.gameObject.GetComponent<Elevator1>().Platmove;
+                dista = collision.gameObject.GetComponent<Elevator1>().dist;
             }
             else if (go.gameObject.GetComponent<Elevator>() != null && go.gameObject.GetComponent<Elevator>().isActiveAndEnabled)
             {
                 count = collision.gameObject.GetComponent<Elevator>().current;
                 point = collision.gameObject.GetComponent<Elevator>().points;
                 platspeed = collision.gameObject.GetComponent<Elevator>().speed + 0.3f;
+                Platmov = collision.gameObject.GetComponent<Elevator>().Platmove;
+                dista = collision.gameObject.GetComponent<Elevator>().dist;
             }
             else if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
             {
                 count = collision.gameObject.GetComponent<PlatformMovement>().current;
                 point = collision.gameObject.GetComponent<PlatformMovement>().points;
                 platspeed = collision.gameObject.GetComponent<PlatformMovement>().speed + 0.3f;
+                Platmov = collision.gameObject.GetComponent<PlatformMovement>().Platmove;
+                dista = collision.gameObject.GetComponent<PlatformMovement>().dist;
             }
 
             plat = true;
@@ -273,12 +295,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void platmove()
     {
-        float dist = Vector3.Distance(transform.position, point[count].transform.position);
-        if (dist > 2)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, point[count].transform.position + new Vector3(0.0f, 2.5f, 0.0f), Time.deltaTime * platspeed);
-        }
-        Debug.Log(count);
+        //float dist = Vector3.Distance(transform.position, point[count].transform.position);
+        //transform.position = Vector3.MoveTowards(transform.position, Platmov, Time.deltaTime * platspeed);//Vector3.MoveTowards(transform.position, point[count].transform.position + new Vector3(0.0f, 2.5f, 0.0f), Time.deltaTime * platspeed);
+
     }
 
     private void OnTriggerExit(Collider collision)

@@ -7,13 +7,19 @@ public class PlatformMovement : MonoBehaviour
     public GameObject[] points;
     public int current = 0;
     public float speed;
+    public Vector3 Platmove;
+    public float dist;
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        dist = Vector3.Distance(transform.position, points[current].transform.position);
+
+
         if (transform.position != points[current].transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            transform.position = Platmove;
         }
 
         if (transform.position == points[current].transform.position && current == 1) 

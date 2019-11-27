@@ -5,11 +5,15 @@ using UnityEngine;
 public class ElevatorCheckpoint : MonoBehaviour
 {
     public bool touched;
-    private void OnCollisionEnter(Collision collision)
+    public Animator anim;
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             touched = true;
+            anim.SetTrigger("AgilityComplete");
         }
+
+
     }
 }
