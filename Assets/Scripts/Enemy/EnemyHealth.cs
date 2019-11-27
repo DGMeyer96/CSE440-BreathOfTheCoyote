@@ -11,7 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public Animator animate;                              // Reference to the animator.
 
 
-    bool isDead;                                  //Checks whether the enemy is Dead
+    public bool isDead;                                  //Checks whether the enemy is Dead
     public bool isDamaged;
     //Checks whether enemy has been damaged
 

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 
@@ -7,7 +6,7 @@ public class Enemy_Combat : MonoBehaviour
 {
 
     public float timeBetweenAttacks = 0.2f;  //The delay before next attack will take place
-    public int atttackDamage = 10;            //Enemy damages at 10 points per strike( Since each heart is worth ten hearts to the player)
+    public int   damageAmount = 10;            //Enemy damages at 10 points per strike( Since each heart is worth ten hearts to the player)
 
     Animator anim;
     GameObject player;
@@ -82,7 +81,7 @@ public class Enemy_Combat : MonoBehaviour
             if (playerHealth.currentHealth > 0)
             {
                 // ... damage the player.
-               // playerHealth.TakeDamage(attackDamage);
+               playerHealth.TakeDamage(damageAmount);
             }
      
         }
