@@ -179,7 +179,13 @@ public class PlayerCharacterController : MonoBehaviour
         {
             StrengthTrophy.SetActive(true);
         }
-        if (plat && moveHorizontal == 0 && moveVertical == 0)
+    }
+
+    private void FixedUpdate()
+    {
+        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        if (plat && (moveHorizontal == 0 || moveVertical == 0))
         {
             if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
             {
@@ -187,8 +193,6 @@ public class PlayerCharacterController : MonoBehaviour
             }
             platmove();
         }
-
-
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -202,19 +206,19 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 count = collision.gameObject.GetComponent<Elevator1>().current;
                 point = collision.gameObject.GetComponent<Elevator1>().points;
-                platspeed = collision.gameObject.GetComponent<Elevator1>().speed;
+                platspeed = collision.gameObject.GetComponent<Elevator1>().speed + 0.3f;
             }
             else if (go.gameObject.GetComponent<Elevator>() != null && go.gameObject.GetComponent<Elevator>().isActiveAndEnabled)
             {
                 count = collision.gameObject.GetComponent<Elevator>().current;
                 point = collision.gameObject.GetComponent<Elevator>().points;
-                platspeed = collision.gameObject.GetComponent<Elevator>().speed;
+                platspeed = collision.gameObject.GetComponent<Elevator>().speed + 0.3f;
             }
             else if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
             {
                 count = collision.gameObject.GetComponent<PlatformMovement>().current;
                 point = collision.gameObject.GetComponent<PlatformMovement>().points;
-                platspeed = collision.gameObject.GetComponent<PlatformMovement>().speed;
+                platspeed = collision.gameObject.GetComponent<PlatformMovement>().speed + 0.3f;
             }
 
             plat = true;
@@ -269,7 +273,11 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void platmove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, point[count].transform.position, Time.deltaTime * platspeed);
+        float dist = Vector3.Distance(transform.position, point[count].transform.position);
+        if (dist > 2)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, point[count].transform.position + new Vector3(0.0f, 2.5f, 0.0f), Time.deltaTime * platspeed);
+        }
         Debug.Log(count);
     }
 

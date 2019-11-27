@@ -144,6 +144,7 @@ MonoBehaviour:
   points:
   - {fileID: 1697645533}
   - {fileID: 1896408781}
+  current: 0
   speed: 2
 --- !u!114 &94834444
 MonoBehaviour:
@@ -160,6 +161,7 @@ MonoBehaviour:
   points:
   - {fileID: 1697645533}
   - {fileID: 1896408781}
+  current: 0
   speed: 3
 --- !u!64 &94834443
 MeshCollider:
@@ -333,6 +335,7 @@ MonoBehaviour:
   points:
   - {fileID: 2046486365}
   - {fileID: 338270764}
+  current: 0
   speed: 3
 --- !u!114 &239207914
 MonoBehaviour:
@@ -349,6 +352,7 @@ MonoBehaviour:
   points:
   - {fileID: 2046486365}
   - {fileID: 338270764}
+  current: 0
   speed: 3
 --- !u!64 &239207913
 MeshCollider:
@@ -492,6 +496,7 @@ MonoBehaviour:
   points:
   - {fileID: 336868852}
   - {fileID: 360338284}
+  current: 0
   speed: 3
 --- !u!114 &310314688
 MonoBehaviour:
@@ -508,6 +513,7 @@ MonoBehaviour:
   points:
   - {fileID: 336868852}
   - {fileID: 360338284}
+  current: 0
   speed: 3
 --- !u!64 &310314687
 MeshCollider:
@@ -861,6 +867,7 @@ MonoBehaviour:
   points:
   - {fileID: 1112183635}
   - {fileID: 333116097}
+  current: 0
   speed: 2
 --- !u!114 &697204730
 MonoBehaviour:
@@ -877,6 +884,7 @@ MonoBehaviour:
   points:
   - {fileID: 1112183635}
   - {fileID: 333116097}
+  current: 0
   speed: 3
 --- !u!64 &697204729
 MeshCollider:
@@ -1110,6 +1118,7 @@ MonoBehaviour:
   points:
   - {fileID: 2032663161}
   - {fileID: 736474459}
+  current: 0
   speed: 2
 --- !u!114 &853396023
 MonoBehaviour:
@@ -1126,6 +1135,7 @@ MonoBehaviour:
   points:
   - {fileID: 2032663161}
   - {fileID: 736474459}
+  current: 0
   speed: 3
 --- !u!64 &853396022
 MeshCollider:
@@ -1269,6 +1279,7 @@ MonoBehaviour:
   points:
   - {fileID: 420391306}
   - {fileID: 1621372122}
+  current: 0
   speed: 3
 --- !u!114 &1001673220
 MonoBehaviour:
@@ -1285,6 +1296,7 @@ MonoBehaviour:
   points:
   - {fileID: 420391306}
   - {fileID: 1621372122}
+  current: 0
   speed: 3
 --- !u!64 &1001673219
 MeshCollider:
@@ -1428,6 +1440,7 @@ MonoBehaviour:
   points:
   - {fileID: 373563108}
   - {fileID: 1318271544}
+  current: 0
   speed: 2
 --- !u!114 &1009709092
 MonoBehaviour:
@@ -1444,6 +1457,7 @@ MonoBehaviour:
   points:
   - {fileID: 373563108}
   - {fileID: 1318271544}
+  current: 0
   speed: 3
 --- !u!64 &1009709091
 MeshCollider:
@@ -1587,6 +1601,7 @@ MonoBehaviour:
   points:
   - {fileID: 1307034595}
   - {fileID: 681205139}
+  current: 0
   speed: 3
 --- !u!114 &1093890988
 MonoBehaviour:
@@ -1603,6 +1618,7 @@ MonoBehaviour:
   points:
   - {fileID: 1307034595}
   - {fileID: 681205139}
+  current: 0
   speed: 3
 --- !u!64 &1093890987
 MeshCollider:
@@ -1746,6 +1762,7 @@ MonoBehaviour:
   points:
   - {fileID: 739653424}
   - {fileID: 1299615985}
+  current: 0
   speed: 2
 --- !u!114 &1111271551
 MonoBehaviour:
@@ -1762,6 +1779,7 @@ MonoBehaviour:
   points:
   - {fileID: 739653424}
   - {fileID: 1299615985}
+  current: 0
   speed: 3
 --- !u!64 &1111271550
 MeshCollider:
@@ -1935,6 +1953,7 @@ MonoBehaviour:
   points:
   - {fileID: 1804973293}
   - {fileID: 93131144}
+  current: 0
   speed: 3
 --- !u!114 &1117383802
 MonoBehaviour:
@@ -1951,6 +1970,7 @@ MonoBehaviour:
   points:
   - {fileID: 1804973293}
   - {fileID: 93131144}
+  current: 0
   speed: 3
 --- !u!64 &1117383801
 MeshCollider:
@@ -2214,6 +2234,7 @@ MonoBehaviour:
   points:
   - {fileID: 727000158}
   - {fileID: 1286864900}
+  current: 0
   speed: 2
 --- !u!114 &1393492034
 MonoBehaviour:
@@ -2230,6 +2251,7 @@ MonoBehaviour:
   points:
   - {fileID: 727000158}
   - {fileID: 1286864900}
+  current: 0
   speed: 3
 --- !u!64 &1393492033
 MeshCollider:
@@ -2433,6 +2455,7 @@ MonoBehaviour:
   points:
   - {fileID: 188651326}
   - {fileID: 1398767046}
+  current: 0
   speed: 3
 --- !u!114 &1472818873
 MonoBehaviour:
@@ -2449,6 +2472,7 @@ MonoBehaviour:
   points:
   - {fileID: 188651326}
   - {fileID: 1398767046}
+  current: 0
   speed: 3
 --- !u!64 &1472818872
 MeshCollider:
@@ -2622,6 +2646,7 @@ MonoBehaviour:
   points:
   - {fileID: 2046486365}
   - {fileID: 338270764}
+  current: 0
   speed: 2
 --- !u!114 &1686170434
 MonoBehaviour:
@@ -2638,6 +2663,7 @@ MonoBehaviour:
   points:
   - {fileID: 2046486365}
   - {fileID: 338270764}
+  current: 0
   speed: 3
 --- !u!64 &1686170433
 MeshCollider:
@@ -2961,6 +2987,7 @@ MonoBehaviour:
   points:
   - {fileID: 1402162380}
   - {fileID: 1765678483}
+  current: 0
   speed: 3
 --- !u!114 &2122264124
 MonoBehaviour:
@@ -2977,6 +3004,7 @@ MonoBehaviour:
   points:
   - {fileID: 1402162380}
   - {fileID: 1765678483}
+  current: 0
   speed: 3
 --- !u!64 &2122264123
 MeshCollider:
@@ -3120,6 +3148,7 @@ MonoBehaviour:
   points:
   - {fileID: 4213026466461416024}
   - {fileID: 4213026465483838013}
+  current: 0
   speed: 3
 --- !u!114 &8831635185907812414
 MonoBehaviour:
@@ -3136,6 +3165,7 @@ MonoBehaviour:
   points:
   - {fileID: 4213026466461416024}
   - {fileID: 4213026465483838013}
+  current: 0
   speed: 3
 --- !u!64 &306441960799796905
 MeshCollider:
@@ -7959,6 +7989,7 @@ MonoBehaviour:
   - {fileID: 4213026465070583217}
   - {fileID: 4213026464856523481}
   - {fileID: 4213026465295525282}
+  current: 0
   speed: 3
   Chp: {fileID: 4213026465949324918}
   colliding: 0
@@ -8737,7 +8768,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4213026466563381662}
-  m_Material: {fileID: 13400000, guid: f4b83269dfde3964ba262d8304907300, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
