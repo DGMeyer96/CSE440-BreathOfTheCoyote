@@ -14,6 +14,7 @@ public class Groundslam : MonoBehaviour
     private float timeClip;
     private Vector3 moveDirection = Vector3.zero;
     public AudioSource BGMSource;
+    private bool yeshereIammakinganothergoddamnbool;
     //public PlayerCharacterController playerCharacterController;
 
 
@@ -24,7 +25,8 @@ public class Groundslam : MonoBehaviour
         //playerCharacterController = GetComponent<PlayerCharacterController>
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
-        grndslamAni.SetBool("GroundSlam", false);
+        
+        yeshereIammakinganothergoddamnbool = true;
     }
 
     // Update is called once per frame
@@ -33,12 +35,13 @@ public class Groundslam : MonoBehaviour
         grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
         
-        groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;
+        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)
         {
 
-            if (Input.GetAxis("Groundslam") != 0)
+            if (Input.GetAxis("Groundslam") != 0 && yeshereIammakinganothergoddamnbool == true)
             {
+                yeshereIammakinganothergoddamnbool = false;
                 grndslamAni.SetBool("GroundSlam", true);
                 Invoke("groundEffect", 1.1f);
 
@@ -76,13 +79,14 @@ public class Groundslam : MonoBehaviour
         else
         {
 
-            GameObject slamvfx = Instantiate(groundv1, transform.position, transform.rotation);
+            GameObject slamvfx = Instantiate(groundv1, transform.position + (3f * transform.forward), transform.rotation);
             Destroy(slamvfx, 2.0f);
-            BGMSource.Play();
+           // BGMSource.Play();
             grndslamAni.SetBool("GroundSlam", false);
 
 
         }
         cooldown = 0f;
+        yeshereIammakinganothergoddamnbool = true;
     }
 }
