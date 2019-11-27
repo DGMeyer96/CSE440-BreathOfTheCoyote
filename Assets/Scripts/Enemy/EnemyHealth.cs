@@ -6,8 +6,6 @@ public class EnemyHealth : MonoBehaviour
     //private CharacterControl ccRef;
     public float maxHealth = 50;                    // The amount of health the enemy starts the game with.
     public float currentHealth;
-    private float distance;
-    public float maxDistance = 10f;
     public GameObject holder;
     public Animator animate;                        // Reference to the animator.
     private TriggerSpawn triggerSpawn;
@@ -45,22 +43,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        transform.LookAt(player.transform);
-        distance = Vector3.Distance(transform.position, player.transform.position);
-        if(distance > maxDistance)
-        {
-            transform.position += transform.forward * 5 * Time.deltaTime;
-            if(distance < maxDistance)
-            {
-                Debug.Log("I got here");
-            }
-        }
-        
-        
-        
-        
-        //if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
-            //Dead();
     }
 
 

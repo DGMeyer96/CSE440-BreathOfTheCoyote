@@ -865,7 +865,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49feba148921f0f40a655675096f809d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7148411880311392090, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
+  target: {fileID: 6318292535267010203, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
+  maxDistance: 15
+  player: {fileID: 7058350410263778440, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
 --- !u!195 &8175933610500501711
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -902,14 +904,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 0
-  maxDistance: 5
   holder: {fileID: 1456810165671682900, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
   animate: {fileID: 479385072203475823}
   playerAnimator: {fileID: 0}
   isDead: 0
   isDamaged: 0
   boxCollider: {fileID: 0}
-  player: {fileID: 6156169331373929801, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
+  player: {fileID: 7058350410263778440, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
 --- !u!54 &8202604437321144174
 Rigidbody:
   m_ObjectHideFlags: 0
