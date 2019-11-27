@@ -1002,7 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 7, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -13}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0.5, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 0.3, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
@@ -1095,7 +1095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899342441383563}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.001465, y: 8.749999, z: -11.842232}
+  m_LocalPosition: {x: -4.1615143, y: 7, z: -12.315918}
   m_LocalScale: {x: 6.956525, y: 13.91305, z: 6.956525}
   m_Children:
   - {fileID: 3987899343495651239}
@@ -1195,11 +1195,11 @@ MonoBehaviour:
   m_SplineCurvature: 1
   m_Orbits:
   - m_Height: 11
-    m_Radius: 1.5
+    m_Radius: 4
   - m_Height: 7
-    m_Radius: 10
+    m_Radius: 13
   - m_Height: 2
-    m_Radius: 3
+    m_Radius: 6
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 3987899343495651238}
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 7, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -13}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1384,7 +1384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899342560795997}
-  m_LocalRotation: {x: 0.10147622, y: 0.16134663, z: -0.016681133, w: 0.9815252}
+  m_LocalRotation: {x: 0.07251529, y: 0.16176774, z: -0.0119204195, w: 0.9840888}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 7, z: -10}
+  m_FollowOffset: {x: 0, y: 7, z: -13}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 4, z: 0}
+  m_TrackedObjectOffset: {x: 0, y: 6, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
@@ -1585,7 +1585,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899343196285797}
-  m_LocalRotation: {x: 0.09165763, y: 0.15896109, z: 0.014476472, w: 0.9829144}
+  m_LocalRotation: {x: -0.014156769, y: 0.16265257, z: 0.031540904, w: 0.98607755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1661,7 +1661,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3987899343495651232}
-  m_LocalRotation: {x: 0.24873438, y: 0.13750333, z: 0.039948218, w: 0.95792913}
+  m_LocalRotation: {x: 0.20008513, y: 0.14398672, z: 0.045098994, w: 0.96809083}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2259,7 +2259,7 @@ Transform:
   m_GameObject: {fileID: 6156169331373929801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 262.6159, y: 98.8, z: 337.2}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9102816066502378083}
   - {fileID: 1893149539246060904}
@@ -3243,11 +3243,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8431255326425759801}
     m_Modifications:
-    - target: {fileID: 2797775831745128311, guid: 67154f205864a7148b587e2645bfa711,
-        type: 3}
-      propertyPath: m_Name
-      value: Viking_with_Weapon
-      objectReference: {fileID: 0}
     - target: {fileID: 1191461119571629412, guid: 67154f205864a7148b587e2645bfa711,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3342,6 +3337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 93.214005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2797775831745128311, guid: 67154f205864a7148b587e2645bfa711,
+        type: 3}
+      propertyPath: m_Name
+      value: Viking_with_Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 7693813142840544690, guid: 67154f205864a7148b587e2645bfa711,
         type: 3}

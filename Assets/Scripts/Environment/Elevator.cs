@@ -16,7 +16,6 @@ public class Elevator : MonoBehaviour
     void FixedUpdate()
     {
         dist = Vector3.Distance(transform.position, points[current].transform.position);
-        Debug.Log(current);
         if (current !=0 && transform.position != points[current].transform.position)
         {
             Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
@@ -28,15 +27,6 @@ public class Elevator : MonoBehaviour
             Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
             transform.position = Platmove;
             movingtime = true;
-        }
-        if (current == 1)
-        {
-            Debug.Log(current);
-            Debug.Log(current);
-            Debug.Log(current);
-            Debug.Log(current);
-            Debug.Log(current);
-            Debug.Log(current);
         }
     }
 
@@ -68,7 +58,5 @@ public class Elevator : MonoBehaviour
         movingtime = false;
         Debug.Log(current);
         Debug.Log("palyer stopped touched me");
-
     }
-
 }

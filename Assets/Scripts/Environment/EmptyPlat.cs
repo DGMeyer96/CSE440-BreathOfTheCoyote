@@ -7,8 +7,7 @@ public class EmptyPlat : MonoBehaviour
     public GameObject player;
     public GameObject elevator;
     private bool trigger;
-    private Vector3 Platmov;
-    private bool moving;
+    private bool touched;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,19 +17,26 @@ public class EmptyPlat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        trigger = player.GetComponent<PlayerCharacterController>().plat;
+        //trigger = player.GetComponent<PlayerCharacterController>().plat;
 
-        if (trigger)
+        if (touched)
         {
             player.transform.SetParent(gameObject.transform);
         }
-        else
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
+            touched = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            touched = false;
             player.transform.SetParent(null);
         }
-
-
-
-
     }
 }
