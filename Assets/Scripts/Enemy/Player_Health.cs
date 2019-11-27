@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     
    Animator animate;                                              // Reference to the Animator component.                                 
     //PlayerController playerController;                        //Reference to Ben's Player Controller Script(Commented out since I didnt download that script yet.)                            
-    bool isDead;                                               
+   public bool isDead;                                               
    public bool isDamaged;
 
     void Awake()
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         // Setting up the references.
         animate = GetComponent<Animator>();
        // playerAudio = GetComponent<AudioSource>();
-       // playerController = GetComponent<PlayerController>();
+      // playerController = GetComponent<PlayerController>();
        
 
         // Set the initial health of the player.

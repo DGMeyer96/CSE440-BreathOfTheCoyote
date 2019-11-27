@@ -1,26 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-
+using UnityEngine.AI;
 public class AIMovement : MonoBehaviour
 {
-    public GameObject enemy;
-    public GameObject player;
+    [SerializeField] Transform target;
+    NavMeshAgent navMeshAgent;
+    //public GameObject enemy;
+    //public GameObject player;
     private Vector3 startPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.FindWithTag("AI");
-        player = GameObject.FindWithTag("Player");
+        navMeshAgent = GetComponent<NavMeshAgent> ();
+        //enemy = GameObject.FindWithTag("AI");
+        //player = GameObject.FindWithTag("Player");
         startPoint = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        transform.LookAt(player.transform);
+
+        navMeshAgent.SetDestination(target.position);
+        //transform.LookAt(player.transform);
         transform.Translate(0, 0, 8 * Time.deltaTime);
         
 
