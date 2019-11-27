@@ -30,6 +30,7 @@ public class Groundslam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
         
         groundedcheck = GetComponent<PlayerCharacter_Controller>().isOnGround;

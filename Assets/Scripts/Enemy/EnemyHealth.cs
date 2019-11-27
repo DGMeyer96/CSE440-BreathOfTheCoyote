@@ -24,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        animate = GetComponent<Animator>();
         currentHealth = maxHealth;
      //   ccRef = GetComponent<CharacterControl>();
     }
@@ -35,10 +36,23 @@ public class EnemyHealth : MonoBehaviour
     {
         transform.LookAt(player.transform);
         transform.Translate(0, 0, 8 * Time.deltaTime);
-        if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
-            Dead();
+        //if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
+            //Dead();
     }
 
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Weapon")
+        {
+            currentHealth -= currentHealth;
+            if(currentHealth <= 0)
+            {
+                collision.gameObject.GetComponent<TriggerSpawn>().permanentSleep = true;
+                Dead();
+            }
+        }
+    }
     public void Damage(float damageAmount, Vector3 hitPoint)
     {
         //The enemy is damaged
@@ -56,11 +70,11 @@ public class EnemyHealth : MonoBehaviour
     void Dead()
     {
         // The enemy is dead.
-        isDead = true;
-        gameObject.GetComponent<TriggerSpawn>().firstDeath = true;
+        
+        
 
         // Tell the animator that the enemy is dead.
-        animate.SetTrigger("Dead");
+        animate.SetBool("Dead", true);
 
         // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
 
