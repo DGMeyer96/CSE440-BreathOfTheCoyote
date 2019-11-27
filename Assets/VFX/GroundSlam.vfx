@@ -41,7 +41,7 @@ MonoBehaviour:
     x: -88
     y: -913
     width: 4221
-    height: 4189
+    height: 4191
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,9 +215,9 @@ VisualEffectResource:
       float4x4(0.5,0,0,0,0,0.5,0,0,0,0,0.5,0,0,0,0,1), float4x4(2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,1),
       (float)10, (float)2, deltaTime_a);\n\t\t\t}\n\t\t\tAttributeFromCurve_45ABB909(
       /*inout */size, age, lifetime, Size_b);\n\t\t\t{\n\t\t\t    VelocitySpherical_18D(
-      /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.3,
+      /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.5,
       (float)1);\n\t\t\t}\n\t\t\t{\n\t\t\t    VelocityDirection_18D( /*inout */velocity,
-      \ /*inout */direction, float3(0,1,0), (float)0.3, (float)0.5446968);\n\t\t\t}\n\t\t\tEulerIntegration(
+      \ /*inout */direction, float3(0,1,0), (float)0.5, (float)0.5031447);\n\t\t\t}\n\t\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_a);\n\t\t\tAge( /*inout */age, deltaTime_a);\n\t\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\t\n\n\t\t\tif (alive)\n\t\t\t{\n\t\t\t\tattributeBuffer.Store3((index
       * 0x8 + 0x0) << 2,asuint(position));\n\t\t\t\tattributeBuffer.Store3((index
@@ -240,9 +240,9 @@ VisualEffectResource:
       mass, position, GetVFXSampler(VectorField_a, samplerVectorField_a), float4x4(0.5,0,0,0,0,0.5,0,0,0,0,0.5,0,0,0,0,1),
       float4x4(2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,1), (float)10, (float)2, deltaTime_a);\n\t\t}\n\t\tAttributeFromCurve_45ABB909(
       /*inout */size, age, lifetime, Size_b);\n\t\t{\n\t\t    VelocitySpherical_18D(
-      /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.3,
+      /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.5,
       (float)1);\n\t\t}\n\t\t{\n\t\t    VelocityDirection_18D( /*inout */velocity,
-      \ /*inout */direction, float3(0,1,0), (float)0.3, (float)0.5446968);\n\t\t}\n\t\tEulerIntegration(
+      \ /*inout */direction, float3(0,1,0), (float)0.5, (float)0.5031447);\n\t\t}\n\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_a);\n\t\tAge( /*inout */age, deltaTime_a);\n\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\n\n\t\tattributeBuffer.Store3((index * 0x8
       + 0x0) << 2,asuint(position));\n\t\tattributeBuffer.Store3((index * 0x4 + 0xDC00)
@@ -492,7 +492,7 @@ VisualEffectResource:
       /*inout */size, age, lifetime, Size_b);\n\t\t\t{\n\t\t\t    VelocitySpherical_18D(
       /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.15,
       (float)1);\n\t\t\t}\n\t\t\t{\n\t\t\t    VelocityDirection_18D( /*inout */velocity,
-      \ /*inout */direction, float3(0,1,0), (float)0.5, (float)0.1886792);\n\t\t\t}\n\t\t\tEulerIntegration(
+      \ /*inout */direction, float3(0,1,0), (float)0.8, (float)0.1886792);\n\t\t\t}\n\t\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_a);\n\t\t\tAge( /*inout */age, deltaTime_a);\n\t\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\t\n\n\t\t\tif (alive)\n\t\t\t{\n\t\t\t\tattributeBuffer.Store3((index
       * 0x8 + 0x0) << 2,asuint(position));\n\t\t\t\tattributeBuffer.Store3((index
@@ -517,7 +517,7 @@ VisualEffectResource:
       /*inout */size, age, lifetime, Size_b);\n\t\t{\n\t\t    VelocitySpherical_18D(
       /*inout */velocity,  /*inout */direction, position, float3(0,0,0), (float)0.15,
       (float)1);\n\t\t}\n\t\t{\n\t\t    VelocityDirection_18D( /*inout */velocity,
-      \ /*inout */direction, float3(0,1,0), (float)0.5, (float)0.1886792);\n\t\t}\n\t\tEulerIntegration(
+      \ /*inout */direction, float3(0,1,0), (float)0.8, (float)0.1886792);\n\t\t}\n\t\tEulerIntegration(
       /*inout */position, velocity, deltaTime_a);\n\t\tAge( /*inout */age, deltaTime_a);\n\t\tReap(age,
       lifetime,  /*inout */alive);\n\t\t\n\n\t\tattributeBuffer.Store3((index * 0x8
       + 0x0) << 2,asuint(position));\n\t\tattributeBuffer.Store3((index * 0x4 + 0xDC00)
@@ -1084,7 +1084,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 8
           m_Value: 0.1886792
         - m_ExpressionIndex: 9
-          m_Value: 0.5
+          m_Value: 0.8
         - m_ExpressionIndex: 10
           m_Value: 0.15
         - m_ExpressionIndex: 19
@@ -1102,9 +1102,9 @@ VisualEffectResource:
         - m_ExpressionIndex: 35
           m_Value: 10
         - m_ExpressionIndex: 38
-          m_Value: 0.3
+          m_Value: 0.5
         - m_ExpressionIndex: 40
-          m_Value: 0.5446968
+          m_Value: 0.5031447
         - m_ExpressionIndex: 41
           m_Value: 0.1
         - m_ExpressionIndex: 44
@@ -1336,18 +1336,18 @@ VisualEffectResource:
         - m_ExpressionIndex: 0
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
-            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
-            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
+            key0: {r: 0.88894373, g: 0, b: 2.572549, a: 0}
+            key1: {r: 0.29319367, g: 0, b: 7.999999, a: 1}
+            key2: {r: 0, g: 5.1137257, b: 5.992157, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
-            ctime0: 4433
-            ctime1: 19082
-            ctime2: 39321
-            ctime3: 65535
+            ctime0: 14456
+            ctime1: 26600
+            ctime2: 44333
+            ctime3: 0
             ctime4: 0
             ctime5: 0
             ctime6: 0
@@ -1361,23 +1361,23 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 4
+            m_NumColorKeys: 3
             m_NumAlphaKeys: 4
         - m_ExpressionIndex: 2
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
-            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
-            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
+            key0: {r: 0.88894373, g: 0, b: 2.572549, a: 0}
+            key1: {r: 0.29319367, g: 0, b: 7.999999, a: 1}
+            key2: {r: 0, g: 5.1137257, b: 5.992157, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
-            ctime0: 4433
-            ctime1: 19082
-            ctime2: 39321
-            ctime3: 65535
+            ctime0: 14456
+            ctime1: 26600
+            ctime2: 44333
+            ctime3: 0
             ctime4: 0
             ctime5: 0
             ctime6: 0
@@ -1391,23 +1391,23 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 4
+            m_NumColorKeys: 3
             m_NumAlphaKeys: 4
         - m_ExpressionIndex: 6
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
-            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
-            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
+            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
+            key1: {r: 0.29319367, g: 0, b: 7.999999, a: 1}
+            key2: {r: 0.88894373, g: 0, b: 2.572549, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
-            ctime0: 4433
-            ctime1: 19082
-            ctime2: 39321
-            ctime3: 65535
+            ctime0: 12529
+            ctime1: 26600
+            ctime2: 47609
+            ctime3: 0
             ctime4: 0
             ctime5: 0
             ctime6: 0
@@ -1421,23 +1421,23 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 4
+            m_NumColorKeys: 3
             m_NumAlphaKeys: 4
         - m_ExpressionIndex: 7
           m_Value:
             serializedVersion: 2
-            key0: {r: 0, g: 0.966634, b: 1.1335572, a: 0}
-            key1: {r: 0.033675194, g: 0, b: 1, a: 1}
-            key2: {r: 0.11156805, g: 0, b: 0.3207547, a: 1}
+            key0: {r: 0, g: 5.1137257, b: 5.992157, a: 0}
+            key1: {r: 0.29319367, g: 0, b: 7.999999, a: 1}
+            key2: {r: 0.88894373, g: 0, b: 2.572549, a: 1}
             key3: {r: 0, g: 0, b: 0, a: 0}
             key4: {r: 0, g: 0, b: 0, a: 0}
             key5: {r: 0, g: 0, b: 0, a: 0}
             key6: {r: 0, g: 0, b: 0, a: 0}
             key7: {r: 0, g: 0, b: 0, a: 0}
-            ctime0: 4433
-            ctime1: 19082
-            ctime2: 39321
-            ctime3: 65535
+            ctime0: 12529
+            ctime1: 26600
+            ctime2: 47609
+            ctime3: 0
             ctime4: 0
             ctime5: 0
             ctime6: 0
@@ -1451,7 +1451,7 @@ VisualEffectResource:
             atime6: 0
             atime7: 0
             m_Mode: 0
-            m_NumColorKeys: 4
+            m_NumColorKeys: 3
             m_NumAlphaKeys: 4
       m_NamedObject:
         m_Array:
@@ -3503,7 +3503,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8889437317848206,"g":0.0,"b":2.5725491046905519,"a":1.0},"time":0.2205844223499298},{"color":{"r":0.29319366812705996,"g":0.0,"b":7.999999046325684,"a":1.0},"time":0.40588998794555666},{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.6764782071113586}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -5639,7 +5639,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8889437317848206,"g":0.0,"b":2.5725491046905519,"a":1.0},"time":0.2205844223499298},{"color":{"r":0.29319366812705996,"g":0.0,"b":7.999999046325684,"a":1.0},"time":0.40588998794555666},{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.6764782071113586}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -6008,7 +6008,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.3
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Speed
@@ -6302,7 +6302,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.3
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: Speed
@@ -6342,7 +6342,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5446968
+      m_SerializableObject: 0.5031447
     m_Space: 2147483647
   m_Property:
     name: DirectionBlend
@@ -8588,7 +8588,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5
+      m_SerializableObject: 0.8
     m_Space: 2147483647
   m_Property:
     name: Speed
@@ -9093,7 +9093,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.1911802887916565},{"color":{"r":0.29319366812705996,"g":0.0,"b":7.999999046325684,"a":1.0},"time":0.40588998794555666},{"color":{"r":0.8889437317848206,"g":0.0,"b":2.5725491046905519,"a":1.0},"time":0.7264667749404907}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
@@ -11123,7 +11123,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":0.9666339755058289,"b":1.1335572004318238,"a":1.0},"time":0.06764324754476547},{"color":{"r":0.033675193786621097,"g":0.0,"b":1.0,"a":1.0},"time":0.29117265343666079},{"color":{"r":0.11156804859638214,"g":0.0,"b":0.3207547068595886,"a":1.0},"time":0.6000000238418579},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.0,"g":5.113725662231445,"b":5.992156982421875,"a":1.0},"time":0.1911802887916565},{"color":{"r":0.29319366812705996,"g":0.0,"b":7.999999046325684,"a":1.0},"time":0.40588998794555666},{"color":{"r":0.8889437317848206,"g":0.0,"b":2.5725491046905519,"a":1.0},"time":0.7264667749404907}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.06764324754476547},{"alpha":1.0,"time":0.8352941274642944},{"alpha":0.0,"time":0.9882352948188782}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
