@@ -49,9 +49,6 @@ public class TriggerSpawn : MonoBehaviour
         }
     }
 
-            else if (GameObject.FindGameObjectWithTag("AI") == null && spawnCounter == 2)
-            {
-
     //The spawners for the enemy so they are set on delay due to invoke
     void Spawn2()
     {
