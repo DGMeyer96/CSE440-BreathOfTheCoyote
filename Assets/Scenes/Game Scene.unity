@@ -8942,17 +8942,17 @@ PrefabInstance:
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.15896152
+      value: 0.15896153
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.014476366
+      value: 0.0144763645
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.091658026
+      value: 0.09165803
       objectReference: {fileID: 0}
     - target: {fileID: 3987899343196285796, guid: 24b3a4c895c56f541bfce09db66a2725,
         type: 3}
@@ -34899,8 +34899,8 @@ MonoBehaviour:
   MindTrophy: {fileID: 0}
   StrengthTrophy: {fileID: 0}
   AgilityTrophy: {fileID: 0}
-  CanvasAnimator: {fileID: 0}
-  SaveAnimator: {fileID: 0}
+  CanvasAnimator: {fileID: 1781608236}
+  SaveAnimator: {fileID: 913332021}
   cam: {fileID: 0}
   isfalling: 0
   isOnGround: 0
