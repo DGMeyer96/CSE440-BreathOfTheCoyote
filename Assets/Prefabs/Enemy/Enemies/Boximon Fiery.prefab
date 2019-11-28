@@ -785,10 +785,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7843079031529318415}
-  - component: {fileID: 8175933610500501709}
   - component: {fileID: 8175933610500501555}
   - component: {fileID: 8175933610500501710}
-  - component: {fileID: 8175933610500501711}
   - component: {fileID: 8175933610500501554}
   - component: {fileID: 8202604437321144174}
   - component: {fileID: 479385072203475823}
@@ -826,19 +824,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8175933610500501709
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522178781821032988}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.1531433}
-  m_Center: {x: 0, y: 0.5, z: 0.07657166}
 --- !u!64 &8175933610500501555
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -865,33 +850,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49feba148921f0f40a655675096f809d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6318292535267010203, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
-  maxDistance: 3
-  distance: 0
-  player: {fileID: 7058350410263778440, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
-  ani: {fileID: 479385072203475823}
---- !u!195 &8175933610500501711
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6522178781821032988}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 3
-  m_Acceleration: 4
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 50
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &8175933610500501554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +867,8 @@ MonoBehaviour:
   fireballDamage: 8
   damageTaken: 5
   maxDistance: 15
+  damageDealt: 1
+  cooldown: 0
   distance: 0
   holder: {fileID: 1456810165671682900, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
   player: {fileID: 7058350410263778440, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
@@ -917,7 +877,7 @@ MonoBehaviour:
   isDead: 0
   isDamaged: 0
   stupidboolname: 0
-  boxCollider: {fileID: 8175933610500501709}
+  boxCollider: {fileID: 1470932896009266633}
 --- !u!54 &8202604437321144174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -962,6 +922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655434233071901617}
+  - component: {fileID: 1470932896009266633}
   m_Layer: 0
   m_Name: RigHead
   m_TagString: Untagged
@@ -984,6 +945,19 @@ Transform:
   m_Father: {fileID: 1308105412355349528}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1470932896009266633
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542865544530356261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0338774, y: 0.7627015, z: 1}
+  m_Center: {x: 0.016938496, y: -0.03783002, z: 2.2441272e-15}
 --- !u!1 &6700664618335529941
 GameObject:
   m_ObjectHideFlags: 0

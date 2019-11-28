@@ -17,6 +17,20 @@ public class Player : MonoBehaviour
     public string playDate;
     //public Texture2D saveImage;
     public byte[] texData;
+    public Animator onlyDeath;
+
+    private void Start()
+    {
+        onlyDeath = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            onlyDeath.SetBool("Death", true);
+        }
+    }
 
     public void NewGame()
     {

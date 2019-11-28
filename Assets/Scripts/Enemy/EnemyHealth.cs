@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     public float fireballDamage = 8;
     public float damageTaken = 5;
     public float maxDistance = 15;
+    public int damageDealt = 1;
+    public float cooldown;
     public float distance;
     public GameObject holder;
     public GameObject player;
@@ -52,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        cooldown += Time.deltaTime;
         animate.SetBool("Attack", false);
         transform.LookAt(player.transform);
         distance = Vector3.Distance(transform.position, player.transform.position);
@@ -66,9 +69,13 @@ public class EnemyHealth : MonoBehaviour
 
         else if (distance <= maxDistance)
         {
-
+            
             animate.SetBool("Movement", false);
-            animate.SetBool("Attack", true);
+            if (cooldown > 4f)
+            {
+                animate.SetBool("Attack", true);
+                
+            }
         }
 
         if (currentHealth <= 0)
@@ -82,15 +89,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
+        
         if (other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FirstAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("SecondAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FinalAttack"))
         {
-            stupidboolname = false;
 
-            Debug.Log(other.gameObject.name);
             currentHealth -= damageTaken;
+            animate.SetBool("TakingHit", true);
             
             if (currentHealth <= 0)
             {
@@ -107,7 +113,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 triggerSpawn.permanentSleep = true;
                 animate.SetBool("Dead", true);
-                Invoke("Dead", 1.0f);
+                Invoke("Dead", 3.0f);
             }
 
         }
@@ -118,22 +124,11 @@ public class EnemyHealth : MonoBehaviour
         {
             if (animate.GetBool("Attack"))
             {
-                other.gameObject.GetComponent<PlayerHealth>().currentHealth -= other.gameObject.GetComponent<PlayerHealth>().damageTaken;
+                other.gameObject.GetComponent<Player>().health -= damageDealt;
+                Debug.Log(other.gameObject.GetComponent<Player>().health);
+                
             }
         }
-    }
-    public void Damage(float damageAmount, Vector3 hitPoint)
-    {
-        //The enemy is damaged
-        isDamaged = true;
-
-        // Reduce the current health by the amount of damage sustained.
-        currentHealth -= damageAmount;
-
-
-
-        // If the current health is less than or equal to zero...
-
     }
 
     void Dead()
