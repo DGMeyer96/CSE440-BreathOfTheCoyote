@@ -80,7 +80,7 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetBool("FirstAttack", true);
             attackCounter = 1;
             weaponDamage = 2f;
-            reset = 1f;
+            reset = 0f;
         }
         else if (attackCounter == 1)
         {
@@ -88,7 +88,7 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetBool("SecondAttack", true);
             attackCounter = 2;
             weaponDamage = 2f;
-            reset = 1f;
+            reset = 0f;
         }
 
         else if (attackCounter == 2)
@@ -138,6 +138,24 @@ public class KeyCombo : MonoBehaviour
                 attackCounter = 0;
 
             }*/
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+
+    {
+
+        if(collision.gameObject.tag == "AI")
+
+        {
+
+            EnemyHealth hp = collision.gameObject.GetComponent<EnemyHealth>();
+
+            
+
+
+
+        }
 
     }
 

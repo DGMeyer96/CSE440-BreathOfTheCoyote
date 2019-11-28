@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public int    startingHealth = 100;                          
-    public int    currentHealth;
-    public int damageTaken = 1;
+    public int    currentHealth;                                   
     public Slider heartSlider;                                 // Reference to the UI's health bar.                                   
                             
     
@@ -14,13 +13,10 @@ public class PlayerHealth : MonoBehaviour
    public bool isDead;                                               
    public bool isDamaged;
 
-    public CapsuleCollider capsuleCollider;
-
     void Awake()
     {
         // Setting up the references.
         animate = GetComponent<Animator>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
        // playerAudio = GetComponent<AudioSource>();
       // playerController = GetComponent<PlayerController>();
        
@@ -59,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
 
      
         // Tells the animator that the player is dead.
-        animate.SetBool("Dead", true);
+        animate.SetTrigger("Dead");
 
     
        
