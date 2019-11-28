@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacterController : MonoBehaviour
+public class PlayerCharacter_Controller : MonoBehaviour
 {
     CharacterController characterController;
 
@@ -59,6 +59,7 @@ public class PlayerCharacterController : MonoBehaviour
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
+        Debug.Log("Hey this runs here but I shouldn't");
         if (Input.GetAxis("Sprint") != 0)
         {
             walkspeed = speed * 1.4f;

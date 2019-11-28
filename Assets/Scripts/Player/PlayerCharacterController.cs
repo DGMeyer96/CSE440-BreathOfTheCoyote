@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter_Controller : MonoBehaviour
+public class PlayerCharacterController : MonoBehaviour
 {
     CharacterController characterController;
 
@@ -30,12 +30,6 @@ public class PlayerCharacter_Controller : MonoBehaviour
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
-    private int count;
-    private GameObject[] point;
-    private bool plat;
-    private float platspeed;
-    private Collider go;
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -50,16 +44,22 @@ public class PlayerCharacter_Controller : MonoBehaviour
 
         isfalling = false;
         isOnGround = false;
-        plat = false;
+        Debug.LogError(speed);
+
     }
 
     void Update()
     {
+        //always keep palyers scale up to date
+        transform.localScale = new Vector3(1, 1, 1);
+
         float walkspeed = 0f;
         var smooth = 10;
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
-        if (Input.GetAxis("Sprint") != 0)
+        float moveSprint = Input.GetAxis("Sprint");
+
+        if (moveSprint != 0 && (moveVertical != 0f || moveHorizontal != 0f))
         {
             walkspeed = speed * 1.4f;
             if (isOnGround)
@@ -109,7 +109,7 @@ public class PlayerCharacter_Controller : MonoBehaviour
         }
         else
         {
-            moveRotation = new Vector3(moveHorizontal / 3, 0.0f, moveVertical);
+            moveRotation = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         }
 
         if (moveRotation.magnitude > 0)
@@ -175,50 +175,10 @@ public class PlayerCharacter_Controller : MonoBehaviour
         {
             StrengthTrophy.SetActive(true);
         }
-        if (plat && moveHorizontal == 0 && moveVertical == 0)
-        {
-            if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
-            {
-                count = go.gameObject.GetComponent<PlatformMovement>().current;
-            }
-            platmove();
-        }
-
-
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Collided with: " + collision.name);
-
-        //if a palyer steps on a moving platform then get the components of that platform
-        if (collision.gameObject.CompareTag("Elevator"))
-        {
-            go = collision;
-
-            if (go.gameObject.GetComponent<Elevator1>() != null && go.gameObject.GetComponent<Elevator1>().isActiveAndEnabled)
-            {
-                count = collision.gameObject.GetComponent<Elevator1>().current;
-                point = collision.gameObject.GetComponent<Elevator1>().points;
-                platspeed = collision.gameObject.GetComponent<Elevator1>().speed;
-            }
-            else if (go.gameObject.GetComponent<Elevator>() != null && go.gameObject.GetComponent<Elevator>().isActiveAndEnabled)
-            {
-                count = collision.gameObject.GetComponent<Elevator>().current;
-                point = collision.gameObject.GetComponent<Elevator>().points;
-                platspeed = collision.gameObject.GetComponent<Elevator>().speed;
-            }
-            else if (go.gameObject.GetComponent<PlatformMovement>() != null && go.gameObject.GetComponent<PlatformMovement>().isActiveAndEnabled)
-            {
-                count = collision.gameObject.GetComponent<PlatformMovement>().current;
-                point = collision.gameObject.GetComponent<PlatformMovement>().points;
-                platspeed = collision.gameObject.GetComponent<PlatformMovement>().speed;
-            }
-
-            plat = true;
-
-        }
-
         //Used for tracking objectives and saving game
         if (collision.gameObject.name == "Agility Trophy" && GetComponent<Player>().TrialOfAgility != true)
         {
@@ -264,16 +224,4 @@ public class PlayerCharacter_Controller : MonoBehaviour
             CanvasAnimator.SetTrigger("FadeOut");
         }
     }
-
-    private void platmove()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, point[count].transform.position, Time.deltaTime * platspeed);
-        Debug.Log(count);
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        plat = false;
-    }
-
 }

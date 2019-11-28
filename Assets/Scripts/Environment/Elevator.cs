@@ -9,46 +9,54 @@ public class Elevator : MonoBehaviour
     public float speed;
     public ElevatorCheckpoint Chp;
     public bool colliding;
-
+    public Vector3 Platmove;
+    public float dist;
+    public bool movingtime;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        dist = Vector3.Distance(transform.position, points[current].transform.position);
         if (current !=0 && transform.position != points[current].transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
-
+            Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            transform.position = Platmove;
+            movingtime = true;
         }
         if (current == 0 && transform.position != points[current].transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            transform.position = Platmove;
+            movingtime = true;
         }
-
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("palyer touched me");
             colliding = true;
             if (Chp.touched)
             {
                 current = 2;
             }
             else
+            {
+                Debug.Log("Should be 1");
                 current = 1;
+            }
         }
         else 
         {
             colliding = false;
         }
-        Debug.Log("hit");
     }
 
     private void OnTriggerExit(Collider collision)
     {
         current = 0;
+        movingtime = false;
         Debug.Log(current);
+        Debug.Log("palyer stopped touched me");
     }
-
 }

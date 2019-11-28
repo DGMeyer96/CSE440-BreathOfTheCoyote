@@ -7,19 +7,24 @@ public class Elevator1 : MonoBehaviour
     public GameObject[] points;
     public int current = 0;
     public float speed;
+    public Vector3 Platmove;
+    public float dist;
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        dist = Vector3.Distance(transform.position, points[current].transform.position);
+
 
         if (current !=0 && transform.position != points[current].transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
-
+            Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            transform.position = Platmove;
         }
         if (current == 0 && transform.position != points[current].transform.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            Platmove = Vector3.MoveTowards(transform.position, points[current].transform.position, Time.deltaTime * speed);
+            transform.position = Platmove;
         }
 
     }
@@ -29,7 +34,6 @@ public class Elevator1 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             current = 1;
-            //Debug.Log(current);
         }
     }
     private void OnTriggerStay(Collider collision)
@@ -37,14 +41,12 @@ public class Elevator1 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             current = 1;
-            //Debug.Log(current);
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
         current = 0;
-        //Debug.Log(current);
     }
 
 }
