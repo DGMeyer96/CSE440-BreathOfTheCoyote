@@ -717,12 +717,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8217371853105587852}
-  - component: {fileID: 2010171014229435655}
   - component: {fileID: 789875097381769831}
-  - component: {fileID: 2010171014229435707}
   - component: {fileID: -4761830216585108192}
-  - component: {fileID: 2010171014229435705}
   - component: {fileID: 7682744179248866625}
+  - component: {fileID: 2871967694737225798}
   m_Layer: 0
   m_Name: Boximon Fiery-Heavy
   m_TagString: AI
@@ -757,28 +755,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!195 &2010171014229435655
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923175400675218591}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1
-  m_Speed: 3
-  m_Acceleration: 4
-  avoidancePriority: 50
-  m_AngularSpeed: 0
-  m_StoppingDistance: 10
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
 --- !u!95 &789875097381769831
 Animator:
   serializedVersion: 3
@@ -798,20 +774,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!64 &2010171014229435707
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923175400675218591}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
 --- !u!65 &-4761830216585108192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -825,32 +787,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.86023563, y: 1.0702496, z: 1}
   m_Center: {x: -0.02260437, y: 0.5383286, z: 0}
---- !u!114 &2010171014229435705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4923175400675218591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9b99397f12ab9344a6869b48c5e4dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 0
-  fireballDamage: 8
-  damageTaken: 5
-  maxDistance: 15
-  distance: 0
-  holder: {fileID: 1456810165671682900, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
-  player: {fileID: 0}
-  playerAnimator: {fileID: 0}
-  animate: {fileID: 0}
-  isDead: 0
-  isDamaged: 0
-  stupidboolname: 0
-  boxCollider: {fileID: 0}
 --- !u!54 &7682744179248866625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -867,6 +803,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2871967694737225798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923175400675218591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b99397f12ab9344a6869b48c5e4dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  currentHealth: 0
+  fireballDamage: 8
+  damageTaken: 5
+  maxDistance: 8
+  damageDealt: 1
+  cooldown: 0
+  distance: 0
+  holder: {fileID: 0}
+  player: {fileID: 7058350410263778440, guid: a777dcfa8f41b8b46b84ec2f7a23e819, type: 3}
+  playerAnimator: {fileID: 0}
+  animate: {fileID: 0}
+  isDead: 0
+  isDamaged: 0
+  stupidboolname: 0
+  boxCollider: {fileID: 0}
 --- !u!1 &5080574103750812794
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,13 +54,15 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        
         cooldown += Time.deltaTime;
         animate.SetBool("Attack", false);
+        
         transform.LookAt(player.transform);
         distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance > maxDistance)
         {
-            
+            animate.SetBool("Idle", false);
             animate.SetBool("Movement", true);
             transform.position += transform.forward * 5 * Time.deltaTime;
             //  Debug.Log(transform.position);
@@ -69,19 +71,12 @@ public class EnemyHealth : MonoBehaviour
 
         else if (distance <= maxDistance)
         {
-            
-            animate.SetBool("Movement", false);
             if (cooldown > 4f)
             {
+                animate.SetBool("Movement", false);
                 animate.SetBool("Attack", true);
                 
             }
-        }
-
-        if (currentHealth <= 0)
-        {
-            triggerSpawn.permanentSleep = true;
-            Dead();
         }
     }
 
@@ -89,7 +84,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        animate.SetBool("TakingHit", false);
         if (other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FirstAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("SecondAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FinalAttack"))
@@ -97,11 +92,16 @@ public class EnemyHealth : MonoBehaviour
 
             currentHealth -= damageTaken;
             animate.SetBool("TakingHit", true);
+
+            if (animate.GetBool("TakingHit"))
+            {
+                animate.SetBool("TakingHit", false);
+            }
             
             if (currentHealth <= 0)
             {
-                triggerSpawn.permanentSleep = true;
-                Dead();
+                animate.SetBool("Dead", true);
+                Invoke("Dead", 2.0f);
             }
         }
 
@@ -111,9 +111,10 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log(currentHealth);
             if (currentHealth <= 0)
             {
-                triggerSpawn.permanentSleep = true;
+                
                 animate.SetBool("Dead", true);
-                Invoke("Dead", 3.0f);
+                Invoke("Dead", 2.0f);
+
             }
 
         }
@@ -133,13 +134,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Dead()
     {
-        // The enemy is dead.
-
-        Destroy(gameObject);
-
-        // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
-
-
-
+        
+        Destroy(gameObject, 1.5f);
+        triggerSpawn.permanentSleep = true;
     }
 }
