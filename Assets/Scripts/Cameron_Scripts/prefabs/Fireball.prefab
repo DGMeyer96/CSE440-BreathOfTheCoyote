@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8231900043764931085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.838534, y: 0.9889736, z: 6.478}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef06f843c86a4a43a3b16510d4bc1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 25
   myEffect: {fileID: 8231900043764931123}
   time: 0
   explosion: {fileID: 5077779239261671495, guid: a7127dc3481420f4c8606cf6cb7080dc,
@@ -180,7 +180,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 123
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

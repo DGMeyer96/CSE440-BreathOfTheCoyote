@@ -44,7 +44,7 @@ public class PlayerCharacterController : MonoBehaviour
 
         isfalling = false;
         isOnGround = false;
-        Debug.LogError(speed);
+        //Debug.LogError(speed);
 
     }
 
@@ -218,7 +218,7 @@ public class PlayerCharacterController : MonoBehaviour
         if (collision.gameObject.name == "Village" && GetComponent<Player>().TrialOfAgility == true
             && GetComponent<Player>().TrialOfStrength == true && GetComponent<Player>().TrialOfMind == true)
         {
-            Debug.Log("Loading: Main Menu");
+            Debug.Log("Loading: Credits");
             PlayerPrefs.SetInt("LevelToLoad", 3);
             GetComponent<Player>().SaveGame();
             CanvasAnimator.SetTrigger("FadeOut");
