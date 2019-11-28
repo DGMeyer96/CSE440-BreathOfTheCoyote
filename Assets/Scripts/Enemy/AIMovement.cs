@@ -5,7 +5,6 @@ public class AIMovement : MonoBehaviour
 {
     [SerializeField] Transform target;
     NavMeshAgent navMeshAgent;
-    public float maxDistance = 15f;
     public GameObject player;
 
     // Start is called before the first frame update
@@ -22,9 +21,22 @@ public class AIMovement : MonoBehaviour
 
         navMeshAgent.SetDestination(target.position);
         navMeshAgent.stoppingDistance = 25f;
-        transform.LookAt(player.transform);
-        transform.position += transform.forward * 5 * Time.deltaTime;
 
+
+
+        transform.LookAt(player.transform);
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance > maxDistance)
+        {
+            transform.position += transform.forward * 5 * Time.deltaTime;
+            ani.SetBool("Idle", false);
+            ani.SetBool("Movement", true);
+          //  Debug.Log(transform.position);
+            if(distance < maxDistance)
+            {
+
+            }
+        }
 
     }
 }

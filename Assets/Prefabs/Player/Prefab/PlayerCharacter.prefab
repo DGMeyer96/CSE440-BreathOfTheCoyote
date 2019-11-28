@@ -1667,19 +1667,6 @@ CapsuleCollider:
   m_Height: 2.3862882
   m_Direction: 1
   m_Center: {x: 0.000001164287, y: 0.69314665, z: -0.0000021882393}
---- !u!65 &3790719370373069906
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3505690984890073795}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 4.081105}
-  m_Center: {x: 0.000000038334072, y: 0.0000012350181, z: 1.5405555}
 --- !u!1 &3991853808486931461
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,7 +2594,7 @@ GameObject:
   - component: {fileID: 3790719369636701993}
   - component: {fileID: 7608617183385988841}
   m_Layer: 0
-  m_Name: PlayerCharacter 1
+  m_Name: PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3399,12 +3386,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67154f205864a7148b587e2645bfa711, type: 3}
---- !u!1 &3505690984890073795 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2797775831745128311, guid: 67154f205864a7148b587e2645bfa711,
-    type: 3}
-  m_PrefabInstance: {fileID: 1618205326622778804}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &503821209947828432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1191461119571629412, guid: 67154f205864a7148b587e2645bfa711,

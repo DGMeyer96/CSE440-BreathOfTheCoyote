@@ -20,16 +20,20 @@ public class GroundslamDamage : MonoBehaviour
     }
     private void OnTriggerStay(Collider collision)
     {
-
+        
         if (collision.gameObject.GetComponent<EnemyHealth>() != null && GameObject.Find("GroundSlam(Clone)") != null && goddamnitihavetoaddanotherbool == true)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().isDamaged = true;
-            collision.gameObject.GetComponent<Rigidbody>().velocity = (collision.gameObject.transform.forward * -5f);
+            Debug.Log("Collision is" + collision);
+
+            collision.gameObject.GetComponent<EnemyHealth>().currentHealth = (collision.gameObject.GetComponent<EnemyHealth>().currentHealth - collision.gameObject.GetComponent<EnemyHealth>().damageTaken);
+            Debug.Log("Health is: " + collision.gameObject.GetComponent<EnemyHealth>().currentHealth);
+            collision.gameObject.GetComponent<Rigidbody>().velocity = (collision.gameObject.transform.forward * -200f);
             goddamnitihavetoaddanotherbool = false;
         }
         else if(GameObject.Find("GroundSlam(Clone)") == null && goddamnitihavetoaddanotherbool == false)
         {
             goddamnitihavetoaddanotherbool = true;
         }
+        
     }
 }

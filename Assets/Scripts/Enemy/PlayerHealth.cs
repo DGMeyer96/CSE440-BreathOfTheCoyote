@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int    startingHealth = 100;                          
     public int    currentHealth;
+    public int damageTaken = 1;
     public Slider heartSlider;                                 // Reference to the UI's health bar.                                   
                             
     
