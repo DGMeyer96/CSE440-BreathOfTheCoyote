@@ -28,16 +28,16 @@ public class Fireball : MonoBehaviour
     {
         fireSpawn.SetBool("FireballAction", false);
         cooldownTimer += Time.deltaTime;
+        if (cooldownTimer > 2.0f)
 
-        if (cooldownTimer > 2.0f)          
         {
-             if (Input.GetAxis("Fireball") > 0)
-             {
+            if (Input.GetAxis("Fireball") > 0)
+
+            {
                 cooldownTimer = 0f;
-                Debug.Log("runs");
-                GameObject bullet = Instantiate(projectile, handLocation.position - 0.8f * handLocation.forward, Quaternion.identity);
-                Debug.Log(bullet.transform.position);
-                BGMSource.Play();
+                fireSpawn.SetBool("FireballAction", true);
+                Invoke("fireballSpawn", 0.5f);
+
 
             }
         }
@@ -45,7 +45,8 @@ public class Fireball : MonoBehaviour
 
     void fireballSpawn()
     {
-        GameObject bullet = Instantiate(projectile, handLocation.position - 0.5f * handLocation.forward, Quaternion.identity);
+        GameObject bullet = Instantiate(projectile, handLocation.position - 1.0f * handLocation.forward, Quaternion.identity);
+        BGMSource.Play();
         //fireSpawn.SetBool("FireballAction", false);
     }
 }
