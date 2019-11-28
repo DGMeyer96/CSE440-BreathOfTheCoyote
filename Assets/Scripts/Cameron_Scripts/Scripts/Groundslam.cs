@@ -71,12 +71,12 @@ public class Groundslam : MonoBehaviour
     {
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
-       // if (!groundedcheck)
+        if (!groundedcheck)
         {
-       //     moveDirection.y -= 100 * Time.deltaTime;
-       //     characterController.Move(moveDirection * Time.deltaTime); temp = true;
+            moveDirection.y -= 100 * Time.deltaTime;
+            characterController.Move(moveDirection * Time.deltaTime); temp = true;
         }
-       // else
+        else
         {
 
             GameObject slamvfx = Instantiate(groundv1, transform.position + (3f * transform.forward), transform.rotation);
