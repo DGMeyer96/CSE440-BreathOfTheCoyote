@@ -4,29 +4,49 @@ public class EnemyHealth : MonoBehaviour
 {
 
     //private CharacterControl ccRef;
-    public float maxHealth = 50;                    // The amount of health the enemy starts the game with.
-    public float currentHealth;                    // The current health the enemy has.
-    //public slider heartSlider;
-
-    public Animator animate;                              // Reference to the animator.
-
-
-    public bool isDead;                                  //Checks whether the enemy is Dead
-    public bool isDamaged;
-    //Checks whether enemy has been damaged
-
+    public float maxHealth = 15;                    // The amount of health the enemy starts the game with.
+    public float currentHealth;
+    public float fireballDamage = 8;
+    public float damageTaken = 5;
+    public float maxDistance = 15;
+    public int damageDealt = 1;
+    public float cooldown;
+    public float distance;
+    public GameObject holder;
     public GameObject player;
+    private TriggerSpawn triggerSpawn;
+    public Animator playerAnimator;
+    public Animator animate;
+    public bool isDead;                             //Checks whether the enemy is Dead
+    public bool isDamaged;
+    public bool stupidboolname;
+    public BoxCollider boxCollider;
+   
 
 
 
 
+
+    void Awake()
+    {
+        animate = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider>();
+        
+
+        currentHealth = maxHealth;
+
+    }
 
     void Start()
     {
+        holder = GameObject.Find("TrialOfStrength");
+        triggerSpawn = holder.GetComponent<TriggerSpawn>();
         player = GameObject.FindWithTag("Player");
-        animate = GetComponent<Animator>();
-        currentHealth = maxHealth;
-     //   ccRef = GetComponent<CharacterControl>();
+        playerAnimator = player.GetComponent<Animator>();
+        animate.SetBool("Idle", true);
+     //   goddamnitihavetoaddanotherbool = true;
+
+
     }
 
 
@@ -34,47 +54,88 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        cooldown += Time.deltaTime;
+        animate.SetBool("Attack", false);
         transform.LookAt(player.transform);
-        transform.Translate(0, 0, 8 * Time.deltaTime);
-        //if (currentHealth <= 0)    //If current health is less than equal to 0 (enemy is dead)
-            //Dead();
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance > maxDistance)
+        {
+            
+            animate.SetBool("Movement", true);
+            transform.position += transform.forward * 5 * Time.deltaTime;
+            //  Debug.Log(transform.position);
+           
+        }
+
+        else if (distance <= maxDistance)
+        {
+            
+            animate.SetBool("Movement", false);
+            if (cooldown > 4f)
+            {
+                animate.SetBool("Attack", true);
+                
+            }
+        }
+
+        if (currentHealth <= 0)
+        {
+            triggerSpawn.permanentSleep = true;
+            Dead();
+        }
     }
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Weapon")
-        {
-            currentHealth -= currentHealth;
-            if(currentHealth <= 0)
-            {
-                collision.gameObject.GetComponent<TriggerSpawn>().permanentSleep = true;
-                Dead();
-            }
-        }
-    }
-    public void Damage(float damageAmount, Vector3 hitPoint)
+
+    private void OnTriggerEnter(Collider other)
     {
-        //The enemy is damaged
-        isDamaged = true;
+        
+        if (other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FirstAttack") ||
+            other.gameObject.tag == "Weapon" && playerAnimator.GetBool("SecondAttack") ||
+            other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FinalAttack"))
+        {
 
-        // Reduce the current health by the amount of damage sustained.
-        currentHealth -= damageAmount;
+            currentHealth -= damageTaken;
+            animate.SetBool("TakingHit", true);
+            
+            if (currentHealth <= 0)
+            {
+                triggerSpawn.permanentSleep = true;
+                Dead();
+            }
+        }
+
+        if (other.gameObject.GetComponent<FireballMovement>() != null)
+        {
+            currentHealth -= fireballDamage;
+            Debug.Log(currentHealth);
+            if (currentHealth <= 0)
+            {
+                triggerSpawn.permanentSleep = true;
+                animate.SetBool("Dead", true);
+                Invoke("Dead", 3.0f);
+            }
+
+        }
+       
 
 
-
-        // If the current health is less than or equal to zero...
-
+        if (other.gameObject.tag == "Player")
+        {
+            if (animate.GetBool("Attack"))
+            {
+                other.gameObject.GetComponent<Player>().health -= damageDealt;
+                Debug.Log(other.gameObject.GetComponent<Player>().health);
+                
+            }
+        }
     }
 
     void Dead()
     {
         // The enemy is dead.
-        
-        
 
-        // Tell the animator that the enemy is dead.
-        animate.SetBool("Dead", true);
+        Destroy(gameObject);
 
         // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
 
