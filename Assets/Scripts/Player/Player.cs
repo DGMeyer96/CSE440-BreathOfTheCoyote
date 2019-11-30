@@ -19,15 +19,22 @@ public class Player : MonoBehaviour
     public byte[] texData;
     public PlayerUI PlayerUI;
 
+    private AudioSource deathSource;
+    private AudioSource hitSource;
+
+
     private void Start()
     {
-        
+        deathSource = GameObject.Find("PlayerDeath").GetComponent<AudioSource>();
+        hitSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
     }
 
     private void Update()
     {
         if (health <= 0)
         {
+            deathSource.Stop();
+            deathSource.Play();
             GetComponent<Animator>().SetBool("Death", true);
         }
     }
@@ -104,6 +111,7 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
+        hitSource.Play();
         health -= damage;
         //Debug.Log("Damage: " + health);
         PlayerUI.UpdateSlider(health);

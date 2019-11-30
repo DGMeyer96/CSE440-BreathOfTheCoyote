@@ -10,6 +10,12 @@ public class PlayerCharacterController : MonoBehaviour
     private Vector3 moveRotation = Vector3.zero;
     private Vector3 moveDirectionm = Vector3.zero;
 
+    private AudioSource idleSource;
+    private AudioSource hitSource;
+    private AudioSource walkingSource;
+    private AudioSource jumpSource;
+    private AudioSource deathSource;
+
     //private Vector3 movement;//controlls rotation
 
     private Quaternion transformrotation;
@@ -46,6 +52,11 @@ public class PlayerCharacterController : MonoBehaviour
         isOnGround = false;
         //Debug.LogError(speed);
 
+        idleSource = GameObject.Find("PlayerIdle").GetComponent<AudioSource>();
+        hitSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
+        walkingSource = GameObject.Find("PlayerWalking").GetComponent<AudioSource>();
+        jumpSource = GameObject.Find("PlayerJump").GetComponent<AudioSource>();
+        deathSource = GameObject.Find("PlayerDeath").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -61,11 +72,18 @@ public class PlayerCharacterController : MonoBehaviour
 
         if (moveSprint != 0 && (moveVertical != 0f || moveHorizontal != 0f))
         {
-            walkspeed = speed * 1.4f;
+            walkspeed = speed * 1.5f;
             if (isOnGround)
             {
                 animate.SetBool("Walk Forward", true);
                 animate.SetBool("Running", true);
+
+                
+                if(!walkingSource.isPlaying)
+                {
+                    walkingSource.Play();
+                }
+                //idleSource.Stop();
             }
         }
         else if (moveVertical != 0f || moveHorizontal != 0f)
@@ -75,14 +93,27 @@ public class PlayerCharacterController : MonoBehaviour
             {
                 animate.SetBool("Walk Forward", true);
                 animate.SetBool("Running", false);
+
+                if (!walkingSource.isPlaying)
+                {
+                    walkingSource.Play();
+                }
+                //idleSource.Stop();
             }
         }
         else
         {
             if (isOnGround)
             {
+                
                 animate.SetBool("Walk Forward", false);
                 animate.SetBool("Running", false);
+
+                walkingSource.Stop();
+                if(!idleSource.isPlaying)
+                {
+                    //idleSource.Play();
+                }
             }
         }
 
@@ -92,6 +123,8 @@ public class PlayerCharacterController : MonoBehaviour
             // We are grounded, so recalculate
             // move direction directly from axes
             animate.SetBool("Jumping", false);
+
+            jumpSource.Stop();
 
             //move direction is the vector 3 for controlling rotation
             moveRotation = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
@@ -105,6 +138,7 @@ public class PlayerCharacterController : MonoBehaviour
 
                 moveDirectionm.y = jumpSpeed;
                 animate.SetBool("Jumping", true);
+                jumpSource.Play();
             }
         }
         else
