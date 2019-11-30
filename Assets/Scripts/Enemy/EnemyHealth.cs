@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
     public bool isDead;                             //Checks whether the enemy is Dead
     public bool isDamaged;
     public bool stupidboolname;
+    public bool johnCena;
     public BoxCollider boxCollider;
    
 
@@ -54,7 +55,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        
+
         cooldown += Time.deltaTime;
         animate.SetBool("Attack", false);
         
@@ -78,64 +79,47 @@ public class EnemyHealth : MonoBehaviour
                 
             }
         }
+
+        if(currentHealth < 0)
+        {
+            animate.Play("Die");
+            Invoke("Dead", 2.0f);
+        }
     }
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        animate.SetBool("TakingHit", false);
         if (other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FirstAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("SecondAttack") ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetBool("FinalAttack"))
         {
 
             currentHealth -= damageTaken;
+            animate.SetBool("Attack", false);
             animate.SetBool("TakingHit", true);
-
-            if (animate.GetBool("TakingHit"))
-            {
-                animate.SetBool("TakingHit", false);
-            }
-            
-            if (currentHealth <= 0)
-            {
-                animate.SetBool("Dead", true);
-                Invoke("Dead", 2.0f);
-            }
         }
 
         if (other.gameObject.GetComponent<FireballMovement>() != null)
         {
             currentHealth -= fireballDamage;
-            Debug.Log(currentHealth);
-            if (currentHealth <= 0)
-            {
-                
-                animate.SetBool("Dead", true);
-                Invoke("Dead", 2.0f);
-
-            }
-
+            animate.SetBool("Attack", false);
+            animate.SetBool("TakingHit", true);
         }
-       
 
-
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && animate.GetBool("Attack"))
         {
-            if (animate.GetBool("Attack"))
-            {
-                other.gameObject.GetComponent<Player>().health -= damageDealt;
-                Debug.Log(other.gameObject.GetComponent<Player>().health);
-                
-            }
+            other.gameObject.GetComponent<Player>().health -= damageDealt;
         }
     }
 
+ 
     void Dead()
     {
-        
-        Destroy(gameObject, 1.5f);
+
+        johnCena = true;
         triggerSpawn.permanentSleep = true;
+        Destroy(gameObject);
     }
 }

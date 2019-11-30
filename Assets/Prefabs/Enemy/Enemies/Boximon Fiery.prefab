@@ -953,6 +953,7 @@ MonoBehaviour:
   isDead: 0
   isDamaged: 0
   stupidboolname: 0
+  johnCena: 0
   boxCollider: {fileID: 1470932896009266633}
 --- !u!54 &8202604437321144174
 Rigidbody:
@@ -1032,8 +1033,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8222753, y: 0.62630004, z: 0.7451173}
-  m_Center: {x: -0.043742325, y: -0.0005985737, z: 0.00276134}
+  m_Size: {x: 0.8222753, y: 0.65354615, z: 0.7451173}
+  m_Center: {x: -0.043742325, y: 0.013024486, z: 0.0027613402}
 --- !u!1 &6700664618335529941
 GameObject:
   m_ObjectHideFlags: 0

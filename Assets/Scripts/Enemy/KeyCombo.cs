@@ -96,7 +96,7 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetBool("SecondAttack", false);
             meleeAction.SetBool("FinalAttack", true);
             weaponDamage = 5f;
-            reset = 2f;
+            reset = 2.5f;
         }
 
 
@@ -139,6 +139,17 @@ public class KeyCombo : MonoBehaviour
 
             }*/
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "AI")
+        {
+            if(other.gameObject.GetComponent<Player>().health <= 0)
+            {
+                meleeAction.SetBool("Death", true);
+            }
+        }
     }
 
     /*public string[] buttons; // set up an array for the series of buttons player must hit within allowed time to activate combo
