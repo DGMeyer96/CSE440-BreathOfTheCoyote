@@ -5,7 +5,7 @@ using System;
 
 public class Player : MonoBehaviour
 {
-    public int health;
+    public float health;
     public bool LeftVillage;
     public bool TrialOfStrength;
     public bool TrialOfMind;
@@ -17,6 +17,20 @@ public class Player : MonoBehaviour
     public string playDate;
     //public Texture2D saveImage;
     public byte[] texData;
+    public PlayerUI PlayerUI;
+
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            GetComponent<Animator>().SetBool("Death", true);
+        }
+    }
 
     public void NewGame()
     {
@@ -88,8 +102,10 @@ public class Player : MonoBehaviour
         */
     }
 
-    public void PlayerHealth(int currentHealth)
+    public void DamagePlayer(int damage)
     {
-        health = currentHealth;
+        health -= damage;
+        //Debug.Log("Damage: " + health);
+        PlayerUI.UpdateSlider(health);
     }
 }
