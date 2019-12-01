@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     {
         animate = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
-        
+
         currentHealth = maxHealth;
     }
 
@@ -77,12 +77,12 @@ public class EnemyHealth : MonoBehaviour
             animate.SetBool("Movement", true);
             transform.position += transform.forward * 5 * Time.deltaTime;
             //  Debug.Log(transform.position);
-           
-            if(!enemyWalking.isPlaying)
+
+            if (!enemyWalking.isPlaying)
             {
                 //enemyWalking.Play();
             }
-            
+
         }
 
         else if (distance <= maxDistance)
@@ -97,13 +97,13 @@ public class EnemyHealth : MonoBehaviour
 
                 cooldown = 0f;
             }
-            if(cooldown > 0.7f && cooldown < 3f)
+            if (cooldown > 0.7f && cooldown < 3f)
             {
                 animate.SetBool("Attack", false);
             }
         }
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             //enemyDeath.Play();
             animate.Play("Die");
@@ -134,7 +134,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth -= fireballDamage;
             animate.SetBool("Attack", false);
             johnCena = true;
-            
+
         }
 
         else if (other.gameObject.tag == "Player" && animate.GetBool("Attack"))
@@ -144,7 +144,7 @@ public class EnemyHealth : MonoBehaviour
             other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
             //cooldown = 0f;
         }
-        
+
     }
 
     void Dead()

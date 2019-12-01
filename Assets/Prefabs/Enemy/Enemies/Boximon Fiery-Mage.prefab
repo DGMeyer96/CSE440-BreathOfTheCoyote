@@ -435,7 +435,7 @@ MonoBehaviour:
   projectile: {fileID: 8231900043764931085, guid: e86351aa4046848479d30db39f71e06d,
     type: 3}
   handLocation: {fileID: 2314032533752123439}
-  cooldownTimer: 3
+  cooldownTimer: 0
   BGMSource: {fileID: 3035527367128451527}
   target: {fileID: 1415446281208013618, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
 --- !u!82 &3035527367128451527
