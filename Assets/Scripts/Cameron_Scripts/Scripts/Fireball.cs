@@ -18,7 +18,7 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         
-        speed = 5f;
+       // speed = 5f;
         cooldownTimer = 0f;
         fireSpawn = GetComponent<Animator>();
     }
