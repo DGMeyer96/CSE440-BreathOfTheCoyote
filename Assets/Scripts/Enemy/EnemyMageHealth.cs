@@ -9,7 +9,7 @@ public class EnemyMageHealth : MonoBehaviour
     public float currentHealth;
     public float fireballDamage = 8;
     public float damageTaken = 5;
-    public float maxDistance = 20;
+    public float maxDistance = 8;
     public int damageDealt = 1;
     public float cooldown;
     public float distance;
@@ -31,7 +31,11 @@ public class EnemyMageHealth : MonoBehaviour
 
     private bool playdead;
     private bool collided;
+    private bool Enemycollided;
     private float hittimer;
+    private float Cenatimer;
+    private bool EnemyCanAttack;
+    private Collider Playercol;
 
     void Awake()
     {
@@ -39,7 +43,6 @@ public class EnemyMageHealth : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
 
         currentHealth = maxHealth;
-        collided = false;
     }
 
     void Start()
@@ -55,58 +58,23 @@ public class EnemyMageHealth : MonoBehaviour
         enemyMelee = GameObject.Find("EnemyMelee").GetComponent<AudioSource>();
         enemyWalking = GameObject.Find("EnemyWalking").GetComponent<AudioSource>();
         playdead = true;
+        EnemyCanAttack = false;
+        Playercol = player.GetComponent<CapsuleCollider>();
+
     }
 
     void Update()
     {
-        if (johnCena)
+        if (johnCena && currentHealth > 0)
         {
             animate.SetBool("TakingHit", true);
-            johnCena = false;
+            animate.SetBool("Attack", false);
 
             enemyWalking.Stop();
             enemyHit.Play();
+            cooldown = 0f;
         }
-        else if (animate.GetBool("TakingHit") && johnCena == false)
-        {
-            Debug.Log("It reached");
-            animate.SetBool("TakingHit", false);
-        }
-
-        cooldown += Time.deltaTime;
-        transform.LookAt(player.transform);
-        distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance < maxDistance)
-        {
-            animate.SetBool("Idle", false);
-            animate.SetBool("Movement", true);
-            transform.position -= transform.forward * 5 * Time.deltaTime;
-
-            if (!enemyWalking.isPlaying)
-            {
-                enemyWalking.Play();
-            }
-
-        }
-
-        else if (distance >= maxDistance)
-        {
-            if (cooldown >= 3f)
-            {
-                animate.SetBool("Idle", false);
-                animate.SetBool("Movement", false);
-                animate.SetBool("Attack", true);
-
-                enemyMelee.Play();      //change this to the fireball code
-                cooldown = 0f;
-            }
-            if (cooldown > 1f && cooldown < 3f)
-            {
-                animate.SetBool("Attack", false);
-            }
-        }
-
-        if (currentHealth <= 0 && playdead)
+        else if (currentHealth <= 0 && playdead)
         {
             enemyDeath.Play();
             animate.Play("Die");
@@ -114,15 +82,78 @@ public class EnemyMageHealth : MonoBehaviour
             playdead = false;
         }
 
-        if (collided)
+
+        if (johnCena)//set a timer for cena
+        {
+            Cenatimer += Time.deltaTime;
+        }
+
+        if (johnCena && Cenatimer > 1f)
+        {
+            johnCena = false;
+            Cenatimer = 0f;
+        }
+
+        if (animate.GetBool("TakingHit") && johnCena == false)
+        {
+            animate.SetBool("TakingHit", false);
+        }
+
+        transform.LookAt(player.transform);
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        if (distance < maxDistance && playdead) // move enemy towar player
+        {
+            animate.SetBool("Idle", false);
+            animate.SetBool("Movement", true);
+            animate.SetBool("Attack", false);
+
+            transform.position -= transform.forward * 5 * Time.deltaTime;
+            EnemyCanAttack = false;
+            if (!enemyWalking.isPlaying)
+            {
+                enemyWalking.Play();
+            }
+            Debug.Log("RUNNING");
+
+        }
+        else if (distance >= maxDistance)//moved attacking down
+        {
+            EnemyCanAttack = true;
+            Debug.Log("can attack");
+        }
+
+        if (collided)  //added these 2 iff statements for a timer to only allow hits every .9 seconds
         {
             hittimer += Time.deltaTime;
         }
 
-        if (collided && hittimer > .9f)
+        if (collided && hittimer > .85f)
         {
             collided = false;
             hittimer = 0f;
+        }
+
+        if (Enemycollided && !johnCena)//added these 2 if statements for a timer to only allow attacks every .9 seconds
+        {
+            cooldown += Time.deltaTime;
+        }
+        if (Enemycollided && cooldown > 2f)
+        {
+            Enemycollided = false;
+            cooldown = 0f;
+        }
+
+        if (!Enemycollided && EnemyCanAttack && !johnCena && playdead) //enemy hasnt collided but is in range and hasnt been hit
+        {
+            Enemycollided = true;
+            animate.SetBool("Idle", false);
+            animate.SetBool("Movement", false);
+            animate.SetBool("Attack", true);
+
+            enemyMelee.Play();
+            cooldown = 0f;
+            Playercol.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
+
         }
     }
 
@@ -132,17 +163,14 @@ public class EnemyMageHealth : MonoBehaviour
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 2 ||
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 3)
         {
-            if (!collided)
+            if (!collided) // added this if statement to only allow hit every .9 second
             {
-                //Debug.Log("HIT THAT BTCH");
                 collided = true;
                 johnCena = true;
                 animate.SetBool("Attack", false);
-
-                Debug.Log("Hit By:" + other.gameObject.name);
                 currentHealth -= damageTaken;
-
                 other.gameObject.GetComponent<AudioSource>().Play();
+                Debug.Log("Hit By:" + other.gameObject.name + "Current HP = " + currentHealth);
             }
         }
 
@@ -151,14 +179,6 @@ public class EnemyMageHealth : MonoBehaviour
             currentHealth -= fireballDamage;
             animate.SetBool("Attack", false);
             johnCena = true;
-
-        }
-
-        else if (other.gameObject.CompareTag("Player") && animate.GetBool("Attack"))
-        {
-            //other.gameObject.GetComponent<Player>().health -= damageDealt;
-            //Debug.Log(other.gameObject.GetComponent<Player>().health);
-            other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
         }
     }
 
