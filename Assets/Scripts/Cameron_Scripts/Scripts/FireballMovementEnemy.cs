@@ -5,7 +5,7 @@ using UnityEngine.Experimental.VFX;
 using UnityEngine.Audio;
 
 
-public class FireballMovement : MonoBehaviour
+public class FireballMovementEnemy : MonoBehaviour
 {
     //Notes for future: change it so effects aren't spawned in single burst
     public float speed;
@@ -17,8 +17,6 @@ public class FireballMovement : MonoBehaviour
     public static readonly string DirectionBall = "Direction";
     public static readonly string DirectionTail = "DirectionTail";
     public AudioSource BGMSource;
-    public Camera myCamera;
-
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +32,7 @@ public class FireballMovement : MonoBehaviour
        // rb.velocity = ray.direction * speed;
         myEffect.SetVector3(DirectionBall, -rb.velocity);
         myEffect.SetVector3(DirectionTail, -rb.velocity*2);
+      //  rb.velocity = (target.position - transform.position).normalized * speed;
 
 
 
@@ -47,8 +46,7 @@ public class FireballMovement : MonoBehaviour
 
         //  transform.position += transform.TransformDirection(Vector3.forward) * Time.deltaTime * speed;
         // rigidbody.AddForce(speed);
-        // rigidbody.velocity = speed;
-        //rigidbody.
+
         // Destroy(gameObject, 2.0f);
 
             time = time + Time.deltaTime;

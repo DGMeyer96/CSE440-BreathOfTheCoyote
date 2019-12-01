@@ -11,14 +11,14 @@ public class Fireball : MonoBehaviour
     public Transform handLocation;
     public float cooldownTimer;
     public AudioSource BGMSource;
-
+    public Camera myCamera;
 
 
     // Start is called before the first frame update
     void Start()
     {
         
-        speed = 5f;
+       // speed = 5f;
         cooldownTimer = 0f;
         fireSpawn = GetComponent<Animator>();
     }
@@ -47,6 +47,12 @@ public class Fireball : MonoBehaviour
     {
         GameObject bullet = Instantiate(projectile, handLocation.position - 1.0f * handLocation.forward, Quaternion.identity);
         BGMSource.Play();
+        
+        float x = Screen.width / 2;
+        float y = Screen.height / 2;
+        var ray = myCamera.ScreenPointToRay(new Vector3(x, y, 0));
+        Debug.Log("ray is" + ray);
+        bullet.GetComponent<Rigidbody>().velocity = ray.direction * speed;
         //fireSpawn.SetBool("FireballAction", false);
     }
 }

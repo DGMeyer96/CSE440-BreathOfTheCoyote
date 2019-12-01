@@ -22,9 +22,12 @@ public class SparkSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("This thing here is something I am hitting" + other);
+        GameObject swordspark = Instantiate(sparkie, gameObject.transform.position, Quaternion.identity);
+
         if (other.gameObject.GetComponent<EnemyHealth>() != null)
         {
-            GameObject swordspark = Instantiate(sparkie, gameObject.transform.position, Quaternion.identity);
+           // GameObject swordspark = Instantiate(sparkie, gameObject.transform.position, Quaternion.identity);
         }
     }
 }
