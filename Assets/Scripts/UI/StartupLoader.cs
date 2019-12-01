@@ -13,12 +13,17 @@ public class StartupLoader : MonoBehaviour
 
     private void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            loadingBar = GameObject.Find("Loading_Slider").GetComponent<Slider>();
+        }
+        
         Time.timeScale = 1f;
     }
 
     public void LoadLevel(int sceneIndex)
     {
-        Debug.Log("Load Level");
+        //Debug.Log("Load Level");
         StartCoroutine(LoadLevelAsynchronously(sceneIndex));
     }
 
@@ -36,13 +41,13 @@ public class StartupLoader : MonoBehaviour
             loadingBar.value = loadProgress;
             progressText.text = ((int)loadProgress * 100f) + "%";
 
-            Debug.Log("Loading: " + progressText.text);
+            //Debug.Log("Loading: " + progressText.text);
 
             
             if(loadProgress == 1.0f)
             {
-                Debug.Log("Begin Fade Out");
-                Debug.Log("Loading... " + sceneIndex);
+                //Debug.Log("Begin Fade Out");
+                //Debug.Log("Loading... " + sceneIndex);
                 LevelFadeOut();
             }
             
@@ -55,25 +60,25 @@ public class StartupLoader : MonoBehaviour
 
     public void LevelFadeIn()
     {
-        Debug.Log("Level Faded In");
+        //Debug.Log("Level Faded In");
         animator.SetTrigger("FadeIn");
     }
 
     public void LevelFadeOut()
     {
-        Debug.Log("Level Faded Out");
+        //Debug.Log("Level Faded Out");
         animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeInComplete()
     {
-        Debug.Log("Fade In complete... Loading Level: " + PlayerPrefs.GetInt("LevelToLoad"));
+        //Debug.Log("Fade In complete... Loading Level: " + PlayerPrefs.GetInt("LevelToLoad"));
         LoadLevel(PlayerPrefs.GetInt("LevelToLoad"));
     }
 
     public void OnFadeOutComplete()
     {
-        Debug.Log("Fade Out complete... Activating Scene");
+        //Debug.Log("Fade Out complete... Activating Scene");
         ActivateScene();
     }
 

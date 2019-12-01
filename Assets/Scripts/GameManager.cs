@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -64,6 +64,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("YOU WIN!");
     }
-
+    */
     
 }
