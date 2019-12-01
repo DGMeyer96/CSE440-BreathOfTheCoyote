@@ -1486,7 +1486,7 @@ MonoBehaviour:
   currentHealth: 0
   fireballDamage: 8
   damageTaken: 5
-  maxDistance: 8
+  maxDistance: 10
   damageDealt: 1
   cooldown: 0
   distance: 0
