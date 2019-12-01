@@ -35,7 +35,6 @@ public class EnemyHealth : MonoBehaviour
     private float Cenatimer;
     private bool EnemyCanAttack;
     private Collider Playercol;
-    private bool EnemyAttacking;
 
     void Awake()
     {
