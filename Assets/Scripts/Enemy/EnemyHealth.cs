@@ -122,7 +122,7 @@ public class EnemyHealth : MonoBehaviour
             johnCena = true;
             animate.SetBool("Attack", false);
 
-            Debug.Log("Hit By:" + other.gameObject.name);
+            Debug.Log("Hit By:" + other.gameObject.name + "Current HP = " + currentHealth);
 
             other.gameObject.GetComponent<AudioSource>().Play();
         }
@@ -141,6 +141,11 @@ public class EnemyHealth : MonoBehaviour
             //Debug.Log(other.gameObject.GetComponent<Player>().health);
             other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("left trigger");
     }
 
     void Dead()

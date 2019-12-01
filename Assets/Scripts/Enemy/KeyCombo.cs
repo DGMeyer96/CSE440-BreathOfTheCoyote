@@ -80,7 +80,8 @@ public class KeyCombo : MonoBehaviour
         */
     }
 
-
+    /*
+    
     private void Attack()
     {
         if (attackCounter == 0)
@@ -112,6 +113,7 @@ public class KeyCombo : MonoBehaviour
             attackCounter = 0;
         }
     }
+    
 
     /*
     public void Attack1Done()

@@ -94,7 +94,7 @@ public class EnemyMageHealth : MonoBehaviour
                 animate.SetBool("Movement", false);
                 animate.SetBool("Attack", true);
 
-                enemyMelee.Play();
+                enemyMelee.Play();      //change this to the fireball code
                 cooldown = 0f;
             }
             if (cooldown > 1f && cooldown < 3f)
