@@ -259,6 +259,7 @@ public class PlayerCharacterController : MonoBehaviour
         {
             Debug.Log("Loading: Credits");
             PlayerPrefs.SetInt("LevelToLoad", 3);
+            Debug.Log("Level To Load: " + PlayerPrefs.GetInt("LevelToLoad"));
             GetComponent<Player>().SaveGame();
             CanvasAnimator.SetTrigger("FadeOut");
         }

@@ -32,6 +32,7 @@ public class PauseHandler : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         EnableControl();
@@ -40,6 +41,7 @@ public class PauseHandler : MonoBehaviour
 
     private void Pause()
     {
+        Cursor.visible = true;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         DisableControl();
@@ -84,7 +86,7 @@ public class PauseHandler : MonoBehaviour
 
     public void OnFadeOutComplete()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     /*
     public void AutosaveComplete()

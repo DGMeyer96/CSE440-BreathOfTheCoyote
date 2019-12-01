@@ -922,7 +922,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6727599949241996984}
-  m_LocalRotation: {x: -0, y: 0.581346, z: -0, w: 0.8136565}
+  m_LocalRotation: {x: 0, y: 0.5813493, z: 0, w: 0.8136541}
   m_LocalPosition: {x: 238.22, y: 59.87, z: 803.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -941,7 +941,7 @@ Animator:
   m_GameObject: {fileID: 6727599949241996984}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 80a145e362206644980b448ef0153007, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62bc3463a94f0504ebdbf9d9622183ad, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1393,7 +1393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7841970266199901067}
   m_Layer: 0
-  m_Name: mixamorig:Spine
+  m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

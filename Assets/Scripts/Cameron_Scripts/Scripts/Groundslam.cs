@@ -35,8 +35,8 @@ public class Groundslam : MonoBehaviour
         grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
 
-        Debug.Log("GROUNDSLAM: " + yeshereIammakinganothergoddamnbool);
-        Debug.Log("ANIMATION: " + grndslamAni.GetBool("GroundSlam"));
+        //Debug.Log("GROUNDSLAM: " + yeshereIammakinganothergoddamnbool);
+        //Debug.Log("ANIMATION: " + grndslamAni.GetBool("GroundSlam"));
 
         groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)

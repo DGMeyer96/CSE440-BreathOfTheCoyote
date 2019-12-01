@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
 
     private string saveGameName;
 
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void MainMenu(GameObject prevMenu)
     {
         mainMenu.gameObject.SetActive(true);

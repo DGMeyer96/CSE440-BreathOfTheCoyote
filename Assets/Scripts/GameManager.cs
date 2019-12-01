@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+
         playerObject = GameObject.FindWithTag("Player");
         player = playerObject.GetComponent<Player>();
 
