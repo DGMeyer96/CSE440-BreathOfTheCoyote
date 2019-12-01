@@ -21,7 +21,7 @@ public class Groundslam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        //characterController = GetComponent<CharacterController>();
         //playerCharacterController = GetComponent<PlayerCharacterController>
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
@@ -34,7 +34,10 @@ public class Groundslam : MonoBehaviour
     {
         grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
-        
+
+        Debug.Log("GROUNDSLAM: " + yeshereIammakinganothergoddamnbool);
+        Debug.Log("ANIMATION: " + grndslamAni.GetBool("GroundSlam"));
+
         groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
         if (cooldown > 2)
         {
@@ -43,7 +46,7 @@ public class Groundslam : MonoBehaviour
             {
                 yeshereIammakinganothergoddamnbool = false;
                 grndslamAni.SetBool("GroundSlam", true);
-                Invoke("groundEffect", 1.1f);
+                //Invoke("groundEffect", 1.1f);
 
 
             }
@@ -70,22 +73,10 @@ public class Groundslam : MonoBehaviour
     void groundEffect()
     {
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-
-       // if (!groundedcheck)
-        {
-       //     moveDirection.y -= 100 * Time.deltaTime;
-       //     characterController.Move(moveDirection * Time.deltaTime); temp = true;
-        }
-       // else
-        {
-
-            GameObject slamvfx = Instantiate(groundv1, transform.position + (3f * transform.forward), transform.rotation);
-            Destroy(slamvfx, 2.0f);
-           // BGMSource.Play();
-            grndslamAni.SetBool("GroundSlam", false);
-
-
-        }
+        GameObject slamvfx = Instantiate(groundv1, transform.position + (3f * transform.forward), transform.rotation);
+        Destroy(slamvfx, 2.0f);
+        // BGMSource.Play();
+        grndslamAni.SetBool("GroundSlam", false);
         cooldown = 0f;
         yeshereIammakinganothergoddamnbool = true;
     }

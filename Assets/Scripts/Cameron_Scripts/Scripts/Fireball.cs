@@ -36,7 +36,7 @@ public class Fireball : MonoBehaviour
             {
                 cooldownTimer = 0f;
                 fireSpawn.SetBool("FireballAction", true);
-                Invoke("fireballSpawn", 0.5f);
+                //Invoke("fireballSpawn", 0.5f);
 
 
             }
