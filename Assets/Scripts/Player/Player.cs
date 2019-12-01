@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
         //texData = data.texData;
         //PrintPlayerData();
 
-       // GetComponent<PlayerController_OLD>().LoadPlayer();
+        // GetComponent<PlayerController_OLD>().LoadPlayer();
     }
 
     public void PrintPlayerData()

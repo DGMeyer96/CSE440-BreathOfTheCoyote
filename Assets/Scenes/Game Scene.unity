@@ -16656,6 +16656,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 62bc3463a94f0504ebdbf9d9622183ad, type: 2}
+    - target: {fileID: 8927293151850934610, guid: d8e5fba331ce2be40b7da6fa60c76816,
+        type: 3}
+      propertyPath: m_Name
+      value: Spine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e5fba331ce2be40b7da6fa60c76816, type: 3}
 --- !u!1001 &3380774282468472348
