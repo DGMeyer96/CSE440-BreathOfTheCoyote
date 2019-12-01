@@ -143,6 +143,7 @@ public class PlayerCharacterController : MonoBehaviour
                 moveDirectionm.y = jumpSpeed;
                 animate.SetBool("Jumping", true);
                 jumpSource.Play();
+                walkingSource.Stop();
             }
         }
         else
@@ -150,7 +151,7 @@ public class PlayerCharacterController : MonoBehaviour
             moveRotation = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         }
 
-        if (moveRotation.magnitude > 0)
+        if (moveRotation.magnitude > 0 && !animate.GetBool("IsAttacking"))
         {
             transform.parent = null;
             transform.parent = null;

@@ -169,7 +169,8 @@ public class KeyCombo : MonoBehaviour
 
     public void ComboStarter()
     {
-        if(canClick)
+        meleeAction.SetBool("IsAttacking", true);
+        if (canClick)
         {
             numClicks++;
         }
@@ -185,9 +186,11 @@ public class KeyCombo : MonoBehaviour
     public void ComboCheck()
     {
         canClick = false;
+        
 
         if(meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack1") && numClicks == 1)
         {
+            meleeAction.SetBool("IsAttacking", false);
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
@@ -205,6 +208,7 @@ public class KeyCombo : MonoBehaviour
         }
         else if (meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack2") && numClicks == 2)
         {
+            meleeAction.SetBool("IsAttacking", false);
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
@@ -223,6 +227,7 @@ public class KeyCombo : MonoBehaviour
         }
         else if (meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack3"))
         {
+            meleeAction.SetBool("IsAttacking", false);
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
@@ -230,5 +235,10 @@ public class KeyCombo : MonoBehaviour
             attackSource.Stop();
             attackSource.clip = attack1;
         }
+    }
+
+    public void SetAttacking(bool attacking)
+    {
+        meleeAction.SetBool("IsAttacking", attacking);
     }
 }

@@ -28,7 +28,7 @@ public class Fireball : MonoBehaviour
     {
         fireSpawn.SetBool("FireballAction", false);
         cooldownTimer += Time.deltaTime;
-        if (cooldownTimer > 2.0f)
+        if (cooldownTimer > 1.0f)
 
         {
             if (Input.GetAxis("Fireball") > 0)
