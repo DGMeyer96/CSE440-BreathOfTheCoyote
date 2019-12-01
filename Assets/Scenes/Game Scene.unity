@@ -448,7 +448,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28642033}
-  m_LocalRotation: {x: 0.07251533, y: 0.1617678, z: -0.0119203115, w: 0.9840887}
+  m_LocalRotation: {x: 0.07251533, y: 0.16176777, z: -0.01192031, w: 0.9840887}
   m_LocalPosition: {x: 246.52849, y: 67.1, z: 795.8641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9072,7 +9072,7 @@ PrefabInstance:
     - target: {fileID: 5172158829150878004, guid: 92c0fcf18393cc345b6e0472e58ea345,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.038695455
+      value: 0.038695462
       objectReference: {fileID: 0}
     - target: {fileID: 5172158829150878004, guid: 92c0fcf18393cc345b6e0472e58ea345,
         type: 3}
@@ -9082,12 +9082,12 @@ PrefabInstance:
     - target: {fileID: 5172158829150878004, guid: 92c0fcf18393cc345b6e0472e58ea345,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06265546
+      value: -0.062655464
       objectReference: {fileID: 0}
     - target: {fileID: 5172158829150878004, guid: 92c0fcf18393cc345b6e0472e58ea345,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.46847114
+      value: 0.4684712
       objectReference: {fileID: 0}
     - target: {fileID: 5172158829648137996, guid: 92c0fcf18393cc345b6e0472e58ea345,
         type: 3}
@@ -13443,7 +13443,7 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyPosition
       value: 
-      objectReference: {fileID: 3380774282468472349}
+      objectReference: {fileID: 0}
     - target: {fileID: 1671536402385020272, guid: 3bbc85220ab50574d90166a6d9db2b51,
         type: 3}
       propertyPath: trophy
@@ -13451,6 +13451,7 @@ PrefabInstance:
       objectReference: {fileID: 720867427}
     m_RemovedComponents:
     - {fileID: 1671536400448391244, guid: 3bbc85220ab50574d90166a6d9db2b51, type: 3}
+    - {fileID: 1671536402385020272, guid: 3bbc85220ab50574d90166a6d9db2b51, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3bbc85220ab50574d90166a6d9db2b51, type: 3}
 --- !u!1 &1790780223
 GameObject:

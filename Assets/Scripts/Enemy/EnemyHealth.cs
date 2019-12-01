@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource enemyHit;
     private AudioSource enemyMelee;
     private AudioSource enemyDeath;
+    private bool playdead;
 
     void Awake()
     {
@@ -47,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
         enemyMelee = GameObject.Find("EnemyMelee").GetComponent<AudioSource>();
         enemyHit = GameObject.Find("EnemyHit").GetComponent<AudioSource>();
         enemyWalking = GameObject.Find("EnemyWalking").GetComponent<AudioSource>();
+        playdead = true;
     }
 
     void Update()
@@ -57,14 +59,12 @@ public class EnemyHealth : MonoBehaviour
             johnCena = false;
 
             //enemyWalking.Stop();
-            //enemyHit.Play();
+            enemyHit.Play();
         }
         else if (animate.GetBool("TakingHit") && johnCena == false)
         {
             Debug.Log("It reached");
             animate.SetBool("TakingHit", false);
-
-            //enemyHit.Stop();
         }
 
         cooldown += Time.deltaTime;
@@ -76,7 +76,6 @@ public class EnemyHealth : MonoBehaviour
             animate.SetBool("Idle", false);
             animate.SetBool("Movement", true);
             transform.position += transform.forward * 5 * Time.deltaTime;
-            //  Debug.Log(transform.position);
 
             if (!enemyWalking.isPlaying)
             {
@@ -95,9 +94,11 @@ public class EnemyHealth : MonoBehaviour
                 animate.SetBool("Movement", false);
                 animate.SetBool("Attack", true);
 
+                //enemyWalking.Stop();
+                enemyMelee.Play();
                 cooldown = 0f;
             }
-            if (cooldown > 0.7f && cooldown < 3f)
+            if (cooldown > 1f && cooldown < 3f)
             {
                 animate.SetBool("Attack", false);
             }
@@ -105,9 +106,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            //enemyDeath.Play();
+            enemyDeath.Play();
             animate.Play("Die");
             Invoke("Dead", 2.0f);
+            playdead = false;
         }
     }
 
@@ -137,10 +139,7 @@ public class EnemyHealth : MonoBehaviour
 
         else if (other.gameObject.tag == "Player" && animate.GetBool("Attack"))
         {
-            //other.gameObject.GetComponent<Player>().health -= damageDealt;
-            //Debug.Log(other.gameObject.GetComponent<Player>().health);
             other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
-            //cooldown = 0f;
         }
 
     }
