@@ -431,11 +431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48cb4e93578126846b12ae5911bdcd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
+  speed: 0
   projectile: {fileID: 8231900043764931085, guid: e86351aa4046848479d30db39f71e06d,
     type: 3}
   handLocation: {fileID: 2314032533752123439}
-  cooldownTimer: 0
+  cooldownTimer: 3
   BGMSource: {fileID: 3035527367128451527}
   target: {fileID: 1415446281208013618, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
 --- !u!82 &3035527367128451527
