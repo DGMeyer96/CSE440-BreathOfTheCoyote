@@ -104,7 +104,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && playdead)
         {
             enemyDeath.Play();
             animate.Play("Die");
@@ -115,6 +115,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Running here " + other);
         if (other.gameObject.tag == "Weapon" && playerAnimator.GetInteger("AttackValue") == 1 ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetInteger("AttackValue") == 2 ||
             other.gameObject.tag == "Weapon" && playerAnimator.GetInteger("AttackValue") == 3)
@@ -131,6 +132,7 @@ public class EnemyHealth : MonoBehaviour
 
         else if (other.gameObject.GetComponent<FireballMovement>() != null)
         {
+            //Debug.Log(currentHealth);
             currentHealth -= fireballDamage;
             animate.SetBool("Attack", false);
             johnCena = true;

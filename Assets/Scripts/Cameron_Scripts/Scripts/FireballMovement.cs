@@ -26,7 +26,7 @@ public class FireballMovement : MonoBehaviour
         time = 0f;
         rb = GetComponent<Rigidbody>();
         Debug.Log("Speed is: " + speed);
-        rb.velocity = Camera.main.transform.forward * speed;
+      //  rb.velocity = Camera.main.transform.forward * speed;
 
         myEffect.SetVector3(DirectionBall, -rb.velocity);
         myEffect.SetVector3(DirectionTail, -rb.velocity*2);
