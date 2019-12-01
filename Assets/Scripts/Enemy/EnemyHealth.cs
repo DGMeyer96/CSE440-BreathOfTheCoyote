@@ -105,7 +105,7 @@ public class EnemyHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            enemyDeath.Play();
+            //enemyDeath.Play();
             animate.Play("Die");
             Invoke("Dead", 2.0f);
         }
