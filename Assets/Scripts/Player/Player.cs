@@ -22,20 +22,24 @@ public class Player : MonoBehaviour
     private AudioSource deathSource;
     private AudioSource hitSource;
 
+    private bool playdead;
+
+
 
     private void Start()
     {
         deathSource = GameObject.Find("PlayerDeath").GetComponent<AudioSource>();
         hitSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
+        playdead = true;
     }
 
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && playdead)
         {
-            deathSource.Stop();
             deathSource.Play();
             GetComponent<Animator>().SetBool("Death", true);
+            playdead = false;
         }
     }
 

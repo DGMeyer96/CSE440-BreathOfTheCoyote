@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 5635796190183865272}
   - component: {fileID: 5635796190183865276}
   - component: {fileID: 5635796190183865279}
+  - component: {fileID: -6573364244415305649}
   - component: {fileID: 3725527693843341090}
   - component: {fileID: 8449233085265637892}
   m_Layer: 0
@@ -360,7 +361,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466790745196595828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9b99397f12ab9344a6869b48c5e4dd1, type: 3}
   m_Name: 
@@ -370,6 +371,35 @@ MonoBehaviour:
   fireballDamage: 8
   damageTaken: 5
   maxDistance: 25
+  damageDealt: 1
+  cooldown: 0
+  distance: 0
+  holder: {fileID: 1456810165671682900, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
+  player: {fileID: 2738176738014777633, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
+  playerAnimator: {fileID: 0}
+  animate: {fileID: 8449233085265637892}
+  isDead: 0
+  isDamaged: 0
+  stupidboolname: 0
+  johnCena: 0
+  boxCollider: {fileID: 5635796190183865278}
+--- !u!114 &-6573364244415305649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466790745196595828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085d1384dfd8cf64eb18b39ab1e73778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  currentHealth: 0
+  fireballDamage: 8
+  damageTaken: 5
+  maxDistance: 20
   damageDealt: 1
   cooldown: 0
   distance: 0

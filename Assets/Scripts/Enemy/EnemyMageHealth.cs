@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyMageHealth : MonoBehaviour
 {
-
     //private CharacterControl ccRef;
     public float maxHealth = 15;                    // The amount of health the enemy starts the game with.
     public float currentHealth;
     public float fireballDamage = 8;
     public float damageTaken = 5;
-    public float maxDistance = 10;
+    public float maxDistance = 20;
     public int damageDealt = 1;
     public float cooldown;
     public float distance;
@@ -34,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
     {
         animate = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider>();
-        
+
         currentHealth = maxHealth;
     }
 
@@ -72,20 +73,20 @@ public class EnemyHealth : MonoBehaviour
         cooldown += Time.deltaTime;
         transform.LookAt(player.transform);
         distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance > maxDistance)
+        if (distance < maxDistance)
         {
             animate.SetBool("Idle", false);
             animate.SetBool("Movement", true);
-            transform.position += transform.forward * 5 * Time.deltaTime;
-           
-            if(!enemyWalking.isPlaying)
+            transform.position -= transform.forward * 5 * Time.deltaTime;
+
+            if (!enemyWalking.isPlaying)
             {
                 enemyWalking.Play();
             }
-            
+
         }
 
-        else if (distance <= maxDistance)
+        else if (distance >= maxDistance)
         {
             if (cooldown >= 3f)
             {
@@ -102,7 +103,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
-        if(currentHealth <= 0 && playdead)
+        if (currentHealth <= 0 && playdead)
         {
             enemyDeath.Play();
             animate.Play("Die");
@@ -132,7 +133,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth -= fireballDamage;
             animate.SetBool("Attack", false);
             johnCena = true;
-            
+
         }
 
         else if (other.gameObject.CompareTag("Player") && animate.GetBool("Attack"))
