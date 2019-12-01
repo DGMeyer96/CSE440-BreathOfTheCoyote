@@ -30,6 +30,8 @@ public class EnemyMageHealth : MonoBehaviour
     private AudioSource enemyDeath;
 
     private bool playdead;
+    private bool collided;
+    private float hittimer;
 
     void Awake()
     {
@@ -37,6 +39,7 @@ public class EnemyMageHealth : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
 
         currentHealth = maxHealth;
+        collided = false;
     }
 
     void Start()
@@ -110,6 +113,17 @@ public class EnemyMageHealth : MonoBehaviour
             Invoke("Dead", 2.0f);
             playdead = false;
         }
+
+        if (collided)
+        {
+            hittimer += Time.deltaTime;
+        }
+
+        if (collided && hittimer > .9f)
+        {
+            collided = false;
+            hittimer = 0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -118,14 +132,18 @@ public class EnemyMageHealth : MonoBehaviour
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 2 ||
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 3)
         {
+            if (!collided)
+            {
+                //Debug.Log("HIT THAT BTCH");
+                collided = true;
+                johnCena = true;
+                animate.SetBool("Attack", false);
 
-            currentHealth -= damageTaken;
-            johnCena = true;
-            animate.SetBool("Attack", false);
+                Debug.Log("Hit By:" + other.gameObject.name);
+                currentHealth -= damageTaken;
 
-            Debug.Log("Hit By:" + other.gameObject.name);
-
-            other.gameObject.GetComponent<AudioSource>().Play();
+                other.gameObject.GetComponent<AudioSource>().Play();
+            }
         }
 
         else if (other.gameObject.GetComponent<FireballMovement>() != null)

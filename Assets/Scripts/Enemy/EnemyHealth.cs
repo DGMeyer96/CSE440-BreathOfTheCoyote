@@ -29,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource enemyDeath;
 
     private bool playdead;
+    private bool collided;
+    private float hittimer;
 
     void Awake()
     {
@@ -65,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (animate.GetBool("TakingHit") && johnCena == false)
         {
-            Debug.Log("It reached");
+            //Debug.Log("It reached");
             animate.SetBool("TakingHit", false);
         }
 
@@ -109,6 +111,17 @@ public class EnemyHealth : MonoBehaviour
             Invoke("Dead", 2.0f);
             playdead = false;
         }
+
+        if (collided)  //added these 2 iff statements for a timer to only allow hits every .9 seconds
+        {
+            hittimer += Time.deltaTime;
+        }
+
+        if (collided && hittimer > .9f)
+        {
+            collided = false;
+            hittimer = 0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -117,14 +130,15 @@ public class EnemyHealth : MonoBehaviour
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 2 ||
             other.gameObject.CompareTag("Weapon") && playerAnimator.GetInteger("AttackValue") == 3)
         {
-
-            currentHealth -= damageTaken;
-            johnCena = true;
-            animate.SetBool("Attack", false);
-
-            Debug.Log("Hit By:" + other.gameObject.name + "Current HP = " + currentHealth);
-
-            other.gameObject.GetComponent<AudioSource>().Play();
+            if (!collided) // added this if statement to only allow hit every .9 second
+            {
+                collided = true;
+                johnCena = true;
+                animate.SetBool("Attack", false);
+                currentHealth -= damageTaken;
+                other.gameObject.GetComponent<AudioSource>().Play();
+                Debug.Log("Hit By:" + other.gameObject.name + "Current HP = " + currentHealth);
+            }
         }
 
         else if (other.gameObject.GetComponent<FireballMovement>() != null)
@@ -141,11 +155,6 @@ public class EnemyHealth : MonoBehaviour
             //Debug.Log(other.gameObject.GetComponent<Player>().health);
             other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("left trigger");
     }
 
     void Dead()

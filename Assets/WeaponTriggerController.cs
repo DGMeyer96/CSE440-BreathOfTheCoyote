@@ -5,13 +5,13 @@ using UnityEngine;
 public class WeaponTriggerController : MonoBehaviour
 {
     private Collider coll;
-    private bool exit;
+    private bool collided;
     private float timer;
     // Start is called before the first frame update
     void Start()
     {
         coll = gameObject.GetComponent<BoxCollider>();
-        exit = false;
+        collided = false;
         timer = 0f;
     }
 
@@ -19,11 +19,11 @@ public class WeaponTriggerController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(exit && timer > .5f)
+        if(collided && timer > .5f)
         {
             coll.enabled = true;
             timer = 0f;
-            exit = false;
+            collided = false;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -33,12 +33,6 @@ public class WeaponTriggerController : MonoBehaviour
             coll.enabled = false;
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (gameObject.CompareTag("AI"))
-        {
-            exit = true;
-        }
-    }
+
 
 }
