@@ -13,6 +13,7 @@ public class PlayerCharacterController : MonoBehaviour
     private AudioSource idleSource;
     private AudioSource hitSource;
     private AudioSource walkingSource;
+    private AudioSource sprintSource;
     private AudioSource jumpSource;
     private AudioSource deathSource;
 
@@ -55,6 +56,7 @@ public class PlayerCharacterController : MonoBehaviour
         idleSource = GameObject.Find("PlayerIdle").GetComponent<AudioSource>();
         hitSource = GameObject.Find("PlayerHit").GetComponent<AudioSource>();
         walkingSource = GameObject.Find("PlayerWalking").GetComponent<AudioSource>();
+        sprintSource = GameObject.Find("PlayerSprint").GetComponent<AudioSource>();
         jumpSource = GameObject.Find("PlayerJump").GetComponent<AudioSource>();
         deathSource = GameObject.Find("PlayerDeath").GetComponent<AudioSource>();
     }
@@ -78,10 +80,10 @@ public class PlayerCharacterController : MonoBehaviour
                 animate.SetBool("Walk Forward", true);
                 animate.SetBool("Running", true);
 
-                
-                if(!walkingSource.isPlaying)
+                walkingSource.Stop();
+                if(!sprintSource.isPlaying)
                 {
-                    walkingSource.Play();
+                    sprintSource.Play();
                 }
                 //idleSource.Stop();
             }
@@ -94,6 +96,7 @@ public class PlayerCharacterController : MonoBehaviour
                 animate.SetBool("Walk Forward", true);
                 animate.SetBool("Running", false);
 
+                sprintSource.Stop();
                 if (!walkingSource.isPlaying)
                 {
                     walkingSource.Play();
@@ -109,6 +112,7 @@ public class PlayerCharacterController : MonoBehaviour
                 animate.SetBool("Walk Forward", false);
                 animate.SetBool("Running", false);
 
+                sprintSource.Stop();
                 walkingSource.Stop();
                 if(!idleSource.isPlaying)
                 {

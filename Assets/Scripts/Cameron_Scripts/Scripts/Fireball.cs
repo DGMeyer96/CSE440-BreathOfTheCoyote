@@ -45,8 +45,9 @@ public class Fireball : MonoBehaviour
 
     void fireballSpawn()
     {
-        GameObject bullet = Instantiate(projectile, handLocation.position - 1.0f * handLocation.forward, Quaternion.identity);
         BGMSource.Play();
+        GameObject bullet = Instantiate(projectile, handLocation.position - 1.0f * handLocation.forward, Quaternion.identity);
+        
         //fireSpawn.SetBool("FireballAction", false);
     }
 }

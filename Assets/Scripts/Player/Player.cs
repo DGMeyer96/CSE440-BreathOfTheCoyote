@@ -33,9 +33,12 @@ public class Player : MonoBehaviour
     {
         if (health <= 0)
         {
-            deathSource.Stop();
+            hitSource = null;
+            //deathSource.Stop();
             deathSource.Play();
             GetComponent<Animator>().SetBool("Death", true);
+            GetComponent<PlayerCharacterController>().enabled = false;
+            GetComponent<KeyCombo>().enabled = false;
         }
     }
 

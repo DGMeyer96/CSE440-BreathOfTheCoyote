@@ -29,11 +29,18 @@ public class KeyCombo : MonoBehaviour
     int numClicks;
     bool canClick;
 
+    private AudioSource attackSource;
+    public AudioClip attack1;
+    public AudioClip attack2;
+    public AudioClip attack3;
+
     void Start()
     {
         meleeAction = gameObject.GetComponent<Animator>();
         numClicks = 0;
         canClick = true;
+
+        attackSource = GameObject.Find("PlayerAttack").GetComponent<AudioSource>();
     }
 
     //Weapon animations and giving damage to the Weapon
@@ -170,6 +177,8 @@ public class KeyCombo : MonoBehaviour
         if(numClicks == 1)
         {
             meleeAction.SetInteger("AttackValue", 1);
+            attackSource.clip = attack1;
+            attackSource.Play();
         }
     }
 
@@ -182,9 +191,15 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
+
+            attackSource.Stop();
+            attackSource.clip = attack1;
         }
         else if (meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack1") && numClicks >= 2)
         {
+            attackSource.clip = attack2;
+            attackSource.Play();
+
             meleeAction.SetInteger("AttackValue", 2);
             canClick = true;
         }
@@ -193,17 +208,27 @@ public class KeyCombo : MonoBehaviour
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
+
+            attackSource.Stop();
+            attackSource.clip = attack1;
         }
         else if (meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack2") && numClicks >= 3)
         {
+
             meleeAction.SetInteger("AttackValue", 3);
             canClick = true;
+
+            attackSource.clip = attack3;
+            attackSource.Play();
         }
         else if (meleeAction.GetCurrentAnimatorStateInfo(0).IsName("PlayerCharacter_Attack3"))
         {
             meleeAction.SetInteger("AttackValue", 0);
             canClick = true;
             numClicks = 0;
+
+            attackSource.Stop();
+            attackSource.clip = attack1;
         }
     }
 }

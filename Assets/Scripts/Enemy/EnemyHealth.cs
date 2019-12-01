@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject holder;
     public GameObject player;
     private TriggerSpawn triggerSpawn;
-    public Animator playerAnimator;
+    private Animator playerAnimator;
     public Animator animate;
     public bool isDead;                             //Checks whether the enemy is Dead
     public bool isDamaged;
@@ -68,6 +68,7 @@ public class EnemyHealth : MonoBehaviour
         }
 
         cooldown += Time.deltaTime;
+
         transform.LookAt(player.transform);
         distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance > maxDistance)
@@ -86,16 +87,20 @@ public class EnemyHealth : MonoBehaviour
 
         else if (distance <= maxDistance)
         {
-            if (cooldown > 4f)
+            if (cooldown >= 3f)
             {
+                Debug.Log("Attack Cooldown: " + cooldown);
+
                 animate.SetBool("Idle", false);
                 animate.SetBool("Movement", false);
                 animate.SetBool("Attack", true);
 
-                //enemyMelee.Play();
+                cooldown = 0f;
             }
-
-            //enemyMelee.Stop();
+            if(cooldown > 0.7f && cooldown < 3f)
+            {
+                animate.SetBool("Attack", false);
+            }
         }
 
         if(currentHealth <= 0)
@@ -103,11 +108,8 @@ public class EnemyHealth : MonoBehaviour
             enemyDeath.Play();
             animate.Play("Die");
             Invoke("Dead", 2.0f);
-            
         }
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -138,6 +140,7 @@ public class EnemyHealth : MonoBehaviour
             //other.gameObject.GetComponent<Player>().health -= damageDealt;
             //Debug.Log(other.gameObject.GetComponent<Player>().health);
             other.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
+            //cooldown = 0f;
         }
         
     }
