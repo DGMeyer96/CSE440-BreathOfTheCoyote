@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 8449233085265637892}
   - component: {fileID: 2193679314172229098}
   - component: {fileID: 3035527367128451527}
+  - component: {fileID: 8481854451347880409}
   m_Layer: 0
   m_Name: Boximon Fiery-Mage
   m_TagString: AI
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466790745196595828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9b99397f12ab9344a6869b48c5e4dd1, type: 3}
   m_Name: 
@@ -662,6 +663,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8481854451347880409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466790745196595828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f279fd4d2e8bd40b3dc2baf9bb2157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  currentHealth: 0
+  fireballDamage: 8
+  damageTaken: 5
+  maxDistance: 10
+  damageDealt: 1
+  cooldown: 0
+  distance: 0
+  holder: {fileID: 1456810165671682900, guid: 4a8ebdbf57ccc254a81128d1a6f8474f, type: 3}
+  player: {fileID: 2738176738014777633, guid: 92c0fcf18393cc345b6e0472e58ea345, type: 3}
+  animate: {fileID: 8449233085265637892}
+  isDead: 0
+  isDamaged: 0
+  stupidboolname: 0
+  johnCena: 0
+  boxCollider: {fileID: 5635796190183865278}
 --- !u!1 &1623658315406621329
 GameObject:
   m_ObjectHideFlags: 0

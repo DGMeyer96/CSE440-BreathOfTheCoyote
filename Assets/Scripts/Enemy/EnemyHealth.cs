@@ -208,9 +208,9 @@ public class EnemyHealth : MonoBehaviour
             animate.SetBool("Movement", false);
             animate.SetBool("Attack", true);
 
-            enemyMelee.Play();
-            cooldown = 0f;
-            Playercol.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
+            //enemyMelee.Play();
+            //cooldown = 0f;
+            //Playercol.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
         }
     }
 
@@ -274,5 +274,16 @@ public class EnemyHealth : MonoBehaviour
     {
         triggerSpawn.permanentSleep = true;
         Destroy(gameObject);
+    }
+
+    public void SnackTime()
+    {
+        cooldown = 0f;
+        Playercol.gameObject.GetComponent<Player>().DamagePlayer(damageDealt);
+    }
+
+    public void AudioNoise()
+    {
+        enemyMelee.Play();
     }
 }
