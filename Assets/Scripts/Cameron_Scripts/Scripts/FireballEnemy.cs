@@ -39,10 +39,10 @@ public class FireballEnemy : MonoBehaviour
 
     void fireballSpawn()
     {
-        Debug.Log(target);
+        //Debug.Log(target);
         GameObject bullet = Instantiate(projectile, handLocation.position + 2.0f * handLocation.forward, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().velocity = (target.position - bullet.transform.position);
-        Debug.Log(target.position - bullet.transform.position);
+        //Debug.Log(target.position - bullet.transform.position);
         BGMSource.Play();
     }
 }

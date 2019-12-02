@@ -14,6 +14,13 @@ public class TriggerSpawn : MonoBehaviour
     private int spawnCounter = 0;
     public bool permanentSleep;
 
+    private GameObject playerRef;
+
+    private void Start()
+    {
+        playerRef = GameObject.Find("PlayerCharacter");
+    }
+
     private void Update()
     {
         if (allDead)
@@ -21,6 +28,7 @@ public class TriggerSpawn : MonoBehaviour
             trophy.SetTrigger("StrengthComplete");
         }
     }
+
     //on entering the TriggerSpawn, spawns out the first enemy. increments the counter to 1
     private void OnTriggerEnter(Collider other)
     {
@@ -42,7 +50,7 @@ public class TriggerSpawn : MonoBehaviour
     //same will happen with the final spawn. after all enemies are dead....do something?
     private void OnTriggerStay(Collider other)
     {
-        
+
         if(other.gameObject.tag == "Player")
         {
             if(permanentSleep == true && spawnCounter == 1)

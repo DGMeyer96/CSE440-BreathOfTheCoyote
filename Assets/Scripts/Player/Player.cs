@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         if (health <= 0 && playdead)
         {
             hitSource = null;
-            //deathSource.Stop();
             deathSource.Play();
             GetComponent<Animator>().SetBool("Death", true);
             GetComponent<PlayerCharacterController>().enabled = false;
@@ -95,23 +94,6 @@ public class Player : MonoBehaviour
 
         //saveImage.LoadImage(data.texData);
         //texData = data.texData;
-        //PrintPlayerData();
-
-        // GetComponent<PlayerController_OLD>().LoadPlayer();
-    }
-
-    public void PrintPlayerData()
-    {
-        /*
-        Debug.Log("Health: " + health + "\n"
-                    + "Position X: " + position.x.ToString() + "\n"
-                    + "Position Y: " + position.y.ToString() + "\n"
-                    + "Position Z: " + position.z.ToString() + "\n"
-                    + "Trial Of Strength: " + TrialOfStrength.ToString() + "\n"
-                    + "Trial of Mind: " + TrialOfMind.ToString() + "\n"
-                    + "Trial of Agility: " + TrialOfAgility.ToString() + "\n"
-                    + "Play Time: " + playTime + "\n");
-        */
     }
 
     public void DamagePlayer(int damage)

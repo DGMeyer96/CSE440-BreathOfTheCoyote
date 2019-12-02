@@ -16,12 +16,12 @@ public class Groundslammer : MonoBehaviour
     {
         
         SphereCollider = gameObject.GetComponent<SphereCollider>();
-        Debug.Log(SphereCollider.radius);
+        //Debug.Log(SphereCollider.radius);
 
         if (SphereCollider.radius < 2.0f)
         {
             SphereCollider.radius += 0.3f;
-            Debug.Log(SphereCollider.radius);
+            //Debug.Log(SphereCollider.radius);
         }
         
     }
@@ -30,10 +30,10 @@ public class Groundslammer : MonoBehaviour
     {
         Debug.Log("runs");
 
-        Debug.Log(collision);
+        //Debug.Log(collision);
         if(collision.gameObject.GetComponent<SlamPuzzle1>() != null)
         {
-            Debug.Log("slampuzzle1");
+            //Debug.Log("slampuzzle1");
             collision.gameObject.GetComponent<SlamPuzzle1>().gameObject.GetComponentInParent<StatHolder>().solve1 = true;
             collision.gameObject.GetComponent<SlamPuzzle1>().spawnvfx = true;
         }
