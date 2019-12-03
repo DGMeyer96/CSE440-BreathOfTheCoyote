@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject optionsMenu;
+    public GameObject controlsMenu;
     public GameObject newGameMenu;
     public GameObject loadGameMenu;
 
@@ -208,6 +209,18 @@ public class MenuManager : MonoBehaviour
         mainMenu.gameObject.SetActive(false);
     }
 
+    public void ControlsMenu()
+    {
+        controlsMenu.gameObject.SetActive(true);
+        optionsMenu.gameObject.SetActive(false);
+    }
+
+    public void BackToOptions()
+    {
+        optionsMenu.gameObject.SetActive(true);
+        controlsMenu.gameObject.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quitting Game");
@@ -225,7 +238,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
         animator.SetTrigger("FadeOut");
-        gameObject.GetComponent<StartupLoader>().LoadLevel(1);
+        //gameObject.GetComponent<StartupLoader>().LoadLevel(1);
         //SceneManager.LoadScene(0);
     }
 
@@ -235,13 +248,13 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetString("SaveGameName", saveGameName);
         PlayerPrefs.SetInt("LevelToLoad", 2);
         animator.SetTrigger("FadeOut");
-        gameObject.GetComponent<StartupLoader>().LoadLevel(1);
+        //gameObject.GetComponent<StartupLoader>().LoadLevel(1);
         //SceneManager.LoadScene(0);
     }
 
     public void OnFadeOutComplete()
     {
-        SceneManager.LoadScene(0);
-        PlayerPrefs.SetInt("LevelToLoad", 2);
+        SceneManager.LoadScene(1);
+        //PlayerPrefs.SetInt("LevelToLoad", 2);
     }
 }

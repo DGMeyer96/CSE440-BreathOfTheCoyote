@@ -102,7 +102,8 @@ AudioSource:
   m_GameObject: {fileID: 518292005165143113}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2ef755e36c761b74e82909ceab0e8a58,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1bced79fe42af9e4dbb55d1508490259, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -149,7 +150,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -379,7 +380,8 @@ AudioSource:
   m_GameObject: {fileID: 1811083891252034505}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2ef755e36c761b74e82909ceab0e8a58,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 72aa30912be4a8641ae1a6e56a99c78e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -426,7 +428,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -506,7 +508,8 @@ AudioSource:
   m_GameObject: {fileID: 1978969639333364622}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2ef755e36c761b74e82909ceab0e8a58,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: cf0c551362fa17742a7c897e201b6e7e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -553,7 +556,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1201,7 +1204,7 @@ MonoBehaviour:
   currentHealth: 0
   fireballDamage: 8
   damageTaken: 5
-  maxDistance: 8
+  maxDistance: 10
   damageDealt: 1
   cooldown: 0
   distance: 0
@@ -1538,16 +1541,17 @@ AudioSource:
   m_GameObject: {fileID: 7807951984815519993}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2ef755e36c761b74e82909ceab0e8a58,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b7ab9023bfd91cc4a8ca819ce2c78f2a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1585,7 +1589,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
