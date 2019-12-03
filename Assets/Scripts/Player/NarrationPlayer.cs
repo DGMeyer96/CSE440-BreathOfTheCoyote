@@ -21,6 +21,7 @@ public class NarrationPlayer : MonoBehaviour
     void Start()
     {
         NarrationSource = GameObject.Find("NarrationSource").GetComponent<AudioSource>();
+        NarrationSource.clip = gameStart;
         NarrationSource.PlayDelayed(5.0f);
         //currentClip = NarrationSource.clip;
     }
