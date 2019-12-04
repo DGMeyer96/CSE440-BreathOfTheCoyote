@@ -15,6 +15,8 @@ public class Groundslam : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     public AudioSource BGMSource;
     private bool yeshereIammakinganothergoddamnbool;
+
+    private float jumpCol;
     //public PlayerCharacterController playerCharacterController;
 
 
@@ -25,6 +27,7 @@ public class Groundslam : MonoBehaviour
         //playerCharacterController = GetComponent<PlayerCharacterController>
         grndslamAni = GetComponent<Animator>();
         cooldown = 0f;
+        jumpCol = 0f;
         
         yeshereIammakinganothergoddamnbool = true;
     }
@@ -34,24 +37,39 @@ public class Groundslam : MonoBehaviour
     {
         grndslamAni.SetBool("GroundSlam", false);
         cooldown += Time.deltaTime;
+        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
+
+        if (!groundedcheck)
+        {
+            jumpCol = 0f;
+        }
+        else if(groundedcheck && jumpCol < 1f)
+        {
+            jumpCol += Time.deltaTime;
+        }
+        Debug.Log(jumpCol);
+        if (jumpCol > .5f)
+        {
+            if (cooldown > 2)
+            {
+
+                if (Input.GetAxis("Groundslam") != 0 && yeshereIammakinganothergoddamnbool == true && groundedcheck)
+                {
+                    yeshereIammakinganothergoddamnbool = false;
+                    grndslamAni.SetBool("GroundSlam", true);
+                    Debug.Log("Welcome to the jam");
+                    //Invoke("groundEffect", 1.1f);
+
+
+                }
+
+            }
+        }
 
         //Debug.Log("GROUNDSLAM: " + yeshereIammakinganothergoddamnbool);
         //Debug.Log("ANIMATION: " + grndslamAni.GetBool("GroundSlam"));
 
-        groundedcheck = GetComponent<PlayerCharacterController>().isOnGround;
-        if (cooldown > 2)
-        {
 
-            if (Input.GetAxis("Groundslam") != 0 && yeshereIammakinganothergoddamnbool == true)
-            {
-                yeshereIammakinganothergoddamnbool = false;
-                grndslamAni.SetBool("GroundSlam", true);
-                //Invoke("groundEffect", 1.1f);
-
-
-            }
-
-        }
         /*
         if (temp)
         {
