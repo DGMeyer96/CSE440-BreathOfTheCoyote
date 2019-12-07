@@ -25,6 +25,19 @@ Musician
 -David Amando (Music)
 
 
+
+HOW TO BUILD THE GAME:
+
+Download Unity Hub at the following link:
+https://docs.unity3d.com/Manual/GettingStartedInstallingHub.html
+
+Upon installing and opening Unity Hub click "Add" on the Projects tab.  Then add the folder the cloned GIt Repository is in.  
+Unity Hub will then show the project.  Open the project.  Once in the Unity Editor select "File" in the top left and then select 
+"Build and Run".  You will then be prompted where to store the Final Build of the game.  Once the game has been built a window 
+will open.  Run "Breath of The Coyote.exe" and the game will launch.
+
+
+
 Controls:
 W       Walk Forward
 A       Walk Left
